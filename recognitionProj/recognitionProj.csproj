@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\nonconventional_files\**" />
+    <Content Remove="wwwroot\nonconventional_files\**" />
+    <EmbeddedResource Remove="wwwroot\nonconventional_files\**" />
+    <None Remove="wwwroot\nonconventional_files\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\academicinfo_files\api.js" />
+    <Content Remove="wwwroot\infrastructurepics_files\api.js" />
+    <Content Remove="wwwroot\login_files - Copy (2)\api.js" />
+    <Content Remove="wwwroot\signup_files\api.js" />
+    <Content Remove="wwwroot\supervisormenu_files\api.js" />
+    <Content Remove="wwwroot\login_files\api.js" />
+    <Content Remove="wwwroot\infrastructure_files\api.js" />
+    <Content Remove="wwwroot\library_files\api.js" />
+    <Content Remove="wwwroot\pictures_files\all.css" />
+    <Content Remove="wwwroot\pictures_files\api.js" />
+    <Content Remove="wwwroot\pictures_files\bootstrap.css" />
+    <Content Remove="wwwroot\pictures_files\jo.jpg" />
+    <Content Remove="wwwroot\pictures_files\simple-sidebar.css" />
+    <Content Remove="wwwroot\pictures_files\Site.css" />
+    <Content Remove="wwwroot\pictures_files\uk.jpg" />
+    <Content Remove="wwwroot\attachments_files\all.css" />
+    <Content Remove="wwwroot\attachments_files\api.js" />
+    <Content Remove="wwwroot\attachments_files\bootstrap.css" />
+    <Content Remove="wwwroot\attachments_files\jo.jpg" />
+    <Content Remove="wwwroot\attachments_files\simple-sidebar.css" />
+    <Content Remove="wwwroot\attachments_files\Site.css" />
+    <Content Remove="wwwroot\attachments_files\uk.jpg" />
+    <Content Remove="wwwroot\publicinfo_files\api.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="mailslurp" Version="15.19.22" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\academicinfo_files\api.js" />
+    <None Include="wwwroot\nonconventional_files\all.css" />
+    <None Include="wwwroot\nonconventional_files\api.js" />
+    <None Include="wwwroot\nonconventional_files\bootstrap.css" />
+    <None Include="wwwroot\nonconventional_files\jo.jpg" />
+    <None Include="wwwroot\nonconventional_files\simple-sidebar.css" />
+    <None Include="wwwroot\nonconventional_files\Site.css" />
+    <None Include="wwwroot\nonconventional_files\uk.jpg" />
+    <None Include="wwwroot\infrastructurepics_files\api.js" />
+    <None Include="wwwroot\signup_files\api.js" />
+    <None Include="wwwroot\supervisormenu_files\api.js" />
+    <None Include="wwwroot\login_files\api.js" />
+    <None Include="wwwroot\infrastructure_files\api.js" />
+    <None Include="wwwroot\library_files\api.js" />
+    <None Include="wwwroot\pictures_files\all.css" />
+    <None Include="wwwroot\pictures_files\api.js" />
+    <None Include="wwwroot\pictures_files\bootstrap.css" />
+    <None Include="wwwroot\pictures_files\jo.jpg" />
+    <None Include="wwwroot\pictures_files\simple-sidebar.css" />
+    <None Include="wwwroot\pictures_files\Site.css" />
+    <None Include="wwwroot\pictures_files\uk.jpg" />
+    <None Include="wwwroot\attachments_files\all.css" />
+    <None Include="wwwroot\attachments_files\api.js" />
+    <None Include="wwwroot\attachments_files\bootstrap.css" />
+    <None Include="wwwroot\attachments_files\jo.jpg" />
+    <None Include="wwwroot\attachments_files\simple-sidebar.css" />
+    <None Include="wwwroot\attachments_files\Site.css" />
+    <None Include="wwwroot\attachments_files\uk.jpg" />
+    <None Include="wwwroot\ms3.html" />
+    <None Include="wwwroot\Mspec3.html" />
+    <None Include="wwwroot\publicinfo_files\api.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\acceptance_records.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\homepage.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\adminmain.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\recommendation.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\signup.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\login.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\15\attachments\" />
+    <Folder Include="wwwroot\uploads\19\" />
+    <Folder Include="wwwroot\uploads\1\faculties\" />
+    <Folder Include="wwwroot\uploads\5\" />
+    <Folder Include="wwwroot\uploads\7\" />
+  </ItemGroup>
+
+</Project>

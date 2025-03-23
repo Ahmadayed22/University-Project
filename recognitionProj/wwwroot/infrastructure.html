@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="infrastructure_files/simple-sidebar.css" rel="stylesheet">
+    <link href="infrastructure_files/Site.css" rel="stylesheet">
+    <link href="infrastructure_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="infrastructure_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .verylong {
+            width: 822px !important;
+        }
+
+        .long {
+            width: 650px !important;
+        }
+
+        .Meduim {
+            width: 400px !important;
+        }
+
+        .Small {
+            width: 280px !important;
+        }
+
+        .VerySmall {
+            width: 50px !important;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .limited {
+            width: 300px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .auto {
+            width: auto !important;
+        }
+
+        .ddl_H,
+        [disabled] {
+            height: 45px !important;
+        }
+
+        .cusom_GRID_AR {
+            margin-left: 20px !important;
+        }
+
+        .HeadOfTableLong {
+            font-weight: 400;
+            background-color: #ddfdf0;
+            width: auto !important;
+        }
+
+        .MultiLine {
+            height: 200px !important;
+        }
+
+        .Custome_td {
+            width: 700px !important;
+            font-weight: 700;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .SucIframe {
+            width: 300px;
+            height: 80px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+
+        .file-box {
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+            .file-box a {
+                text-decoration: none;
+                font-weight: bold;
+                color: #007bff;
+                display: block;
+                margin-top: 5px;
+            }
+
+                .file-box a:hover {
+                    text-decoration: underline;
+                    color: #0056b3;
+                }
+    </style>
+</head>
+
+<body id="body" style="direction:ltr;">
+    <!-- Removed ASP.NET form, viewstate and postback code -->
+    <!-- You can now use a simple HTML form pointing to your API endpoint -->
+
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+            <!--<div class="container-fluid">-->
+            <!-- Add your cleaned-up content here -->
+            <!-- Infrastructure Section -->
+            <!--<div class="person">-->
+            <!-- Header (not clickable) -->
+            <!--<div class="person-header"
+                 style="background-color: #f1f1f1; padding:10px; border:1px solid #ddd;">
+                Infrastructure
+            </div>-->
+            <!-- Form Content -->
+            <!--<div class="person-content"
+            style="padding:15px; border:1px solid #ddd; border-top:none;">-->
+            <!-- Infrastructure Form (no action/method for now) -->
+            <!--<form id="infrastructureForm">
+            <div style="display: grid; gap: 20px; grid-template-columns: repeat(3,auto);">
+                <div class="form-row">
+                    <label for="InsID">Institution ID:</label>
+                    <input type="number"
+                           id="InsID"
+                           name="InsID"
+                           class="form-control"
+                           placeholder="Enter Institution ID"
+                           required>
+                </div>
+
+                <div class="form-row">
+                    <label for="Area">Area (square meters):</label>
+                    <input type="number"
+                           id="Area"
+                           name="Area"
+                           class="form-control"
+                           placeholder="Enter infrastructure area in sq. meters">
+                </div>
+
+                <div class="form-row">
+                    <label for="Sites">Number of Sites:</label>
+                    <input type="number"
+                           id="Sites"
+                           name="Sites"
+                           class="form-control"
+                           placeholder="Enter number of sites">
+                </div>
+
+                <div class="form-row">
+                    <label for="Terr">Number of Terrains:</label>
+                    <input type="number"
+                           id="Terr"
+                           name="Terr"
+                           class="form-control"
+                           placeholder="Enter number of terrains">
+                </div>
+
+                <div class="form-row">
+                    <label for="Halls">Number of Halls:</label>
+                    <input type="number"
+                           id="Halls"
+                           name="Halls"
+                           class="form-control"
+                           placeholder="Enter number of halls">
+                </div>
+
+                <div class="form-row">
+                    <label for="Library">Number of Libraries:</label>
+                    <input type="number"
+                           id="Library"
+                           name="Library"
+                           class="form-control"
+                           placeholder="Enter number of libraries">
+                </div>
+
+                <div class="form-row">
+                    <label for="LabsAttach">Labs Attachment:</label>
+                    <input type="text"
+                           id="LabsAttach"
+                           name="LabsAttach"
+                           class="form-control"
+                           placeholder="Attach labs info or description">
+                </div>
+
+                <div class="form-row">
+                    <label for="Build">Building Info:</label>
+                    <input type="text"
+                           id="Build"
+                           name="Build"
+                           class="form-control"
+                           placeholder="Enter building details">
+                </div>-->
+            <!-- Submit button -->
+            <!--<button type="submit" class="btn btn-primary mt-3">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="container-fluid">
+                <div class="person-content" style="padding: 0px; border: 1px solid #ddd; border-top: none; border-radius: 0 0 10px 10px; background-color: #f9f9f9;">
+                    <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Infrastructure</h2>
+                    <form id="infrastructureForm" style="padding: 15px 30px;">
+                        <div style="display: grid; gap: 20px; grid-template-columns: repeat(1, minmax(250px, 1fr));">
+                            <!-- Group 1 -->
+                            <div style="display: flex; gap: 20px;">
+                                <!-- Hidden Institution ID Field -->
+                                <div hidden class="form-field">
+                                    <label for="InsID">Institution ID:<span class="required">*</span></label>
+                                    <input type="number" id="InsID" name="InsID" class="form-control" hidden required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="Area">Area (square meters):<span class="required">*</span></label>
+                                    <input type="number" id="Area" name="Area" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Group 2 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="Sites">Number of Sites:<span class="required">*</span></label>
+                                    <input type="number" id="Sites" name="Sites" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="Terr">Number of Terrains:<span class="required">*</span></label>
+                                    <input type="number" id="Terr" name="Terr" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="Halls">Number of Halls:<span class="required">*</span></label>
+                                    <input type="number" id="Halls" name="Halls" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="Library">Number of Libraries:<span class="required">*</span></label>
+                                    <input type="number" id="Library" name="Library" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Group 3: Files -->
+                            <div style="display: flex; gap: 20px;">
+                                <!-- Area File Column -->
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="form-field">
+                                        <label>Please upload a pdf file contains photos or papers showing Area of the institution and infrastructures pictures as Possible:<span class="required">*</span></label>
+                                        <input type="file" id="AreaFile" name="AreaFile" class="form-control" required>
+                                    </div>
+
+                                    <!-- Area File Preview Box -->
+                                    <div id="AreaFileBox" class="file-box" style="display: none;">
+                                        <div id="AreaFileDownload"></div>
+                                        <button type="button" id="DeleteAreaFileBtn" class="btn btn-danger btn-sm" style="margin-top: 10px;">
+                                            Delete Area File
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Labs File Column -->
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="form-field">
+                                        <label>Please upload an Excel file showing the labs in the institution at least with these columns: lab name<span class="required">*</span>  </label>
+                                        <input type="file" id="LabsFile" name="LabsFile" class="form-control">
+                                    </div>
+
+                                    <!-- Labs File Preview Box -->
+                                    <div id="LabsFileBox" class="file-box" style="display: none;">
+                                        <div id="LabsFileDownload"></div>
+                                        <button type="button" id="DeleteLabsFileBtn" class="btn btn-danger btn-sm" style="margin-top: 10px;">
+                                            Delete Labs File
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div style="margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary mt-3" style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                                    Save and Go to Next Page
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Check if SupervisorID exists in localStorage
+                    if (localStorage.getItem("SupervisorID")) {
+                        // Select all input, select, and textarea fields inside the infrastructure form
+                        const formElements = document.querySelectorAll("#infrastructureForm input, #infrastructureForm select, #infrastructureForm textarea");
+
+                        formElements.forEach(function (el) {
+                            // Disable the element if it is not a hidden field
+                            if (el.type !== "hidden") {
+                                el.disabled = true;
+                            }
+                        });
+
+                        // Hide the submit button
+                        const submitButton = document.querySelector("#infrastructureForm button[type='submit']");
+                        if (submitButton) {
+                            submitButton.style.display = "none";
+                        }
+                    }
+                });
+            </script>
+
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const infrastructureForm = document.getElementById('infrastructureForm');
+            const institutionId = localStorage.getItem('InsID'); // Retrieve Institution ID
+
+            if (!institutionId) {
+                console.warn("[fetchInfrastructureData] No Institution ID found. Redirecting...");
+                return;
+            }
+
+            // 1) Fetch existing data on load
+            await fetchInfrastructureData(institutionId);
+
+            // 2) Handle form submission
+            if (infrastructureForm) {
+                infrastructureForm.addEventListener('submit', handleInfrastructureSubmit);
+            }
+
+            // 3) Set up Delete button events
+            document.getElementById('DeleteAreaFileBtn').addEventListener('click', async () => {
+                const confirmed = confirm("Are you sure you want to delete the Area file?");
+                if (!confirmed) return;
+                await deleteInfrastructureFile(institutionId, "area");
+            });
+
+            document.getElementById('DeleteLabsFileBtn').addEventListener('click', async () => {
+                const confirmed = confirm("Are you sure you want to delete the Labs file?");
+                if (!confirmed) return;
+                await deleteInfrastructureFile(institutionId, "labs");
+            });
+        });
+
+        // ==============================
+        //  1. Fetch Infrastructure Data
+        // ==============================
+        async function fetchInfrastructureData(institutionId) {
+            try {
+                console.log(`[fetchInfrastructureData] GET /api/infrastructure/get/${institutionId}`);
+                const response = await fetch(`/api/infrastructure/get/${institutionId}`);
+                if (!response.ok) {
+                    console.error("Fetch error:", response.status);
+                    return;
+                }
+
+                const result = await response.json();
+                console.log("[fetchInfrastructureData] API Response:", result);
+
+                if (!result.success) {
+                    console.warn("API returned success=false");
+                    return;
+                }
+
+                const data = result.data;
+                // Populate form fields
+                document.getElementById('InsID').value = data.insID || '0';
+                document.getElementById('Area').value = data.area || '';
+                document.getElementById('Sites').value = data.sites || '';
+                document.getElementById('Terr').value = data.terr || '';
+                document.getElementById('Halls').value = data.halls || '';
+                document.getElementById('Library').value = data.library || '';
+
+                // AREA FILE
+                const areaFileInput = document.getElementById('AreaFile');
+                const areaFileBox = document.getElementById('AreaFileBox');
+                const areaFileDownload = document.getElementById('AreaFileDownload');
+                const deleteAreaBtn = document.getElementById('DeleteAreaFileBtn');
+
+                if (data.areaFile) {
+                    console.log("Found existing area file");
+                    // Create download link
+                    const link = document.createElement("a");
+                    link.href = `data:application/pdf;base64,${data.areaFile}`;
+                    link.download = "Area.pdf";
+                    link.innerText = "Download Area File";
+
+                    areaFileDownload.innerHTML = ""; // Clear old content
+                    areaFileDownload.appendChild(link);
+
+                    // Show file box, hide input, show delete button
+                    areaFileBox.style.display = "block";
+                    areaFileInput.style.display = "none";
+                    deleteAreaBtn.style.display = "inline-block";
+                } else {
+                    console.log("No area file found");
+                    // Hide file box, show input, hide delete button
+                    areaFileBox.style.display = "none";
+                    areaFileInput.style.display = "block";
+                    deleteAreaBtn.style.display = "none";
+                }
+
+                // LABS FILE
+                const labsFileInput = document.getElementById('LabsFile');
+                const labsFileBox = document.getElementById('LabsFileBox');
+                const labsFileDownload = document.getElementById('LabsFileDownload');
+                const deleteLabsBtn = document.getElementById('DeleteLabsFileBtn');
+
+                if (data.labsFile) {
+                    console.log("Found existing labs file");
+                    // Create download link
+                    const link = document.createElement("a");
+                    link.href = `data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,${data.labsFile}`;
+                    link.download = "Labs.xlsx";
+                    link.innerText = "Download Labs File";
+
+                    labsFileDownload.innerHTML = ""; // Clear old content
+                    labsFileDownload.appendChild(link);
+
+                    labsFileBox.style.display = "block";
+                    labsFileInput.style.display = "none";
+                    deleteLabsBtn.style.display = "inline-block";
+                } else {
+                    console.log("No labs file found");
+                    labsFileBox.style.display = "none";
+                    labsFileInput.style.display = "block";
+                    deleteLabsBtn.style.display = "none";
+                }
+            } catch (error) {
+                console.error("Error fetching infrastructure data:", error);
+            }
+        }
+
+        // ==============================
+        //  2. Handle Form Submission
+        // ==============================
+        async function handleInfrastructureSubmit(event) {
+            event.preventDefault();
+            const institutionId = document.getElementById('InsID').value;
+            if (!institutionId) {
+                alert("Institution ID is required!");
+                return;
+            }
+
+            // Prepare JSON
+            const infrastructureData = {
+                InsID: document.getElementById('InsID').value || 0,
+                Area: document.getElementById('Area').value || null,
+                Sites: document.getElementById('Sites').value || null,
+                Terr: document.getElementById('Terr').value || null,
+                Halls: document.getElementById('Halls').value || null,
+                Library: document.getElementById('Library').value || null
+            };
+
+            const formData = new FormData();
+            formData.append("infrastructureJson", JSON.stringify(infrastructureData));
+
+            // Validate & Attach Files
+            function validateFile(file, allowedExtensions) {
+                if (!file) return false;
+                const fileExt = file.name.split('.').pop().toLowerCase();
+                return allowedExtensions.includes(fileExt);
+            }
+
+            const allowedExtensions = ["pdf", "jpg", "png"];
+            const labsAllowedExtensions = ["xls", "xlsx", "csv"];
+
+            // Area File
+            const areaFile = document.getElementById('AreaFile').files[0];
+            if (validateFile(areaFile, allowedExtensions)) {
+                formData.append("AreaFile", areaFile);
+            } else if (areaFile) {
+                alert("Invalid AreaFile type! Allowed: .pdf, .jpg, .png");
+                return;
+            }
+
+            // Labs File
+            const labsFile = document.getElementById('LabsFile').files[0];
+            if (validateFile(labsFile, labsAllowedExtensions)) {
+                formData.append("LabsFile", labsFile);
+            } else if (labsFile) {
+                alert("Invalid LabsFile type! Allowed: .xlsx, .xls, .csv");
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/infrastructure/save', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'InstitutionID': institutionId }
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Error:', errorData);
+                    alert(`Error: ${errorData.message || 'Unable to save infrastructure information.'}`);
+                    return;
+                }
+
+                const result = await response.json();
+                console.log("Success:", result);
+                alert(`Success: ${result.message}`);
+                window.location.href = "/library.html";
+            } catch (error) {
+                console.error('Network error:', error);
+                alert(`Network error: ${error.message}`);
+            }
+        }
+
+        // ==============================
+        //  3. Delete File Handler
+        // ==============================
+        async function deleteInfrastructureFile(institutionId, fileType) {
+            // Example API call: /api/infrastructure/delete?fileType=area
+            // Adjust the endpoint as needed
+            try {
+                const response = await fetch(`/api/infrastructure/delete?fileType=${fileType}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'InstitutionID': institutionId
+                    }
+                });
+
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    console.error("Delete error:", result);
+                    alert(`Delete Error: ${result.message || 'Unknown error'}`);
+                    return;
+                }
+
+                alert(`${fileType} file deleted successfully.`);
+                // Refresh data
+                await fetchInfrastructureData(institutionId);
+
+            } catch (error) {
+                console.error("Delete request failed:", error);
+                alert(`Delete request failed: ${error.message}`);
+            }
+        }
+    </script>
+
+
+
+
+</body>
+</html>

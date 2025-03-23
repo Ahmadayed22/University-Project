@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        /* 1) The main container that acts as your A4 page */
+        .a4-page {
+            width: 210mm; /* A4 width in mm */
+            height: 297mm; /* A4 height in mm */
+            position: relative; /* Needed for absolutely positioned children */
+            margin: 0 auto; /* Centers on page horizontally */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('/ministrytemplate.jpg'); /* Your official letter background */
+        }
+
+        /* 2) A general class for text placeholders */
+        .placeholder {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            line-height: 1.5em;
+        }
+
+        /* 3) Example layout adjustments */
+        .logo {
+            top: 30px; /* Move as needed to match your background logo */
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .recordid {
+            top: 210px;
+            right: 80px;
+            text-align: left;
+        }
+
+        .dateh {
+            top: 233px;
+            right: 80px;
+            text-align: left;
+        }
+
+        .date {
+            top: 258px;
+            right: 80px;
+            text-align: left;
+        }
+
+
+
+        .his_excellency {
+            top: 280px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .greetings {
+            top: 355px;
+            left: 50px;
+            width: 700px;
+        }
+
+        /* For demonstration, the main text is placed further down: */
+        .mainRejected {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .mainRecognized {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .closing {
+            bottom: 348px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .close {
+            top: 780px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .jobtitle {
+            bottom: 250px;
+            left: 50px;
+            width: 550px;
+        }
+
+        .signature {
+            bottom: 170px;
+            left: 50px;
+            width: 700px;
+            height: 50px; /* A space for a signature image if needed */
+        }
+
+        .ministerHA {
+            bottom: 110px;
+            left: 50px;
+            width: 700px;
+        }
+        /* Override for right/left positioning using absolute rules */
+        .recordid,
+        .date, .close {
+            position: absolute;
+        }
+        @media print {
+            /* Force printing of background images */
+            -webkit-print-color-adjust: exact !important;
+            /* Remove margins if possible */
+            @page {
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- 1) Possibly a logo at center top (if your background doesn’t already have it) -->
+        <!-- 2) Letter reference info -->
+        <div class="placeholder recordid">
+            Reference No.: 78
+        </div>
+        <div class="placeholder dateh">
+            Hijri: 1446/08/15
+        </div>
+        <div class="placeholder date">
+            Date: 2025-02-13
+        </div>
+
+        <!-- 3) Salutation block -->
+        <div class="placeholder his_excellency">
+            <strong>
+                Your Excellency the Minister of Higher Education and Scientific Research,
+            </strong>
+        </div>
+
+        <div class="placeholder greetings">
+            Greetings,
+        </div>
+
+        <!-- 4) Main text for Rejection -->
+        
+
+        <!-- 5) Main text for Recognition -->
+        <div class="placeholder mainRecognized" style="text-indent: 2em;">
+            <p>
+                We kindly recommend to
+                <strong>recognize</strong>
+                the educational institution
+                <strong>third</strong> in
+                <strong>Cuba</strong> for the
+                <strong>higher graduate studies degree</strong>
+                and for all academic specializations based on the <strong>traditional</strong> education system.
+            </p>
+        </div>
+
+        <!-- 6) Closing paragraph -->
+        <div class="placeholder closing" style="text-indent: 2em;">
+            We kindly request your Excellency to take the necessary measures.
+            <br>
+        </div>
+        <div class="close">
+            <strong> With the utmost respect and appreciation.</strong>
+        </div>
+
+        <!-- 7) Signature and Job Title -->
+        <div class="placeholder jobtitle">
+            <strong>Committee Memeber:</strong>
+        </div>
+
+        <div class="placeholder signature">
+            <!-- Space for a handwritten signature if needed -->
+        </div>
+
+        <div class="placeholder ministerHA">
+            <strong>Click here and enter your name.</strong>
+        </div>
+    </div>
+    <script>
+    
+                // 5) Let the memeber manually edit the name
+                const ministerNameElem = document.querySelector(".ministerHA strong");
+                if (ministerNameElem) {
+                    ministerNameElem.addEventListener("click", function () {
+                        const newName = prompt("Enter your name:");
+                        if (newName) {
+                            ministerNameElem.textContent = newName;
+                        }
+                    });
+                }
+          
+       
+    </script>
+</body>
+</html>

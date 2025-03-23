@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Meeting Info - RNJI</title>
+    <link href="meetinginfo_files/bootstrap.css" rel="stylesheet">
+
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="meetinginfo_files/Site.css" rel="stylesheet">
+    <link href="meetinginfo_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="meetinginfo_files/all.css" crossorigin="anonymous">
+    <!--no authjs since there is a js that does that already-->
+    <style>
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .verylong {
+            width: 822px !important;
+        }
+
+        .long {
+            width: 650px !important;
+        }
+
+        .Meduim {
+            width: 400px !important;
+        }
+
+        .Small {
+            width: 280px !important;
+        }
+
+        .VerySmall {
+            width: 50px !important;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 60%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .limited {
+            width: 300px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .auto {
+            width: auto !important;
+        }
+
+        .ddl_H,
+        [disabled] {
+            height: 45px !important;
+        }
+
+        .cusom_GRID_AR {
+            margin-left: 20px !important;
+        }
+
+        .HeadOfTableLong {
+            font-weight: 400;
+            background-color: #ddfdf0;
+            width: auto !important;
+        }
+
+        .MultiLine {
+            height: 200px !important;
+        }
+
+        .Custome_td {
+            width: 700px !important;
+            font-weight: 700;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 100px !important;
+            text-align: left !important;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .SucIframe {
+            width: 300px;
+            height: 80px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+        .guidelines {
+            background: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .guidelines h4 {
+                color: #004085;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 20px;
+                border-bottom: 2px solid #0056b3;
+                padding-bottom: 5px;
+            }
+
+            .guidelines p {
+                font-size: 16px;
+                line-height: 1.7;
+                color: #333;
+            }
+
+            .guidelines ul {
+                list-style: none;
+                padding-left: 0;
+                margin-top: 10px;
+                line-height: 1.6;
+            }
+
+                .guidelines ul li {
+                    background: url('check-icon.png') no-repeat left center;
+                    background-size: 22px;
+                    padding-left: 35px;
+                    margin-bottom: 8px;
+                    font-size: 16px;
+                    color: #222;
+                }
+
+        .important-notes {
+            background: #d4edda;
+            width: 80%;
+            max-width: 700px;
+            padding: 18px;
+            border-left: 6px solid #28a745;
+            border-radius: 6px;
+            list-style: none;
+            margin: 20px auto;
+        }
+
+            .important-notes li {
+                margin: 8px 0;
+                font-size: 16px;
+                padding-left: 30px;
+                background: url('check-green.png') no-repeat left center;
+                background-size: 24px;
+                color: #155724;
+            }
+    </style>
+    <style>
+        /* Custom Dropdown Styling */
+        #meetingDropdown {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            padding: 8px 12px;
+            color: #333333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+            #meetingDropdown:focus {
+                border-color: #428bca;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(66, 139, 202, 0.3);
+            }
+
+        /* Custom Finalize Button Styling */
+        .final-report-btn {
+            background-color: #428bca;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            padding: 10px 16px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin: 5px;
+        }
+
+            .final-report-btn:hover {
+                background-color: #3276b1;
+            }
+
+            .final-report-btn:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(50, 118, 177, 0.5);
+            }
+    </style>
+    <style>
+        /* Decision Modal Backdrop */
+        /* Custom Dropdown Styling (already in your code) */
+        #meetingDropdown {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            padding: 8px 12px;
+            color: #333333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+            #meetingDropdown:focus {
+                border-color: #428bca;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(66, 139, 202, 0.3);
+            }
+
+        /* Custom Finalize Button Styling (already in your code) */
+        .final-report-btn {
+            background-color: #428bca;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            padding: 10px 16px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin: 5px;
+        }
+
+            .final-report-btn:hover {
+                background-color: #3276b1;
+            }
+
+            .final-report-btn:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(50, 118, 177, 0.5);
+            }
+
+        /* Decision Modal styles */
+        /* Decision Modal styles */
+        #decisionModal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: 9999; /* On top */
+        }
+
+        #decisionModalContent {
+            max-width: 400px;
+            margin: 10% auto;
+            background: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+            #decisionModalContent p {
+                font-size: 18px;
+                margin-bottom: 15px;
+                color: #444444;
+                font-weight: 500;
+            }
+
+            /* Container for the main decision buttons */
+            #decisionModalContent .button-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            /* Style for all modal buttons */
+            #decisionModalContent button {
+                font-family: 'Tajawal', sans-serif;
+                font-size: 16px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                color: #ffffff;
+                white-space: normal;
+                overflow-wrap: break-word;
+                text-align: center;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+        /* Accept button */
+        #acceptBtn {
+            background-color: #5cb85c;
+        }
+
+            #acceptBtn:hover {
+                background-color: #4cae4c;
+            }
+
+        /* Reject button */
+        #rejectBtn {
+            background-color: #d9534f;
+        }
+
+            #rejectBtn:hover {
+                background-color: #c9302c;
+            }
+
+        /* Return to Supervisor button */
+        #returnBtn {
+            background-color: #f0ad4e;
+        }
+
+            #returnBtn:hover {
+                background-color: #ec971f;
+            }
+
+        /* Close button styling */
+        #closeModalBtn {
+            background-color: #6c757d;
+            margin-top: 10px;
+        }
+
+            #closeModalBtn:hover {
+                background-color: #5a6268;
+            }
+
+
+    </style>
+
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if "isAdmin" is in localStorage
+            const isAdmin = localStorage.getItem("isAdmin");
+            if (!isAdmin || isAdmin !== "true") {
+                // Not admin => redirect to login
+                console.warn("Not logged in as admin. Redirecting to supervisor login...");
+                window.location.href = "/supervisorlogin.html";
+            }
+        });
+    </script>
+
+    <div class="container mt-4">
+
+        <div class="guidelines mb-4">
+            <h4 class="text-primary mb-3">How to Use the Meeting Info Page</h4>
+            <p class="mb-3">
+                Welcome to the Meeting Info page for administrators. Use this guide to efficiently create, manage, and review meetings along with their associated applications.
+            </p>
+
+            <h5 class="mt-4">1. Creating and Selecting Meetings</h5>
+            <ul>
+                <li>
+                    <strong>Launch Meeting:</strong> Click the
+                    <span class="btn btn-success btn-sm">Launch Meeting Now</span>
+                    button to create a new meeting session. This refreshes the meeting list and updates the dropdown with the latest meeting number.
+                </li>
+                <li>
+                    <strong>Select a Meeting:</strong> Use the dropdown labeled
+                    <em>Select a Meeting</em> to choose a specific meeting. If none is selected, the page shows <strong>Pending Applications</strong>.
+                </li>
+            </ul>
+
+            <h5 class="mt-4">2. Viewing and Managing Pending Applications</h5>
+            <ul>
+                <li>
+                    <strong>Pending Applications Section:</strong> Displays institutions that have submitted applications but have not yet been assigned to a meeting.
+                </li>
+                <li>
+                    <strong>Application Details:</strong> Each row shows:
+                    <ul>
+                        <li>Institution Name – Clickable to view detailed records.</li>
+                        <li>Specialization, Submission Date, and Committee Recommendation.</li>
+                        <li>Assigned Committee Member (supervisor).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Update Committee Member:</strong> For applications younger than 48 hours, select a new Committee Member from the dropdown and click <strong>Reassign</strong> to reassign.
+                </li>
+            </ul>
+
+            <h5 class="mt-4">3. Reviewing Meeting Applications</h5>
+            <ul>
+                <li>
+                    <strong>Meeting Applications Section:</strong> When a meeting is selected, a table displays all applications related to that meeting.
+                </li>
+                <li>
+                    <strong>Detailed Data:</strong> View meeting number, institution (with clickable link for full records), specialization, submission date, assigned committee member, and committee recommendation.
+                </li>
+                <li>
+                    <strong>Final Decision Submission:</strong> Two buttons –
+                    <span class="btn btn-info btn-sm">Submit Final Decision (English)</span> and
+                    <span class="btn btn-info btn-sm">Submit Final Decision (Arabic)</span> – let you process each application.
+                </li>
+            </ul>
+
+            <h5 class="mt-4">4. Using the Decision Modal</h5>
+            <ul>
+                <li>
+                    <strong>Modal Options:</strong> When you click a final decision button, a modal appears offering:
+                    <ul>
+                        <li><em>Recognize</em> – finalizes the application as recognized.</li>
+                        <li><em>Reject</em> – declines the application.</li>
+                        <li><em>Return Report to Committee Member</em> – sends it back for further review.</li>
+                        <li><em>Close</em> – dismisses the modal without action.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Finalization Process:</strong> After selecting an option, the system saves your decision and redirects you to the corresponding final decision document based on your language choice.
+                </li>
+            </ul>
+
+            <h5 class="mt-4">5. Navigation</h5>
+            <ul>
+                <li>
+                    <strong>Return to Dashboard:</strong> Click the
+                    <span class="btn btn-primary btn-sm">Return to Dashboard</span>
+                    button at any time to go back to the main admin dashboard.
+                </li>
+            </ul>
+
+            <p class="mt-3">
+                NOTE: for printing, make sure you press ctrl + p, click advanced options, more pringing options, set the page to a4, set the margins to none, remove the headers/footers, and enabling the background
+            </p>
+        </div>
+
+
+        <!-- Create Meeting Button -->
+        <div><button id="createMeetingBtn" class="btn btn-success mb-3" style="margin-bottom:10px">Launch Meeting Now</button></div>
+        <br />
+        <!-- Meeting dropdown -->
+        <div class="container mt-4">
+            <!-- Latest Meeting Dropdown -->
+            <label for="latestMeetingDropdown"><b>Latest Meeting:</b></label>
+            <select id="latestMeetingDropdown" class="form-control">
+                <option value="latest">Loading...</option>
+                <option value="past" disabled>Past Meeting Selected</option>
+            </select>
+            <br />
+            <!-- Existing Meeting dropdown -->
+            <label for="meetingDropdown"><b>Select a Meeting:</b></label>
+            <select id="meetingDropdown" class="form-control">
+                <option value="">Loading...</option>
+            </select>
+        </div>
+    </div>
+        <!-- Pending Applications Section (institutions not yet processed / assigned to a meeting) -->
+        <div id="pendingSection">
+            <h3>Pending Applications with No Meeting Launched for them</h3>
+            <table class="table table-bordered" id="pendingTable">
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Specialization</th>
+                        <th>Submission Date</th>
+                        <th>Committee Recommendation</th>
+                        <th>Committee Member</th>
+                        <th>Change Committee Member</th>
+                    </tr>
+                </thead>
+                <tbody id="pendingTableBody">
+                    <!-- Pending rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Meeting table -->
+        <div id="meetingSection" style="display: none;">
+            <h3 style="font-size: 2.7rem; font-weight: bold; margin-top: 2rem;">Meeting Applications</h3>
+            <p style="font-size: 1.8rem;">View details of applications submitted for this meeting below:</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Meeting Number</th>
+                        <th>Institution(Click for records)</th>
+                        <th>Specialization</th>
+                        <th>Submission Date</th>
+                        <th>Committee Member</th>
+                        <th>Committee Member Recommendation(Click to view)</th>
+
+                        <!-- NEW COLUMN for finalize button -->
+                        <th>Submit Final Decision (English)</th>
+                        <th>Submit Final Decision (Arabic)</th>
+                    </tr>
+                </thead>
+                <tbody id="meetingTableBody">
+                    <!-- Populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Custom Decision Modal (hidden by default) -->
+
+    <div id="decisionModal">
+  <div id="decisionModalContent">
+    <p>Are you Recognizing or Rejecting?</p>
+    <div class="button-container">
+      <button id="acceptBtn">Recognize</button>
+      <button id="rejectBtn">Reject</button>
+      <button id="returnBtn">Return Report to Committee Member for Further Review</button>
+    </div>
+    <button id="closeModalBtn">Close</button>
+  </div>
+</div>
+
+
+
+
+    <!-- JS for meeting logic -->
+    <script>
+        // --- EVENT LISTENERS ---
+        function attachPendingSupervisorListeners() {
+            document.querySelectorAll(".update-supervisor-btn").forEach(btn => {
+                btn.addEventListener("click", async function () {
+                    const queueId = this.getAttribute("data-queueid");
+                    const insId = this.getAttribute("data-insid");
+                    const selectElem = document.getElementById("pending-supervisor-" + queueId);
+                    const supervisorID = selectElem.value;
+                    if (parseInt(supervisorID) === 0) {
+                        alert("Please select a valid supervisor.");
+                        return;
+                    }
+                    try {
+                        const payload = { insId: parseInt(insId), supervisorID: parseInt(supervisorID) };
+                        const response = await fetch('/api/admin/change-supervisor', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        const result = await response.json();
+                        alert(result.message);
+                        loadPendingApplications();
+                    } catch (error) {
+                        console.error("Error updating pending supervisor:", error);
+                        alert("Failed to update supervisor assignment.");
+                    }
+                });
+            });
+        }
+        // Helper function to call the finalize endpoint and return its promise.
+        function finalizeRecord(insId, meetingNumber, decisionOutcome) {
+            return fetch(
+                `/api/ministry/finalize-acceptance?insId=${insId}&meetingNumber=${encodeURIComponent(meetingNumber)}&decisionOutcome=${encodeURIComponent(decisionOutcome)}`,
+                { method: "POST" }
+            )
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    return data;
+                });
+        }
+
+        // Revised decision modal function that waits for finalization before redirecting.
+        function showDecisionModal(insID, meetingNumber, lang) {
+            const modal = document.getElementById("decisionModal");
+            modal.style.display = "block";
+
+            // When the Accept button is clicked:
+            document.getElementById("acceptBtn").onclick = function () {
+                finalizeRecord(insID, meetingNumber, "Recognized")
+                    .then(() => {
+                        redirectWithDecision(insID, meetingNumber, lang, "recognize");
+                    })
+                    .catch(error => {
+                        console.error("Error finalizing record:", error);
+                        alert("Error finalizing record.");
+                    })
+                    .finally(() => {
+                        modal.style.display = "none";
+                    });
+            };
+
+            // When the Reject button is clicked:
+            document.getElementById("rejectBtn").onclick = function () {
+                finalizeRecord(insID, meetingNumber, "Rejected")
+                    .then(() => {
+                        redirectWithDecision(insID, meetingNumber, lang, "reject");
+                    })
+                    .catch(error => {
+                        console.error("Error finalizing record:", error);
+                        alert("Error finalizing record.");
+                    })
+                    .finally(() => {
+                        modal.style.display = "none";
+                    });
+            };
+
+            // In your return-to-supervisor handler
+            // In the return button handler
+            document.getElementById("returnBtn").onclick = function () {
+                fetch(`/api/admin/return-to-supervisor?insId=${insID}`, { method: "POST" })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.success) {
+                            alert(`❌ ${data.message}`);
+                            return;
+                        }
+
+                        if (data.hadDecision) {
+                            // Show warning with icon and decision details
+                            alert(`Returned, Keep in mind there is an existing ${data.decision} decision`);
+                        } else {
+                            alert(data.message);
+                        }
+
+                        modal.style.display = "none";
+                    })
+                    .catch(error => {
+                        console.error("Error returning to supervisor:", error);
+                        alert("Error processing return");
+                    });
+            };
+
+            // When the Close button is clicked, simply close the modal.
+            document.getElementById("closeModalBtn").onclick = function () {
+                modal.style.display = "none";
+            };
+        }
+
+        function redirectWithDecision(insID, meetingNumber, lang, decision) {
+            if (lang === "ar") {
+                window.location.href = `/ministrytemplate_ar.html?insId=${insID}&meetingNumber=${encodeURIComponent(meetingNumber)}&decision=${decision}`;
+            } else {
+                window.location.href = `/ministrytemplate.html?insId=${insID}&meetingNumber=${encodeURIComponent(meetingNumber)}&decision=${decision}`;
+            }
+        }
+
+
+        function attachFinalReportListeners() {
+            document.querySelectorAll(".final-report-btn").forEach(btn => {
+                btn.addEventListener("click", function () {
+                    const insId = this.getAttribute("data-insid");
+                    const meetingNumber = this.getAttribute("data-meetingnumber");
+                    const lang = this.getAttribute("data-lang"); // "en" or "ar"
+                    // Prompt the user: OK means "Recognizing", Cancel means "Rejecting"
+                    showDecisionModal(insId, meetingNumber, lang);
+
+                });
+            });
+        }
+
+        function attachInstitutionLinkListeners() {
+            document.querySelectorAll(".institution-link").forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const institutionID = this.getAttribute("data-insid");
+                    if (institutionID) {
+                        localStorage.setItem("selectedInstitutionForRecords", institutionID);
+                        window.location.href = "acceptance_records.html"; // or whatever page
+                    }
+                });
+            });
+        }
+        function attachUpdateSupervisorListeners() {
+            document.querySelectorAll(".update-supervisor-button").forEach(btn => {
+                btn.addEventListener("click", async function () {
+                    const meetingID = this.getAttribute("data-meetingid");
+                    const insID = this.getAttribute("data-insid");
+                    const selectElem = document.querySelector(`#supervisor-select-${meetingID}`);
+                    const supervisorID = selectElem.value;
+
+                    if (parseInt(supervisorID) === 0) {
+                        alert("Please select a valid supervisor.");
+                        return;
+                    }
+
+                    // Build the payload for the API call
+                    const payload = {
+                        meetingID: parseInt(meetingID),
+                        insID: parseInt(insID),
+                        supervisorID: parseInt(supervisorID)
+                    };
+
+                    try {
+                        const response = await fetch('/api/admin/change-supervisor', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+                        const result = await response.json();
+                        alert(result.message);
+                        // Optionally reload the table data so the changes are reflected
+                        await loadMeetingApplications();
+                    } catch (error) {
+                        console.error("Error updating supervisor:", error);
+                        alert("Failed to update supervisor assignment.");
+                    }
+                });
+            });
+        }
+       
+        async function fetchSupervisorName(insId, elementId) {
+            try {
+                const response = await fetch(`/api/admin/get-supervisor?insId=${insId}`);
+                const result = await response.json();
+                if (result.success && result.supervisorName) {
+                    document.getElementById(elementId).textContent = result.supervisorName;
+                } else {
+                    document.getElementById(elementId).textContent = "Not Assigned";
+                }
+            } catch (error) {
+                console.error("Error fetching supervisor name for insId " + insId, error);
+                document.getElementById(elementId).textContent = "Error";
+            }
+        }
+
+        let supervisorsList = [];
+
+        // Load all available supervisors (you need to have an API endpoint for this)
+        async function loadSupervisors() {
+            try {
+                const response = await fetch("/api/admin/supervisors");
+                const result = await response.json();
+                if (result.success) {
+                    supervisorsList = result.data; // expected format: [{ supervisorID: 1, name: "khalid", … }, …]
+                    // Now update every pending table dropdown:
+                    document.querySelectorAll("#pendingTable .supervisor-select").forEach(selectElem => {
+                        // Clear any existing options:
+                        selectElem.innerHTML = `<option value="0">-- Select Committee Member --</option>`;
+                        supervisorsList.forEach(sup => {
+                            const option = document.createElement("option");
+                            option.value = sup.supervisorID;
+                            option.textContent = sup.name;
+                            selectElem.appendChild(option);
+                        });
+                    });
+                } else {
+                    console.error("Error fetching supervisors:", result.message);
+                }
+            } catch (error) {
+                console.error("Failed to load supervisors:", error);
+            }
+        }
+
+        // --- PENDING APPLICATIONS SECTION FUNCTIONS ---
+        async function loadPendingApplications() {
+            try {
+                const response = await fetch('/api/admin/pending-applications');
+                const result = await response.json();
+                if (!result.success) {
+                    console.error("Error fetching pending applications:", result.message);
+                    return;
+                }
+                const pendingApps = result.data;
+                const tbody = document.getElementById('pendingTableBody');
+                tbody.innerHTML = "";
+                const now = new Date();
+                pendingApps.forEach(app => {
+                    const row = document.createElement("tr");
+                    const submissionDate = new Date(app.submissionDate); // changed to lowercase
+                    const submissionDateStr = submissionDate.toLocaleString();
+
+                    // Set committee recommendation as "Not Processed"
+                    const committeeRec = app.committeeRecommendation || "Not Processed";
+                    // Enable change supervisor if submission is less than 48 hours old
+                    const diffHours = (now - submissionDate) / (1000 * 60 * 60);
+                    let changeSupervisorCell = "";
+                    if (diffHours < 48) {
+                        changeSupervisorCell = `
+                          <select class="supervisor-select" data-insid="${app.insID}" id="pending-supervisor-${app.queueID}">
+                            <option value="0">-- Select Supervisor --</option>
+                          </select>
+                          <button class="update-supervisor-btn" data-queueid="${app.queueID}" data-insid="${app.insID}">Reassign</button>
+                        `;
+                    } else {
+                        changeSupervisorCell = `<span>Locked becasue 48 hours has passed to assignment.</span>`;
+                    }
+
+                    row.innerHTML = `
+                        <td><a href="#" class="institution-link" data-insid="${app.insID}">${app.institutionName}</a></td>
+                        <td>${app.specialization}</td>
+                        <td>${submissionDateStr}</td>
+                        <td>${committeeRec}</td>
+                        <td id="pending-supervisor-name-${app.queueID}">Loading...</td>
+                        <td>${changeSupervisorCell}</td>
+                      `;
+                    tbody.appendChild(row);
+                    fetchSupervisorName(app.insID, "pending-supervisor-name-" + app.queueID);
+                });
+                attachPendingSupervisorListeners();
+                attachInstitutionLinkListeners();
+                loadSupervisors();
+            } catch (error) {
+                console.error("Failed to load pending applications:", error);
+            }
+        }
+
+        async function loadMeetingApplications() {
+            try {
+                const response = await fetch("/api/admin/meeting-applications");
+                const result = await response.json();
+
+                if (!result.success) {
+                    console.error("Error fetching meeting applications:", result.message);
+                    return;
+                }
+
+                const tableBody = document.getElementById("meetingTableBody");
+                tableBody.innerHTML = "";
+
+                result.data.forEach(app => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                    <td>${app.meetingNumber}</td>
+                    <td><a href="#" class="institution-link" data-insid="${app.insID}">${app.institutionName}</a></td>
+                    <td>${app.specialization}</td>
+                    <td>${app.submissionDate}</td>
+                    <td>${app.supervisorName || "Not Assigned"}</td>
+                    <td>${app.committeeRecommendation || "Committee member did not proccess this institution yet."}</td>
+                    <td>
+                       <button class="final-report-btn" data-insid="${app.insID}" data-meetingnumber="${app.meetingNumber}" data-lang="en">
+                         Submit Final Decision (English)
+                       </button>
+                    </td>
+                    <td>
+                       <button class="final-report-btn" data-insid="${app.insID}" data-meetingnumber="${app.meetingNumber}" data-lang="ar">
+                         Submit Final Decision (Arabic)
+                       </button>
+                    </td>
+                  `;
+                    tableBody.appendChild(row);
+                });
+                // <<-- This closes the forEach callback for result.data
+
+                attachInstitutionLinkListeners();
+                // Add click listeners for "finalize-button" and update supervisor
+                attachFinalReportListeners();
+                attachUpdateSupervisorListeners();
+            } catch (error) {
+                console.error("Failed to load meeting applications:", error);
+            }
+        }
+
+        document.getElementById("createMeetingBtn").addEventListener("click", async function () {
+            try {
+                const response = await fetch('/api/admin/create-meeting', { method: 'POST' });
+                const result = await response.json();
+                alert(result.message);
+
+                // Refresh the meeting table and repopulate the dropdown
+                await loadMeetingApplications();
+                await loadMeetingNumbers();
+
+                // Now auto-select the newest (last) meeting
+                const dropdown = document.getElementById("meetingDropdown");
+                if (dropdown.options.length > 1) {
+                    // Set the dropdown’s selected index to the last option
+                    dropdown.selectedIndex = dropdown.options.length - 1;
+
+                    // Manually trigger the "change" event so it loads the newly launched meeting
+                    dropdown.dispatchEvent(new Event("change"));
+                }
+            } catch (error) {
+                console.error("Error creating meeting:", error);
+            }
+        });
+
+
+
+        async function loadMeetingNumbers() {
+            try {
+                const response = await fetch("/api/admin/all-meeting-numbers");
+                const result = await response.json();
+                const dropdown = document.getElementById("meetingDropdown");
+                const latestDropdown = document.getElementById("latestMeetingDropdown");
+
+                // Clear existing options
+                dropdown.innerHTML = "<option value=''>Pending Applications with no meeting</option>";
+                latestDropdown.innerHTML = "<option value='latest'>Latest Meeting</option><option value='past' disabled>Past Meeting Selected</option>";
+
+                if (result.success && result.data.length > 0) {
+                    // Sort meetings by date to find the latest one
+                    result.data.sort((a, b) => new Date(b.creationDate) - new Date(a.creationDate));
+                    const latestMeeting = result.data[0];
+
+                    // Populate the latest meeting dropdown
+                    latestDropdown.innerHTML = `<option value='latest'>Latest Meeting: ${latestMeeting.meetingNumber} Date: ${latestMeeting.creationDate}</option><option value='past' disabled>Past Meeting Selected</option>`;
+
+                    // Populate the past meetings dropdown
+                    result.data.forEach(meeting => {
+                        const option = document.createElement("option");
+                        option.value = meeting.meetingNumber;
+                        option.textContent = `${meeting.meetingNumber} Date: ${meeting.creationDate}`;
+                        dropdown.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error("Error loading meeting numbers:", error);
+            }
+        }
+
+        async function checkPendingApplications() {
+            try {
+                const response = await fetch('/api/admin/pending-applications');
+                const result = await response.json();
+                return (result.success && result.data.length > 0);
+            } catch (error) {
+                console.error("Error checking pending applications:", error);
+                return false;
+            }
+        }
+
+        // Determine if a meeting has been launched (if any meeting numbers exist)
+        async function checkMeetingLaunched() {
+            try {
+                const response = await fetch("/api/admin/all-meeting-numbers");
+                const result = await response.json();
+                return (result.success && result.data.length > 0);
+            } catch (error) {
+                console.error("Error checking meeting launch status:", error);
+                return false;
+            }
+        }
+
+        // When user selects a specific meeting
+        document.getElementById("meetingDropdown").addEventListener("change", async function () {
+            const meetingNumber = this.value;
+            if (!meetingNumber) {
+                // When "Select a Meeting" (empty) is chosen, show the pending section
+                document.getElementById("pendingSection").style.display = "block";
+                document.getElementById("meetingSection").style.display = "none";
+                await loadPendingApplications();
+                return;
+            }
+            // A specific meeting number was selected; show the meeting section.
+            document.getElementById("pendingSection").style.display = "none";
+            document.getElementById("meetingSection").style.display = "block";
+
+            // Check if the selected meeting is the latest meeting
+            const latestDropdown = document.getElementById("latestMeetingDropdown");
+            const latestMeetingNumber = latestDropdown.options[0].textContent.split(":")[1].split(" ")[1];
+            if (meetingNumber === latestMeetingNumber) {
+                latestDropdown.value = "latest";
+            } else {
+                latestDropdown.value = "past";
+            }
+
+            try {
+                const encodedMeetingNumber = encodeURIComponent(meetingNumber);
+                const response = await fetch(`/api/admin/meeting/${encodedMeetingNumber}`);
+                const result = await response.json();
+
+                if (!result.success) {
+                    console.error("Error fetching meeting:", result.message);
+                    return;
+                }
+
+                const tableBody = document.getElementById("meetingTableBody");
+                tableBody.innerHTML = "";
+
+                result.data.forEach(app => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                <td>${app.meetingNumber}</td>
+                <td><a href="#" class="institution-link" data-insid="${app.insID}">${app.institutionName}</a></td>
+                <td>${app.specialization}</td>
+                <td>${app.submissionDate}</td>
+                <td>${app.supervisorName || "Not Assigned"}</td>
+                <td>${app.committeeRecommendation || "Committee member did not proccess this institution yet."}</td>
+                <td>
+                   <button class="final-report-btn" data-insid="${app.insID}" data-meetingnumber="${app.meetingNumber}" data-lang="en">
+                     Submit Final Decision (English)
+                   </button>
+                </td>
+                <td>
+                   <button class="final-report-btn" data-insid="${app.insID}" data-meetingnumber="${app.meetingNumber}" data-lang="ar">
+                     Submit Final Decision (Arabic)
+                   </button>
+                </td>
+              `;
+                    tableBody.appendChild(row);
+                });
+
+                attachInstitutionLinkListeners();
+                attachFinalReportListeners();
+                attachUpdateSupervisorListeners();
+
+            } catch (error) {
+                console.error("Failed to load meeting applications:", error);
+            }
+        });
+
+        // When user selects the latest meeting
+        document.getElementById("latestMeetingDropdown").addEventListener("change", async function () {
+            const selectedValue = this.value;
+            if (selectedValue === "latest") {
+                // Load the latest meeting applications
+                const dropdown = document.getElementById("meetingDropdown");
+                const latestMeetingNumber = dropdown.options[1].value; // Assuming the first option is the latest meeting
+                dropdown.value = latestMeetingNumber;
+                dropdown.dispatchEvent(new Event("change"));
+            }
+        });
+
+
+        // --- INITIAL LOAD ---
+        document.addEventListener("DOMContentLoaded", async function () {
+            await loadMeetingNumbers();
+            const pendingExist = await checkPendingApplications();
+            if (pendingExist) {
+                document.getElementById("pendingSection").style.display = "block";
+                document.getElementById("meetingSection").style.display = "none";
+                // Ensure the meeting dropdown's value is reset (empty)
+                await loadPendingApplications();
+            } else {
+                document.getElementById("pendingSection").style.display = "none";
+                document.getElementById("meetingSection").style.display = "block";
+                await loadMeetingApplications();
+            }
+            // Default the top dropdown to "Past Meeting Selected"
+            document.getElementById("latestMeetingDropdown").value = "past";
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

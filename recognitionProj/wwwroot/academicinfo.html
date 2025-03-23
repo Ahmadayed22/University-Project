@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="academicinfo_files/simple-sidebar.css" rel="stylesheet">
+    <link href="academicinfo_files/Site.css" rel="stylesheet">
+    <link href="academicinfo_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="academicinfo_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+
+        .list-group-item.active {
+            background-color: #990033 !important; 
+            color: white !important;
+            font-weight: bold;
+        }
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .verylong {
+            width: 822px !important;
+        }
+
+        .long {
+            width: 650px !important;
+        }
+
+        .Meduim {
+            width: 400px !important;
+        }
+
+        .Small {
+            width: 280px !important;
+        }
+
+        .VerySmall {
+            width: 50px !important;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .limited {
+            width: 300px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .auto {
+            width: auto !important;
+        }
+
+        .ddl_H,
+        [disabled] {
+            height: 45px !important;
+        }
+
+        .cusom_GRID_AR {
+            margin-left: 20px !important;
+        }
+
+        .HeadOfTableLong {
+            font-weight: 400;
+            background-color: #ddfdf0;
+            width: auto !important;
+        }
+
+        .MultiLine {
+            height: 200px !important;
+        }
+
+        .Custome_td {
+            width: 700px !important;
+            font-weight: 700;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .SucIframe {
+            width: 300px;
+            height: 80px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body id="body" style="direction:ltr;">
+
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+            </div>
+        </div>
+
+
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />
+                                &nbsp;&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+
+
+            <div class="container-fluid">
+                <div class="person-content" style="padding: 0px; border: 1px solid #ddd; border-top: none; border-radius: 0 0 10px 10px; background-color: #f9f9f9;">
+                    <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Academic Info</h2>
+                    <!-- The form is posted by JS, not by 'action' -->
+                    <form id="academicInfoForm" style="padding: 15px 30px;">
+                        <!-- Note about required fields -->
+                        <p style="color: red; font-weight: bold; margin-bottom: 10px;">
+                            Star (<span class="required">*</span>) means this is a compulsory field (has to be filled out).
+                        </p>
+                        <div style="display: grid; gap: 20px; grid-template-columns: repeat(1, minmax(250px, 1fr));">
+
+                            <!-- Group 1 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field" hidden>
+                                    <label for="InsID">Institution ID:<span class="required">*</span></label>
+                                    <input type="number" id="InsID" name="InsID" class="form-control" required>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="InsTypeID">Type of Academic Institution:<span class="required">*</span></label>
+                                    <select id="InsTypeID" name="InsTypeID" class="form-control" required onchange="updateHiddenField()">
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Public</option>
+                                        <option value="2">Private</option>
+                                        <option value="3">Others</option>
+
+                                    </select>
+                                </div>
+
+                                <!-- Hidden Field to store text from the dropdown -->
+                                <input type="hidden" id="InsType" name="InsType" value="">
+                            </div>
+                            <br />
+                            <!-- Group 2 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label style="max-width:200px" for="HighEdu_Rec">
+                                        Has there Been Official Recognition of Applying Institution by
+                                        the Entrusted Authority in the Country that is Home to the Institution?<span class="required">*</span>
+                                    </label>
+                                    <select id="HighEdu_Rec" name="HighEdu_Rec" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label style="max-width:200px" for="QualityDept_Rec">Has there Been Official Accreditation & Quality Assurance Recognition of Institution in Home Country?<span class="required">*</span></label>
+                                    <select id="QualityDept_Rec" name="QualityDept_Rec" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label style="max-width:200px" for="JointClass">
+                                        Are Foreign Students Offered their Educational Programs
+                                        in Joint Class Rooms with Local (Domestic) Students?<span class="required">*</span>
+                                    </label>
+                                    <select id="JointClass" name="JointClass" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br />
+                            <!-- Group 3 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="StudyLangCitizen">Study Language for Domestic Students:<span class="required">*</span></label>
+                                    <input type="text" id="StudyLangCitizen" name="StudyLangCitizen" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="StudyLangInter">Study Language for International Students:<span class="required">*</span></label>
+                                    <input type="text" id="StudyLangInter" name="StudyLangInter" class="form-control">
+                                </div>
+
+                            </div>
+                            <br />
+                            <!-- Group 4 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="StudySystem">Study System:<span class="required">*</span></label>
+                                    <div>
+                                        <input type="checkbox" id="YearlyProgram" name="StudySystem" value="Yearly Program">
+                                        <label for="YearlyProgram">Yearly Program</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="SemesterProgram" name="StudySystem" value="Semester Program">
+                                        <label for="SemesterProgram">Semester Program</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="CreditHours" name="StudySystem" value="Credit Hours">
+                                        <label for="CreditHours">Credit Hours</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="ECTS" name="StudySystem" value="ECTS">
+                                        <label for="ECTS">ECTS</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label style="max-width:150px" for="MinHours">Minimum Semester Credit Hours Permitted for Students:<span class="required">*</span></label>
+                                    <input type="number" id="MinHours" name="MinHours" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label style="max-width:150px" for="MaxHours">Maximum Semester Credit Hours Permitted for Students:<span class="required">*</span></label>
+                                    <input type="number" id="MaxHours" name="MaxHours" class="form-control">
+                                </div>
+                            </div>
+                            <br />
+                            <!-- Group 5 -->
+                            <!--<div style="display: flex; gap: 20px;">
+        <div class="form-field">
+            <label style="max-width:150px" for="ResearchScopus">Number of Research Items Officially Accounted for By Scopus Search Engine:<span class="required">*</span></label>
+            <input type="text" id="ResearchScopus" name="ResearchScopus" class="form-control">
+        </div>
+        <div class="form-field">
+            <label style="max-width:125px " for="ResearchOthers">Number of Research Items Accounted for by other Search Engines:<span class="required">*</span></label>
+            <input type="text" id="ResearchOthers" name="ResearchOthers" class="form-control">
+        </div>
+    </div>-->
+                            <br />
+                            <!-- Group 6 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label style="max-width:250px" for="Practicing">
+                                        Are Foreign Graduates of Institution in Professional Disciplines
+                                        (Medicine, Dentistry, Pharmacy , ...) Allowed to Practice their Professions in Institution’s Home Country?<span class="required">*</span>
+                                    </label>
+                                    <select id="Practicing" name="Practicing" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label style="max-width:210px" for="DistanceLearning"> Are Distance Learning Students of Other Institutions Readily Admissible to Your Institutions? And Further Allowed to Join Graduate Degree Programs?<span class="required">*</span></label>
+                                    <select id="DistanceLearning" name="DistanceLearning" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <br />
+                            <!-- Group 7 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label style="max-width:200px" for="StudyAttendance">Does Institution Enforce Class Attendance for All Academic Specialties? <span class="required">*</span></label>
+                                    <select id="StudyAttendance" name="StudyAttendance" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label style="min-height:70px" for="StudyAttendanceDesc">If No, please mention exceptions, Otherwise put None:<span class="required">*</span></label>
+                                    <input type="text" id="StudyAttendanceDesc" name="StudyAttendanceDesc" class="form-control" required>
+                                </div>
+
+
+                            </div>
+
+                            <!-- Group 7 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label style="max-width:200px" for="StudentsMove">
+                                        Are Part-Time or Non-Regular (Correspondence) Students Allowed to
+                                        Transfer from Other Institutions to Institution Seeking Recognition by MOHE?<span class="required">*</span>
+                                    </label>
+                                    <select id="StudentsMove" name="StudentsMove" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label style="min-height:140px" for="StudentsMoveDesc">If No , please mention exceptions, Otherwise put None:<span class="required">*</span></label>
+                                    <input type="text" id="StudentsMoveDesc" name="StudentsMoveDesc" class="form-control" required>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Group 8 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div style="max-width:200px" class="form-field">
+                                    <label for="MaxHoursDL">
+                                        What Is the Maximum Number of Credit/s Transfer/s in Terms of Credit <span style="font-weight: bold;">Hours</span> (from other institutions)
+                                        That Can Be Counted towards Student Graduation from This Applying Institution? <span class="required">*</span>
+                                    </label>
+                                    <input type="number" id="MaxHoursDL" name="MaxHoursDL" class="form-control">
+                                </div>
+                                <div style="max-width:200px" class="form-field">
+                                    <label for="MaxYearsDL">
+                                        What Is the Maximum Number of Credit/s Transfer/s in Terms of Credit <span style="font-weight: bold;">Years</span> (from other institutions)
+                                        That Can Be Counted towards Student Graduation from This Applying Institution? <span class="required">*</span>
+                                    </label>
+                                    <input type="number" id="MaxYearsDL" name="MaxYearsDL" class="form-control">
+                                </div>
+                                <div style="max-width:200px" class="form-field">
+                                    <label for="MaxSemsDL">
+                                        What Is the Maximum Number of Credit/s Transfer/s in Terms of Credit <span style="font-weight: bold;">Semesters</span> (from other institutions)
+                                        That Can Be Counted towards Student Graduation from This Applying Institution? <span class="required">*</span>
+                                    </label>
+                                    <input type="number" id="MaxSemsDL" name="MaxSemsDL" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Group 9 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div style="max-width:200px" class="form-field">
+                                    <label for="Diploma">
+                                        Does Your Institution Accept Intermediate Degree Students (holding 2-year Diplomas) towards Higher Degree Programs? <span class="required">*</span>
+                                    </label>
+                                    <select id="Diploma" name="Diploma" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label style="max-width:400px" for="DiplomaTest">
+                                        Do You Uphold Any Such Condition/s vs. Passing a Matriculation (or Qualifying Exam) as a Precursor for Admitting Students Who Come in from Diploma and/or Community
+                                        College Degrees into Programs Leading to the Bachelor's Degree at Your Institution? <span class="required">*</span>
+                                    </label>
+                                    <select id="DiplomaTest" name="DiplomaTest" class="form-control" required>
+                                        <option value="" disabled selected>--Choose--</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Group 10 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label style="max-width:300px" for="HoursPercentage">
+                                        What Percentage of the Total Credit Hours Needed for Graduation Can Get Accredited (as Transfer Credits) from Other Institutions (with Lower Degrees)
+                                        towards Receiving a More Advanced Degree from Your Institution? <span class="required">*</span>
+                                    </label>
+                                    <input type="number" id="HoursPercentage" name="HoursPercentage" class="form-control">
+                                </div>
+                                <div hidden class="form-field">
+                                    <label for="EducationType">Education Type:<span class="required">*</span></label>
+                                    <input type="text" id="EducationType" name="EducationType" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Group 11 -->
+                            <div style="display: flex; gap: 20px;">
+
+                                <!-- Speciality Checkboxes -->
+                                <div class="mb-3">
+                                    <label for="signupSpeciality">Speciality:<span class="required">*</span></label>
+                                    <div class="checkbox-group" id="signupSpeciality">
+
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Humanitarian" class="speciality-checkbox" /> Humanitarian
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Scientific" class="speciality-checkbox" /> Scientific
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Medical" class="speciality-checkbox" /> Medical
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Applied" class="speciality-checkbox" /> Applied
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Other" class="speciality-checkbox" /> Other
+
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Group 12 -->
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="ARWURank">Shanghai (ARWU) Global Ranking (if exists):</label>
+                                    <input type="number" id="ARWURank" name="ARWURank" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="THERank">Times (THE) Global Ranking (if exists):</label>
+                                    <input type="number" id="THERank" name="THERank" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="QSRank">QS Global Ranking (if exists):</label>
+                                    <input type="number" id="QSRank" name="QSRank" class="form-control">
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="LocalARWURank">Shanghai (ARWU) Local Ranking (if exists):</label>
+                                    <input type="number" id="LocalARWURank" name="LocalARWURank" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="LocalTHERank">Times (THE) Local Ranking (if exists):</label>
+                                    <input type="number" id="LocalTHERank" name="LocalTHERank" class="form-control">
+                                </div>
+                                <div class="form-field">
+                                    <label for="LocalQSRank">QS Local Ranking (if exists):</label>
+                                    <input type="number" id="LocalQSRank" name="LocalQSRank" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div style="display: flex; gap: 20px;">
+                                <div class="form-field">
+                                    <label for="OtherRank">Other Rankings (if exists):</label>
+                                    <textarea id="OtherRank" name="OtherRank" class="form-control" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <!--<div>
+        <div class="form-field">
+            <label for="OtherRank">Other Ranking:</label>
+            <text type="text" id="OtherRank" name="OtherRank" class="form-control">
+        </div>
+    </div>-->
+                            <!-- Group 13: Scopus Information -->
+                            <div id="group13Div" style="display: flex; flex-direction: column; gap: 20px;">
+                                <div style="display: flex; gap: 20px;">
+                                    <div class="form-field">
+                                        <label for="NumOfScopusResearches">Number of Scopus Researches:</label>
+                                        <input type="number" id="NumOfScopusResearches" name="NumOfScopusResearches" class="form-control">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="ScopusFrom">Scopus Date from:</label>
+                                        <input type="date" id="ScopusFrom" name="ScopusFrom" class="form-control">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="ScopusTo">Scopus Date to:</label>
+                                        <input type="date" id="ScopusTo" name="ScopusTo" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- New Group: Clarivate Information -->
+                                <div style="display: flex; gap: 20px;">
+                                    <div class="form-field">
+                                        <label for="NumOfClarivateResearches">Number of Clarivate Researches:</label>
+                                        <input type="number" id="NumOfClarivateResearches" name="NumOfClarivateResearches" class="form-control">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="ClarivateFrom">Clarivate Date from:</label>
+                                        <input type="date" id="ClarivateFrom" name="ClarivateFrom" class="form-control">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="ClarivateTo">Clarivate Date to:</label>
+                                        <input type="date" id="ClarivateTo" name="ClarivateTo" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Group 14 -->
+                            <div hidden style="display: flex; gap: 20px;">
+                                <div hidden class="form-field">
+                                    <label for="Accepted">Accepted?</label>
+                                    <input type="checkbox" id="Accepted" name="Accepted" class="form-control" style="transform: scale(1.5);">
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div style="margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary mt-3" style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                                    Save and Go to Next Page
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea fields inside the academic info form
+                const formElements = document.querySelectorAll("#academicInfoForm input, #academicInfoForm select, #academicInfoForm textarea");
+
+                formElements.forEach(function (el) {
+                    // Disable the element if it's not a hidden field
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+                // Hide the submit button
+                const submitButton = document.querySelector("#academicInfoForm button[type='submit']");
+                if (submitButton) {
+                    submitButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.form-row').forEach(row => {
+            row.style.display = 'flex';
+            row.style.flexDirection = 'column';
+            row.style.marginBottom = '15px';
+
+            const input = row.querySelector('input, select, textarea');
+            if (input) {
+                input.style.padding = '10px';
+                input.style.border = '1px solid #ccc';
+                input.style.borderRadius = '5px';
+            }
+
+            const label = row.querySelector('label');
+            if (label) {
+                label.style.fontWeight = 'bold';
+                label.style.marginBottom = '5px';
+            }
+        });
+    </script>
+    <script>
+        (async function () {
+            // Get the institution ID from localStorage.
+            const insID = localStorage.getItem("InsID");
+            if (!insID) {
+                console.warn("No InsID found in localStorage; redirecting to login...");
+                window.location.href = "/login.html";
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/acceptancerecord/get-by-insid/${insID}`);
+                if (!response.ok) {
+                    console.error("Failed to fetch acceptance records:", response.status);
+                    return;
+                }
+
+                const resultJson = await response.json();
+                console.log("Fetched acceptance records response:", resultJson);
+
+                const records = resultJson.data || [];
+                console.log("Fetched acceptance records array:", records);
+
+                let isPartiallyAccepted = false;
+                if (records.length > 0) {
+                    isPartiallyAccepted = records.some(record =>
+                        record.isAccepted &&
+                        record.reason.some(reason => reason.includes("Partial: Bachelor's Recognized"))
+                    );
+                }
+
+                toggleGroup13BasedOnAcceptance(isPartiallyAccepted); // Hide/Show Group 13 accordingly
+
+            } catch (err) {
+                console.error("Error fetching acceptance records:", err);
+            }
+        })();
+
+       
+
+        function toggleGroup13BasedOnAcceptance(isPartial) {
+            const group13Div = document.getElementById("group13Div");
+            if (group13Div) {
+                group13Div.style.display = isPartial ? "block" : "none";
+            }
+        }
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script src="academicinfo_files/api.js" type="text/javascript"></script>
+
+
+</body>
+</html>

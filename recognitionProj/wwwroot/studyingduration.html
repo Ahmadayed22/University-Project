@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="studyingduration_files/simple-sidebar.css" rel="stylesheet">
+    <link href="studyingduration_files/Site.css" rel="stylesheet">
+    <link href="studyingduration_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="studyingduration_files/all.css" crossorigin="anonymous">
+
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .verylong {
+            width: 822px !important;
+        }
+
+        .long {
+            width: 650px !important;
+        }
+
+        .Meduim {
+            width: 400px !important;
+        }
+
+        .Small {
+            width: 280px !important;
+        }
+
+        .VerySmall {
+            width: 50px !important;
+        }
+
+        .form-control,
+        [disabled] {
+            margin-left: 10px;
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .limited {
+            width: 300px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-left: 15px;
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .auto {
+            width: auto !important;
+        }
+
+        .ddl_H,
+        [disabled] {
+            height: 45px !important;
+        }
+
+        .cusom_GRID_AR {
+            margin-left: 20px !important;
+        }
+
+        .HeadOfTableLong {
+            font-weight: 400;
+            background-color: #ddfdf0;
+            width: auto !important;
+        }
+
+        .MultiLine {
+            height: 200px !important;
+        }
+
+        .Custome_td {
+            width: 700px !important;
+            font-weight: 700;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .SucIframe {
+            width: 300px;
+            height: 80px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body id="body" style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />
+                                &nbsp;&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+            <!-- AFTER the side menu, we begin: -->
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Study Duration</h2>
+                <br />
+
+                <!-- Hidden field for InsID set by auth.js -->
+                <input id="InsID" name="InsID " hidden readonly />
+
+                <table class="table table-responsive table-hover table-bordered">
+                    <tr>
+                        <th colspan="3">Minimum Required Duration for Attendance and Completion of the Degree</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Minimum Period for Completion (No Letters)</td>
+                        <td>Minimum Period for Attendance (No Letters)</td>
+                    </tr>
+                    <tr>
+                        <td>Diploma (if exists)</td>
+                        <td>
+                            <input id="txtDiplomaDegreeMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 2" />
+                        </td>
+                        <td>
+                            <input id="txtDiplomaMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>BSc (if exists)</td>
+                        <td>
+                            <input id="txtBSC_DegreeMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 4" />
+                        </td>
+                        <td>
+                            <input id="txtBSC_MIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Higher Diploma (if exists)</td>
+                        <td>
+                            <input id="txtHigherDiplomaDegreeMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 1" />
+                        </td>
+                        <td>
+                            <input id="txtHigherDiplomaMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Master's (if exists)</td>
+                        <td>
+                            <input id="txtMasterDegreeMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 2" />
+                        </td>
+                        <td>
+                            <input id="txtMasterMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PhD (if exists)</td>
+                        <td>
+                            <input id="txtPhD_DegreeMIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 4" />
+                        </td>
+                        <td>
+                            <input id="txtPhD_MIN" type="text" class="form-control Meduim numeric-only"
+                                   placeholder="e.g. 2" />
+                        </td>
+                    </tr>
+                </table>
+                <tr>
+                    <td colspan="3" style="background-color:#f9f9f9;">
+                        <label for="txtSemestersPerYear">Number of Semesters per Year:<span class="required">*</span></label>
+                        <input id="txtSemestersPerYear" type="text" class="form-control numeric-only Meduim"
+                               placeholder="e.g. 2" />
+                        <br />
+                        <label for="txtMonthsPerSemester">Number of Months per Semester:<span class="required">*</span></label>
+                        <input id="txtMonthsPerSemester" type="text" class="form-control numeric-only Meduim"
+                               placeholder="e.g. 4" />
+                    </td>
+                </tr>
+
+                <button id="btnSaveDuration" class="btn btn-primary" style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">Save and Go to Next Page</button>
+            </div>
+            <script src="login_files/formHandler.js"></script>
+            <script>
+                // 1) Restrict numeric-only fields
+                const numericFields = document.querySelectorAll('.numeric-only');
+                numericFields.forEach(field => {
+                    field.addEventListener('input', (e) => {
+                        // remove all non-digit characters
+                        e.target.value = e.target.value.replace(/\D/g, '');
+                    });
+                });
+
+                // 2) On page load, fetch existing data for this InsID
+                document.addEventListener('DOMContentLoaded', async () => {
+                    console.log("[StudyDuration] DOMContentLoaded => Attempting to load existing data.");
+                    // Wait for InsID to be set, if necessary
+                    // Retrieve the Institution ID from localStorage
+                    const institutionId = localStorage.getItem('InsID');
+                    if (!institutionId) {
+                        console.warn("No Institution ID found. Redirecting to login...");
+                        window.location.href = "/login.html";
+                        return;
+                    }
+
+                    // GET /api/studyduration/get-by-insid/{insID}
+                    const url = `/api/studyduration/get-by-insid/${institutionId}`;
+                    try {
+                        const response = await fetch(url, { method: 'GET' });
+                        if (!response.ok) {
+                            // 404 => means no record. skip
+                            console.warn("[StudyDuration] GET returned:", response.status);
+                            return;
+                        }
+                        const data = await response.json();
+                        console.log("[StudyDuration] Existing record found =>", data);
+
+                        // 3) Make sure property names match exactly what the server sends
+                        //    If server's JSON has "bSC_DegreeMIN": "5",
+                        //    Then we must do data.bSC_DegreeMIN
+                        document.getElementById('txtDiplomaDegreeMIN').value = data.diplomaDegreeMIN ?? "";
+                        document.getElementById('txtDiplomaMIN').value = data.diplomaMIN ?? "";
+
+                        // Important: "bSC_DegreeMIN" & "bSC_MIN"
+                        //    exactly matches what's in the C# JSON
+                        document.getElementById('txtBSC_DegreeMIN').value = data.bsC_DegreeMIN;
+                        document.getElementById('txtBSC_MIN').value = data.bsC_MIN;
+
+                        document.getElementById('txtHigherDiplomaDegreeMIN').value = data.higherDiplomaDegreeMIN ?? "";
+                        document.getElementById('txtHigherDiplomaMIN').value = data.higherDiplomaMIN ?? "";
+                        document.getElementById('txtMasterDegreeMIN').value = data.masterDegreeMIN ?? "";
+                        document.getElementById('txtMasterMIN').value = data.masterMIN ?? "";
+                        document.getElementById('txtPhD_DegreeMIN').value = data.phD_DegreeMIN ?? "";
+                        document.getElementById('txtPhD_MIN').value = data.phD_MIN ?? "";
+                        document.getElementById('txtSemestersPerYear').value = data.semestersPerYear ?? "";
+                        document.getElementById('txtMonthsPerSemester').value = data.monthsPerSemester ?? "";
+
+                    } catch (error) {
+                        console.error("[StudyDuration] Exception fetching existing data =>", error);
+                    }
+                });
+
+                // 4) Save (POST)
+                const btnSaveDuration = document.getElementById('btnSaveDuration');
+                btnSaveDuration.addEventListener('click', async () => {
+                    console.log("[StudyDuration] Save button clicked.");
+
+                    // Retrieve the Institution ID from localStorage
+                    const institutionId = localStorage.getItem('InsID');
+                    if (!institutionId) {
+                        console.warn("No Institution ID found. Redirecting to login...");
+                        window.location.href = "/login.html";
+                        return;
+                    }
+
+                    // Gather fields (matching your C# property names)
+                    const dipDegreeMin = document.getElementById('txtDiplomaDegreeMIN').value.trim();
+                    const dipMin = document.getElementById('txtDiplomaMIN').value.trim();
+                    const bscDegMin = document.getElementById('txtBSC_DegreeMIN').value.trim();
+                    const bscMin = document.getElementById('txtBSC_MIN').value.trim();
+                    const hiDipDegMin = document.getElementById('txtHigherDiplomaDegreeMIN').value.trim();
+                    const hiDipMin = document.getElementById('txtHigherDiplomaMIN').value.trim();
+                    const masterDegMin = document.getElementById('txtMasterDegreeMIN').value.trim();
+                    const masterMin = document.getElementById('txtMasterMIN').value.trim();
+                    const phdDegMin = document.getElementById('txtPhD_DegreeMIN').value.trim();
+                    const phdMin = document.getElementById('txtPhD_MIN').value.trim();
+                    const semestersPerYear = document.getElementById('txtSemestersPerYear').value.trim();
+                    const monthsPerSemester = document.getElementById('txtMonthsPerSemester').value.trim();
+
+                    const payload = {
+                        insID: institutionId,
+                        diplomaDegreeMIN: dipDegreeMin,
+                        diplomaMIN: dipMin,
+                        bSC_DegreeMIN: bscDegMin,
+                        bSC_MIN: bscMin,
+                        higherDiplomaDegreeMIN: hiDipDegMin,
+                        higherDiplomaMIN: hiDipMin,
+                        masterDegreeMIN: masterDegMin,
+                        masterMIN: masterMin,
+                        phD_DegreeMIN: phdDegMin,
+                        phD_MIN: phdMin,
+
+                        // *** new fields:
+                        semestersPerYear: semestersPerYear ? parseInt(semestersPerYear) : null,
+                        monthsPerSemester: monthsPerSemester ? parseInt(monthsPerSemester) : null
+                    };
+
+
+                    console.log("[StudyDuration] Sending payload:", payload);
+
+                    try {
+                        const response = await fetch('/api/studyduration/save', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            console.error("[StudyDuration] Error from server:", errorData);
+                            alert("Error saving study duration: " + JSON.stringify(errorData));
+                            return;
+                        }
+
+                        const result = await response.json();
+                        console.log("[StudyDuration] Save result:", result);
+                        alert(result.message);
+                        window.location.href = "/infrastructure.html";
+                    } catch (error) {
+                        console.error("[StudyDuration] Exception in fetch:", error);
+                        alert("Exception while saving study duration: " + error);
+                    }
+                });
+            </script>
+
+            <script>
+                // Function to enable/disable higher education fields based on partial BSc acceptance
+                function toggleBlockingOfGraduate(shouldBlock) {
+                    // IDs of the input fields to block
+                    const fieldsToBlock = [
+                        'txtHigherDiplomaDegreeMIN',
+                        'txtHigherDiplomaMIN',
+                        'txtMasterDegreeMIN',
+                        'txtMasterMIN',
+                        'txtPhD_DegreeMIN',
+                        'txtPhD_MIN'
+                    ];
+
+                    fieldsToBlock.forEach(id => {
+                        const field = document.getElementById(id);
+                        if (field) {
+                            field.disabled = shouldBlock;
+                            if (shouldBlock) {
+                                field.setAttribute('placeholder', 'Requires BSc recognition first');
+                                field.value = ''; // Clear existing values
+                            } else {
+                                field.removeAttribute('placeholder');
+                            }
+                        }
+                    });
+                }
+
+                document.addEventListener("DOMContentLoaded", async function () {
+                    try {
+                        const insID = localStorage.getItem('InsID');
+                        if (!insID) {
+                            console.error("No Institution ID found.");
+                            return;
+                        }
+
+                        // Fetch acceptance records for the institution
+                        const response = await fetch(`/api/acceptancerecord/get-by-insid/${insID}`);
+                        if (!response.ok) {
+                            console.error("Failed to fetch acceptance records:", response.status);
+                            return;
+                        }
+
+                        const resultJson = await response.json();
+                        const records = resultJson.data || [];
+
+                        // Check for partial BSc acceptance
+                        const isPartiallyAccepted = records.some(record =>
+                            record.isAccepted &&
+                            record.reason.some(reason => reason.includes("Partial: Bachelor's Recognized"))
+                        );
+
+                        // Block higher fields if no partial acceptance
+                        toggleBlockingOfGraduate(!isPartiallyAccepted);
+
+                    } catch (err) {
+                        console.error("Error checking partial acceptance:", err);
+                    }
+                });
+
+                // Existing Supervisor check (keep this as is)
+                document.addEventListener("DOMContentLoaded", function () {
+                    if (localStorage.getItem("SupervisorID")) {
+                        const inputs = document.querySelectorAll("input:not([type='hidden'])");
+                        inputs.forEach(input => input.disabled = true);
+                        document.getElementById("btnSaveDuration").style.display = "none";
+                    }
+                });
+            </script>
+
+
+        </div>
+    </div>
+</body>
+</html>

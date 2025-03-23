@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>supervisorlogin - RNJI</title>
+    <link href="supervisorlogin_files/bootstrap.css" rel="stylesheet">
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="supervisorlogin_files/Site.css" rel="stylesheet">
+    <link href="supervisorlogin_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="supervisorlogin_files/all.css" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal, sans-serif !important;
+            /*https://rnji.mohe.gov.jo/images/back.jpg*/
+            background-image: url('https://rnji.mohe.gov.jo/Images/favicon.ico') !important;
+            background-size: 800px auto !important; /* Adjust the size for better appearance */
+            background-position: center center !important; /* Center the favicon */
+            background-repeat: no-repeat !important;
+            background-color: #f8f9fa;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /*            backdrop-filter: blur(5px);*/
+        }
+
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            display: block;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 100px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .verylong {
+            width: 822px !important;
+        }
+
+        .long {
+            width: 650px !important;
+        }
+
+        .Meduim {
+            width: 400px !important;
+        }
+
+        .Small {
+            width: 280px !important;
+        }
+
+        .VerySmall {
+            width: 50px !important;
+        }
+
+/*        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 30%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }*/
+
+        .input-group {
+            margin: 0 15px;
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .input-group-text {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #555;
+            padding-right: 10px;
+        }
+
+        .input-group .form-control {
+            border: none;
+            outline: none;
+            box-shadow: none;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #555;
+            padding-left: 10px;
+        }
+
+        .form-container {
+            
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            padding: 2rem;
+            background-color: #fff;
+        }
+
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .limited {
+            width: 300px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .auto {
+            width: auto !important;
+        }
+
+        .ddl_H,
+        [disabled] {
+            height: 45px !important;
+        }
+
+        .cusom_GRID_AR {
+            margin-left: 20px !important;
+        }
+
+        .HeadOfTableLong {
+            font-weight: 400;
+            background-color: #ddfdf0;
+            width: auto !important;
+        }
+
+        .MultiLine {
+            height: 200px !important;
+        }
+
+        .Custome_td {
+            width: 700px !important;
+            font-weight: 700;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            min-width: 100px !important;
+            text-align: center !important;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .SucIframe {
+            width: 300px;
+            height: 80px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #c56b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+            .back-home-btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <a href="homepage.html" class="back-home-btn">Go Back to Homepage</a>
+    <div class="container mt-5">
+        <!--<h2 class="text-center mb-3" style="font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: bold;">Supervisor Login</h2>
+        <p class="text-center text-muted mb-4" style="font-size: 1.5rem;">Welcome! Please enter your credentials to access your account.</p>-->
+        <!-- Our login form -->
+        <!--<form id="supLoginForm">
+        <div class="mb-3">
+            <label for="supEmail">Email:</label>
+            <input type="email" id="supEmail" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="supPassword">Password:</label>-->
+        <!-- NOTE: changed id to match usage below -->
+        <!--<input type="password" id="supPassword" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="verificationCode">Verification Code:</label>
+                <input type="text" id="verificationCode" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Login</button>
+        </form>-->
+
+        <div class="form-container bg-white p-5 shadow rounded-xl mx-auto" style="max-width: 420px; width: 90%; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);">
+            <h2 class="text-center mb-3" style="font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: bold;">Recognition Committee Member & Admin Login</h2>
+            <p class="text-center text-muted mb-4" style="font-size: 1.5rem;">Welcome to the Recognition Committee Member / Admin Portal! Sign in to manage recognition applications and review university submissions.</p>
+            <form id="supLoginForm">
+                <!-- Email Field -->
+                <div class="input-group mb-3" style="margin: 0 15px;">
+                    <span class="input-group-text">
+                        <img src="Icons/Email.png" alt="Email Icon" class="form-icon" />
+                    </span>
+                    <input type="email" id="supEmail" class="form-control rounded-lg" placeholder="Enter your Email" required>
+                </div>
+                <!-- Password Field -->
+                <div class="input-group mb-3" style="margin: 0 15px;">
+                    <span class="input-group-text">
+                        <img src="Icons/Password.png" alt="Password Icon" class="form-icon" />
+                    </span>
+                    <input type="password" id="supPassword" class="form-control rounded-lg" placeholder="Enter your Password" required>
+                </div>
+                <!-- Verification Code Field -->
+                <div class="input-group mb-3" style="margin: 0 15px;">
+                    <span class="input-group-text">
+                        <img src="Icons/Verification.png" alt="Verification Icon" class="form-icon" />
+                    </span>
+                    <input type="text" id="verificationCode" class="form-control" placeholder="Verification Code" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100" style="border-radius: 50px; font-size: 1.4rem; padding: 0.9rem; margin-top: 20px;">Sign In</button>
+            </form>
+            <!--<p class="text-center text-muted mt-4" style="font-size: 1.3rem; line-height: 1.5;">
+                For authorized Ministry of Higher Education personnel only. Contact <a href="mailto:support@ministry.edu" style="color: #007bff;">IT support</a> for login issues.
+            </p>-->
+        </div>
+
+
+        <!-- Display any success/failure messages -->
+        <div id="supLoginResult" style="margin-top:20px; color:green;"></div>
+    </div>
+
+    <script>
+        document.getElementById('supLoginForm').addEventListener('submit', async function (evt) {
+            evt.preventDefault();
+
+            // Gather user input
+            const email = document.getElementById('supEmail').value.trim();
+            const password = document.getElementById('supPassword').value.trim();
+            const verificationCode = document.getElementById('verificationCode').value.trim();
+
+            // Build the request body
+            const loginReq = {
+                email: email,
+                password: password,
+                verificationCode: verificationCode
+            };
+
+            try {
+                // POST to your server. Let the server decide if it’s admin or not.
+                const response = await fetch('/api/supervisor/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(loginReq)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    // Possibly 401 Unauthorized, or custom error
+                    let msg = result.message || `Error ${response.status}`;
+                    alert("Login error: " + msg);
+                    return;
+                }
+
+                // If login is successful, server might return { success: true, isAdmin: true/false, ... }
+                console.log("Login success. Server response:", result);
+
+                // Display a success message
+                document.getElementById('supLoginResult').innerText = "Success: " + result.message;
+
+                // If server says it’s an admin user
+                if (result.isAdmin === true) {
+                    localStorage.setItem("isAdmin", "true");
+                    // e.g. also store name or ID if needed
+                    // localStorage.setItem("SupervisorName", result.name || "Admin");
+                    // Then redirect to admin page
+                    window.location.href = "/adminmain.html";
+                    return;
+                }
+
+                // Otherwise, normal supervisor
+                // Right after successful login
+                localStorage.setItem("SupervisorID", result.supervisorID);
+                localStorage.setItem("SupervisorName", result.name);
+                localStorage.setItem("SupervisorSpeciality", result.speciality || '');
+                localStorage.setItem("lastLoginTime", Date.now().toString());
+                // now redirect...
+
+                // Redirect to supervisor menu, or wherever
+                window.location.href = "/supervisormenu.html";
+
+            } catch (err) {
+                console.error("Login error:", err);
+                alert("Network or server error: " + err.message);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <style>
+        /* 1) The main container that acts as your A4 page */
+        .a4-page {
+            width: 210mm; /* A4 width in mm */
+            height: 297mm; /* A4 height in mm */
+            position: relative; /* Needed for absolutely positioned children */
+            margin: 0 auto; /* Centers on page horizontally */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('ministrytemplate.jpg'); /* Your official letter background */
+        }
+
+        /* 2) A general class for text placeholders */
+        .placeholder {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            line-height: 1.5em;
+        }
+
+        /* 3) Example layout adjustments */
+        .logo {
+            top: 30px; /* Move as needed to match your background logo */
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .recordid {
+            top: 210px;
+            right: 80px;
+            text-align: left;
+        }
+
+        .dateh {
+            top: 233px;
+            right: 80px;
+            text-align: left;
+        }
+
+        .date {
+            top: 258px;
+            right: 80px;
+            text-align: left;
+        }
+
+
+
+        .his_excellency {
+            top: 280px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .greetings {
+            top: 355px;
+            left: 50px;
+            width: 700px;
+        }
+
+        /* For demonstration, the main text is placed further down: */
+        .mainRejected {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .mainRecognized {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .closing {
+            bottom: 348px;
+            left: 50px;
+            width: 700px;
+        }
+
+        .close {
+            top: 780px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .jobtitle {
+            bottom: 250px;
+            left: 50px;
+            width: 550px;
+        }
+
+        .signature {
+            bottom: 170px;
+            left: 50px;
+            width: 700px;
+            height: 50px; /* A space for a signature image if needed */
+        }
+
+        .ministerHA {
+            bottom: 110px;
+            left: 50px;
+            width: 700px;
+        }
+        /* Override for right/left positioning using absolute rules */
+        .recordid,
+        .date, .close {
+            position: absolute;
+        }
+        @media print {
+            /* Force printing of background images */
+            -webkit-print-color-adjust: exact !important;
+            /* Remove margins if possible */
+            @page {
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- 1) Possibly a logo at center top (if your background doesn’t already have it) -->
+        <!-- 2) Letter reference info -->
+        <div class="placeholder recordid">
+            Reference No.: {recordid}
+        </div>
+        <div class="placeholder dateh">
+            Date: {dateh}
+        </div>
+        <div class="placeholder date">
+            Date: {date}
+        </div>
+
+        <!-- 3) Salutation block -->
+        <div class="placeholder his_excellency">
+            <strong>
+                His Excellency the Deputy Prime Minister
+                and Minister of Foreign Affairs and Expatriates,
+            </strong>
+        </div>
+
+        <div class="placeholder greetings">
+            Greetings,
+        </div>
+
+        <!-- 4) Main text for Rejection -->
+        <div class="placeholder mainRejected" style="text-indent: 2em;">
+            <p>
+                We kindly inform your Excellency that the Committee for the Recognition
+                of Non-Jordanian Higher Education Institutions has decided in its session
+                No. {meetingnumber} dated {MeetingCreationDate}
+                <strong>not</strong> to
+                recognize the educational institution
+                <strong>{insname}</strong> in
+                <strong>{inscountry}</strong> for the
+                <strong>{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}</strong>
+                and for all academic specializations based on the <strong>{traditional/non-conventional (Online)}</strong> education system..
+            </p>
+            <p>
+                This decision was made due to the institution’s failure to meet the basic
+                criteria and standards of recognition for non-Jordanian higher education
+                institutions as follows:
+                <ul>
+                    <li>{Reason #1}</li>
+                    <li>{Reason #2}</li>
+
+                </ul>
+            </p>
+        </div>
+
+        <!-- 5) Main text for Recognition -->
+        <div class="placeholder mainRecognized" style="text-indent: 2em;">
+            <p>
+                We kindly inform your Excellency that the Committee for the Recognition of
+                Non-Jordanian Higher Education Institutions has decided in its session
+                No. {meetingnumber} dated {MeetingCreationDate} to
+                <strong>recognize</strong>
+                the educational institution
+                <strong>{insname}</strong> in
+                <strong>{inscountry}</strong> for the
+                <strong>{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}</strong>
+                and for all academic specializations based on the <strong>{traditional/non-conventional (Online)}</strong> education system.
+            </p>
+        </div>
+
+        <!-- 6) Closing paragraph -->
+        <div class="placeholder closing" style="text-indent: 2em;">
+            We kindly request your Excellency to take the necessary measures to inform
+            the educational institution accordingly.
+            <br>
+        </div>
+        <div class="close">
+            <strong> With the utmost respect and appreciation.</strong>
+        </div>
+
+        <!-- 7) Signature and Job Title -->
+        <div class="placeholder jobtitle">
+            <strong>Minister of Higher Education and Scientific Research</strong>
+        </div>
+
+        <div class="placeholder signature">
+            <!-- Space for a handwritten signature if needed -->
+        </div>
+
+        <div class="placeholder ministerHA">
+            <strong>Click here and enter your name.</strong>
+        </div>
+    </div>
+    <!-- JavaScript to fill in the Hijri (dateh) and Gregorian (date) dates -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //alert the user to go to more print settings/advanced print settings when printing, disable headers and footers, set margins to none, set paper size to A4
+            alert("In order to print, press ctrl + P. When printing, please go to more print settings/advanced print settings, ENABLE BACKGROUND IMAGE!!, disable headers and footers, set margins to none, set paper size to A4. Press ok to continue");
+
+            // 1) Get today’s date in JavaScript
+            const today = new Date();
+
+            // 2) Format the Gregorian date (e.g., February 06, 2025)
+            const gregorianOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const gregorianDate = today.toLocaleDateString('en-GB', gregorianOptions);
+            // Insert it into the element with class "date"
+            document.querySelector('.date').textContent = 'Date: ' + gregorianDate;
+
+            // 3) Format the Hijri date (using “ar-SA-u-ca-islamic” locale/calendar)
+            const hijriOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            // Some browsers may require the language to be "ar-SA" or similar
+            const hijriDate = today.toLocaleDateString('ar-SA-u-ca-islamic', hijriOptions);
+            // Insert it into the element with class "dateh"
+            document.querySelector('.dateh').textContent = 'Date (Hijri): ' + hijriDate;
+
+            (async function loadLetterData() {
+                // The code that needs `await` goes here:
+                const urlParams = new URLSearchParams(window.location.search);
+                const reportInsID = urlParams.get('insId');
+                const reportMeetingNumber = urlParams.get('meetingNumber');
+                const decision = urlParams.get('decision'); // This parameter will now determine which div to show.
+
+
+                const url = `/api/ministry/GenerateMinistryLetter?insId=${reportInsID}&meetingNumber=${reportMeetingNumber}`;
+                let letterData;
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        console.error("Error fetching letter data", response.statusText);
+                        return;
+                    }
+                    letterData = await response.json();
+                } catch (err) {
+                    console.error("Fetch error", err);
+                    return;
+                }
+
+
+                // 2) Fill placeholders
+                // Example: <div class="placeholder recordid">Reference No.: {recordid}</div>
+                const recordidDiv = document.querySelector(".recordid");
+                if (recordidDiv) {
+                    recordidDiv.textContent = "Reference No.: " + letterData.recordid;
+                }
+
+                const dateElem = document.querySelector(".date");
+                if (dateElem) {
+                    // We already set the Gregorian date in your existing on-page code
+                    // or we could do: dateElem.textContent = "Date: " + letterData.someDateFromDB
+                }
+
+                // Replace placeholders in each paragraph of .mainRejected
+                const rejectedParagraphs = document.querySelectorAll(".mainRejected p");
+                rejectedParagraphs.forEach((p) => {
+                    p.innerHTML = p.innerHTML
+                        .replace("{meetingnumber}", letterData.meetingnumber)
+                        .replace("{MeetingCreationDate}", letterData.meetingCreationDate)
+                        .replace("{insname}", letterData.insname)
+                        .replace("{inscountry}", letterData.inscountry)
+                        .replace(
+                            "{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}",
+                            letterData.recognizedDegreePhrase
+                        )
+
+                        .replace("{traditional/non-conventional (Online)}", letterData.systemPhrase);
+                });
+
+                // Do the same for .mainRecognized paragraphs
+                const recognizedParagraphs = document.querySelectorAll(".mainRecognized p");
+                recognizedParagraphs.forEach((p) => {
+                    p.innerHTML = p.innerHTML
+                        .replace("{meetingnumber}", letterData.meetingnumber)
+                        .replace("{MeetingCreationDate}", letterData.meetingCreationDate)
+                        .replace("{insname}", letterData.insname)
+                        .replace("{inscountry}", letterData.inscountry)
+                        .replace(
+                            "{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}",
+                            letterData.recognizedDegreePhrase
+                        )
+
+                        .replace("{traditional/non-conventional (Online)}", letterData.systemPhrase);
+                });
+
+                // 3) Insert the bullet points for rejection reasons (if any)
+                // In your HTML, you have:
+                // <ul>
+                //   <li>{Reason #1}</li>
+                //   <li>{Reason #2}</li>
+                // </ul>
+                // Instead, you can just fill the innerHTML:
+                const rejectionBullets = document.querySelector(".mainRejected ul");
+                if (rejectionBullets && letterData.bulletPoints) {
+                    rejectionBullets.innerHTML = letterData.bulletPoints;
+                }
+
+                const recognizedDiv = document.querySelector(".mainRecognized");
+                const rejectedDiv = document.querySelector(".mainRejected");
+
+                if (recognizedDiv && rejectedDiv) {
+                    if (decision === "recognize") {
+                        recognizedDiv.style.display = "block";
+                        rejectedDiv.style.display = "none";
+                    } else if (decision === "reject") {
+                        recognizedDiv.style.display = "none";
+                        rejectedDiv.style.display = "block";
+                    } else {
+                        // Optionally, hide both if no valid decision is provided
+                        recognizedDiv.style.display = "none";
+                        rejectedDiv.style.display = "none";
+                    }
+                }
+                // 5) Let the Minister manually edit the name
+                const ministerNameElem = document.querySelector(".ministerHA strong");
+                if (ministerNameElem) {
+                    ministerNameElem.addEventListener("click", function () {
+                        const newName = prompt("Enter your name, Minister:");
+                        if (newName) {
+                            ministerNameElem.textContent = newName;
+                        }
+                    });
+                }
+            })();
+        });
+    </script>
+</body>
+</html>

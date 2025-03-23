@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>رسالة الوزارة - RNJI</title>
+    <style>
+        /* 1) الحاوية الرئيسية التي تعمل كصفحة A4 */
+        .a4-page {
+            width: 210mm; /* عرض A4 بالمليمترات */
+            height: 297mm; /* ارتفاع A4 بالمليمترات */
+            position: relative; /* ضروري للعناصر المطلقة الموضع */
+            margin: 0 auto; /* توسيط الصفحة أفقيًا */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('ministrytemplate.jpg'); /* الخلفية الرسمية للخطاب */
+            direction: rtl; /* إجبار الاتجاه من اليمين إلى اليسار */
+        }
+
+        /* 2) صنف عام لعناصر النص */
+        .placeholder {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            line-height: 1.5em;
+        }
+
+        /* 3) تعديلات تخطيطية نموذجية */
+        .logo {
+            top: 30px; /* اضبط حسب الحاجة لتتناسب مع شعار الخلفية */
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        .recordid {
+            top: 210px;
+            right: 80px;
+            text-align: right;
+        }
+
+        .dateh {
+            top: 233px;
+            right: 80px;
+            text-align: right;
+        }
+
+        .date {
+            top: 258px;
+            right: 80px;
+            text-align: right;
+        }
+
+        .his_excellency {
+            top: 280px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .greetings {
+            top: 355px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        /* النص الرئيسي موضوع أسفل الصفحة */
+        .mainRejected {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        .mainRecognized {
+            top: 380px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        .closing {
+            bottom: 348px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        .close {
+            top: 780px;
+            left: 50px;
+            width: 700px;
+            text-align: center;
+        }
+
+        .jobtitle {
+            bottom: 250px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        .signature {
+            bottom: 170px;
+            left: 50px;
+            width: 700px;
+            height: 50px; /* مساحة للتوقيع */
+        }
+
+        .ministerHA {
+            bottom: 110px;
+            left: 50px;
+            width: 700px;
+            text-align: right;
+        }
+
+        /* ضمان بقاء بعض العناصر في أماكنها المطلقة */
+        .recordid,
+        .date, .close {
+            position: absolute;
+        }
+
+        @media print {
+            /* إجبار طباعة الخلفيات */
+            -webkit-print-color-adjust: exact !important;
+            @page {
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <!-- 1) ربما شعار في الأعلى (إذا لم يكن موجودًا ضمن الخلفية) -->
+        <!-- 2) معلومات الرقم المرجعي -->
+        <div class="placeholder recordid">
+            الرقم المرجعي: {recordid}
+        </div>
+        <div class="placeholder dateh">
+            التاريخ (هجري): {dateh}
+        </div>
+        <div class="placeholder date">
+            التاريخ (ميلادي): {date}
+        </div>
+
+        <!-- 3) كتلة التحية -->
+        <div class="placeholder his_excellency">
+            <strong>
+                معالي نائب رئيس الوزراء ووزير الشؤون الخارجية والمغتربين،
+            </strong>
+        </div>
+
+        <div class="placeholder greetings">
+            تحياتنا،
+        </div>
+
+        <!-- 4) النص الرئيسي للرفض -->
+        <div class="placeholder mainRejected" style="text-indent: 2em;">
+            <p>
+                نود إحاطة معاليكم علمًا بأن لجنة اعتماد مؤسسات التعليم العالي غير الأردنية قد قررت في جلستها رقم {meetingnumber} بتاريخ {MeetingCreationDate} <strong>عدم</strong> اعتماد المؤسسة التعليمية <strong>{insname}</strong> في <strong>{inscountry}</strong> لدرجة <strong>{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}</strong>، ولكافة التخصصات الأكاديمية المعتمدة على نظام التعليم <strong>{traditional/non-conventional (Online)}</strong>.
+            </p>
+            <p>
+                وقد تم اتخاذ هذا القرار بسبب عدم استيفاء المؤسسة للمعايير والمقاييس الأساسية للاعتماد لمؤسسات التعليم العالي غير الأردنية، وذلك على النحو التالي:
+                <ul>
+                    <li>{Reason #1}</li>
+                    <li>{Reason #2}</li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- 5) النص الرئيسي للاعتراف -->
+        <div class="placeholder mainRecognized" style="text-indent: 2em;">
+            <p>
+                نود إحاطة معاليكم علمًا بأن لجنة اعتماد مؤسسات التعليم العالي غير الأردنية قد قررت في جلستها رقم {meetingnumber} بتاريخ {MeetingCreationDate} اعتماد المؤسسة التعليمية <strong>{insname}</strong> في <strong>{inscountry}</strong> لدرجة <strong>{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}</strong>، ولكافة التخصصات الأكاديمية المعتمدة على نظام التعليم <strong>{traditional/non-conventional (Online)}</strong>.
+            </p>
+        </div>
+
+        <!-- 6) الفقرة الختامية -->
+        <div class="placeholder closing" style="text-indent: 2em;">
+            نرجو من معاليكم اتخاذ الإجراءات اللازمة لإبلاغ المؤسسة التعليمية بذلك.
+            <br>
+        </div>
+        <div class="close">
+            <strong>مع أسمى درجات الاحترام والتقدير.</strong>
+        </div>
+
+        <!-- 7) التوقيع والمسمى الوظيفي -->
+        <div class="placeholder jobtitle">
+            <strong>وزير التعليم العالي والبحث العلمي</strong>
+        </div>
+
+        <div class="placeholder signature">
+            <!-- مساحة للتوقيع اليدوي إن وُجدت -->
+        </div>
+
+        <div class="placeholder ministerHA">
+            <strong>اضغط هنا وأدخل اسمك.</strong>
+        </div>
+    </div>
+    <!-- جافاسكريبت لملء التاريخ الميلادي والهجري -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            alert("لطباعة الرسالة، اضغط على ctrl + P. عند الطباعة، يرجى الانتقال إلى الإعدادات المتقدمة، وتمكين طباعة الخلفية، وإلغاء تفعيل الرؤوس والتذييلات، وضبط الهوامش على عدم وجودها، وتحديد حجم الورق على A4. اضغط موافق للمتابعة.");
+
+            // الحصول على تاريخ اليوم
+            const today = new Date();
+
+            // تنسيق التاريخ الميلادي (مثلاً: 6 فبراير 2025)
+            const gregorianOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const gregorianDate = today.toLocaleDateString('ar-EG', gregorianOptions);
+            document.querySelector('.date').textContent = 'التاريخ (ميلادي): ' + gregorianDate;
+
+            // تنسيق التاريخ الهجري باستخدام تقويم إسلامي
+            const hijriOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const hijriDate = today.toLocaleDateString('ar-SA-u-ca-islamic', hijriOptions);
+            document.querySelector('.dateh').textContent = 'التاريخ (هجري): ' + hijriDate;
+
+            (async function loadLetterData() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const reportInsID = urlParams.get('insId');
+                const reportMeetingNumber = urlParams.get('meetingNumber');
+                const decision = urlParams.get('decision'); // This parameter will now determine which div to show.
+
+                const url = `/api/ministry/GenerateMinistryLetterArabic?insId=${reportInsID}&meetingNumber=${encodeURIComponent(reportMeetingNumber)}`;
+                let letterData;
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        console.error("Error fetching letter data", response.statusText);
+                        return;
+                    }
+                    letterData = await response.json();
+                } catch (err) {
+                    console.error("Fetch error", err);
+                    return;
+                }
+
+                // تحديث الرقم المرجعي
+                const recordidDiv = document.querySelector(".recordid");
+                if (recordidDiv) {
+                    recordidDiv.textContent = "الرقم المرجعي: " + letterData.recordid;
+                }
+
+                // تحديث فقرات الرفض
+                const rejectedParagraphs = document.querySelectorAll(".mainRejected p");
+                rejectedParagraphs.forEach((p) => {
+                    p.innerHTML = p.innerHTML
+                        .replace("{meetingnumber}", letterData.meetingnumber)
+                        .replace("{MeetingCreationDate}", letterData.meetingCreationDate)
+                        .replace("{insname}", letterData.insname)
+                        .replace("{inscountry}", letterData.inscountry)
+                        .replace(
+                            "{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}",
+                            letterData.recognizedDegreePhrase
+                        )
+                        .replace("{traditional/non-conventional (Online)}", letterData.systemPhrase);
+                });
+
+                // تحديث فقرات الاعتراف
+                const recognizedParagraphs = document.querySelectorAll(".mainRecognized p");
+                recognizedParagraphs.forEach((p) => {
+                    p.innerHTML = p.innerHTML
+                        .replace("{meetingnumber}", letterData.meetingnumber)
+                        .replace("{MeetingCreationDate}", letterData.MeetingCreationDate)
+                        .replace("{insname}", letterData.insname)
+                        .replace("{inscountry}", letterData.inscountry)
+                        .replace(
+                            "{intermediate diploma degree only/bachelor's degree only/intermediate diploma and bachelor's degrees/higher graduate studies degree}",
+                            letterData.recognizedDegreePhrase
+                        )
+                        .replace("{traditional/non-conventional (Online)}", letterData.systemPhrase);
+                });
+
+                // تحديث نقاط التعداد (إن وجدت)
+                const rejectionBullets = document.querySelector(".mainRejected ul");
+                if (rejectionBullets && letterData.bulletPoints) {
+                    rejectionBullets.innerHTML = letterData.bulletPoints;
+                }
+
+                const recognizedDiv = document.querySelector(".mainRecognized");
+                const rejectedDiv = document.querySelector(".mainRejected");
+
+                if (recognizedDiv && rejectedDiv) {
+                    if (decision === "recognize") {
+                        recognizedDiv.style.display = "block";
+                        rejectedDiv.style.display = "none";
+                    } else if (decision === "reject") {
+                        recognizedDiv.style.display = "none";
+                        rejectedDiv.style.display = "block";
+                    } else {
+                        // Optionally, hide both if no valid decision is provided
+                        recognizedDiv.style.display = "none";
+                        rejectedDiv.style.display = "none";
+                    }
+                }
+                // السماح للوزير بتعديل اسمه يدويًا
+                const ministerNameElem = document.querySelector(".ministerHA strong");
+                if (ministerNameElem) {
+                    ministerNameElem.addEventListener("click", function () {
+                        const newName = prompt("أدخل اسمك، معالي الوزير:");
+                        if (newName) {
+                            ministerNameElem.textContent = newName;
+                        }
+                    });
+                }
+            })();
+        });
+    </script>
+</body>
+</html>

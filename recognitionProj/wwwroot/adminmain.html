@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Panel - RNJI</title>
+    <link href="adminmain_files/bootstrap.css" rel="stylesheet">
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="adminmain_files/Site.css" rel="stylesheet">
+    <link href="adminmain_files/bootstrap.css" rel="stylesheet">
+    <style>
+        /* General Body Styles (matching the RNJI homepage) */
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal, sans-serif !important;
+            background-image: url('https://rnji.mohe.gov.jo/Images/favicon.ico') !important;
+            background-size: 800px auto !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-color: #f8f9fa;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Menu Container */
+        .menu-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 650px;
+            max-width: 90%;
+            border: 2px solid rgba(102, 102, 102, 0.3);
+        }
+
+        /* Menu Title */
+        .menu-title {
+            font-size: 32px;
+            text-align: center;
+            font-weight: 700;
+            color: #002a5c;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
+        .menu-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 12px 20px;
+            margin: 10px 0;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            color: #001C40;
+            background: #D4E6F1;
+            border: 2px solid #8A9BAF;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+            .menu-button:hover {
+                background: #C6DCE7;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .menu-button::before {
+                content: "📌 ";
+                font-size: 20px;
+            }
+
+        /* Logout Button (styled similarly to the menu buttons) */
+        .back-home-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #D4E6F1;
+            color: #001C40;
+            padding: 10px 20px;
+            border: 2px solid #8A9BAF;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .back-home-btn:hover {
+                background: #C6DCE7;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .menu-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="supervisorlogin.html" class="back-home-btn">Logout</a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if "isAdmin" is in localStorage
+            const isAdmin = localStorage.getItem("isAdmin");
+            if (!isAdmin || isAdmin !== "true") {
+                // Not admin => redirect to login
+                console.warn("Not logged in as admin. Redirecting to supervisor login...");
+                window.location.href = "/supervisorlogin.html";
+            }
+        });
+    </script>
+    <div class="menu-container">
+        <h2 class="menu-title">Welcome, Super Admin</h2>
+
+        <a href="meetinginfo.html" class="menu-button">
+            Manage and View Meetings
+        </a>
+
+        <a href="adminaddsupervisor.html" class="menu-button">
+            Manage Recognition Committee Members
+        </a>
+
+        <a href="adminmasterdata.html" class="menu-button">
+            Committee Recomendations (Master Data)
+        </a>
+    </div>
+</body>
+</html>

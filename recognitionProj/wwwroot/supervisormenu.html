@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Supervisor Portal</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Example CSS includes -->
+    <link rel="stylesheet" href="supervisormenu_files/bootstrap.css">
+    <link rel="stylesheet" href="supervisormenu_files/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="supervisormenu_files/Site.css">
+    <link rel="stylesheet" href="supervisormenu_files/simple-sidebar.css">
+    <script src="login_files/auth.js"></script>
+    <style>
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal, Arial, sans-serif !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .list-group-item {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+        /* Make navbar links stretch to the right */
+        .navbar .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .container-fluid {
+            margin-left: 40px;
+        }
+
+        /* Supervisor Portal Guidelines Styling */
+        .supervisor-guidelines {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .supervisor-guidelines h2 {
+                color: #004085;
+                font-size: 22px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .supervisor-guidelines h3 {
+                color: #0056b3;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 20px;
+                border-bottom: 2px solid #0056b3;
+                padding-bottom: 5px;
+            }
+
+            .supervisor-guidelines p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #333;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .supervisor-guidelines ul {
+                list-style: none;
+                padding-left: 0;
+                line-height: 1.6;
+            }
+
+                .supervisor-guidelines ul li {
+                    background: url('check-icon.png') no-repeat left center;
+                    background-size: 22px;
+                    padding-left: 35px;
+                    margin-bottom: 8px;
+                    font-size: 16px;
+                    color: #222;
+                }
+
+            .supervisor-guidelines a {
+                color: #007bff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .supervisor-guidelines a:hover {
+                    text-decoration: underline;
+                }
+
+            .supervisor-guidelines button {
+                display: block;
+                margin-top: 10px;
+                padding: 10px 15px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .supervisor-guidelines button:hover {
+                    background-color: #0056b3;
+                }
+
+        /* Styling for Intake Capacity Table */
+        .intake-table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            margin: 15px auto;
+        }
+
+            .intake-table th, .intake-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+
+                .intake-table td:nth-child(2),
+                .intake-table th:nth-child(2) {
+                    text-align: center;
+                }
+
+            .intake-table th {
+                background-color: #0056b3;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .intake-table td {
+                font-size: 16px;
+            }
+
+            .intake-table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            .intake-table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            .intake-table caption {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+
+<body style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- ===================== LEFT SIDEBAR ===================== -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Instructions.png" width="25" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Specialization_Info.png" width="30" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <a href="/nonconventional.html"
+                   class="list-group-item list-group-item-action bg-light" id="nonconvSidebarLink">
+                    <img src="Icons/Toggle_Sidebar.png" width="25px" draggable="false" />
+                    &nbsp;<span id="nonconvSidebarText">Non-Conventional Academic Documents</span>
+                </a>
+
+                <a href="/submit.html" id="submit" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+            </div>
+        </div>
+        <!-- ===================== PAGE CONTENT ===================== -->
+        <div id="page-content-wrapper">
+            <!-- ===================== NAVBAR (TOP) ===================== -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle">
+                    <img src="Icons/Toggle_Sidebar.png" width="30" draggable="false" />
+                </button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25" draggable="false" />
+                                &nbsp;&nbsp;Logout
+                            </a>
+                        </li>
+                        <li class="nav-item li_Lang">
+                            <a id="lnkEN" title="English" href="#">
+                                <img src="attachments_files/uk.jpg" width="22">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+            <!-- ===================== MAIN CONTENT ===================== -->
+            <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">
+                Committee Portal (Recognition)
+            </h2>
+
+            <div class="container-fluid">
+                <!-- Supervisor Portal Guidelines -->
+                <div class="supervisor-guidelines">
+                    <h2>Welcome to the Supervisor Portal</h2>
+                    <p>
+                        The <strong>Recognition Committee Member Portal</strong> is designed to assist supervisors in efficiently reviewing institution applications.
+                        Below, you will find step-by-step guidance to ensure a smooth review process.
+                    </p>
+
+                    <h3>How to Review an Institution Application</h3>
+                    <ul>
+                        <li><strong>Select an Institution:</strong> Use the dropdown menu to choose the institution you want to review.</li>
+                        <li><strong>View Institution Details:</strong> After selecting an institution, you can view its submitted information by navigating through the left sidebar sections.</li>
+                        <li><strong>Manual Checks & Violations:</strong> Carefully review both the manually checked sections and any system-detected violations.</li>
+                        <li><strong>Flagged Documents:</strong> If the <strong>'Non-Conventional Academic Documents'</strong> section in the sidebar is flagged, click on it to verify and complete the necessary details.</li>
+                        <li><strong>Adding Notes:</strong> If needed, add relevant notes or comments regarding your evaluation.</li>
+                        <li><strong>Submitting Recommendations:</strong> Click the <strong>“Save Recommendation”</strong> button to finalize your review.</li>
+                    </ul>
+
+                    <h3>Accepted Intake Capacity for Different Programs</h3>
+                    <p>
+                        To ensure a balanced faculty-to-student ratio, the following <strong>intake capacity guidelines</strong> apply for various programs:
+                    </p>
+
+                    <table class="intake-table">
+                        <thead>
+                            <tr>
+                                <th>Program</th>
+                                <th>Faculty-to-Student Ratio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Scientific Bachelor</strong></td>
+                                <td><strong>25:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Humanitarian Bachelor</strong></td>
+                                <td><strong>35:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scientific Practical Bachelor</strong></td>
+                                <td><strong>20:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Humanitarian Practical Bachelor</strong></td>
+                                <td><strong>25:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Higher Diploma</strong></td>
+                                <td><strong>20:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scientific Master’s</strong></td>
+                                <td><strong>15:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Humanitarian Master’s</strong></td>
+                                <td><strong>20:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scientific Practical Master’s</strong></td>
+                                <td><strong>15:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Main Medical Programs</strong></td>
+                                <td><strong>25:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clinical Programs</strong></td>
+                                <td><strong>8:1</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PhD Programs</strong></td>
+                                <td><strong>15:1</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        <strong>Note:</strong> These ratios define the <strong>maximum number of students</strong> that can be assigned <strong>per faculty member</strong> to maintain quality education and supervision standards.
+                    </p>
+
+
+                    <h3>Additional Actions</h3>
+                    <ul>
+                        <li>
+                            <strong>View All Submitted Records:</strong>
+                            If you wish to see all previous institution reviews, click the link below:
+                            <a href="/acceptance_records.html">Click here</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Dropdown to select Institution -->
+                <div class="form-group">
+                    <label for="selectInstitution">Select an Institution:</label>
+                    <select id="selectInstitution" class="form-control">
+                        <option value="">-- Choose an Institution --</option>
+                    </select>
+                </div>
+
+                <div id="contentContainer">
+
+                    <!-- Add a supervisor mode toggle  -->
+                    <div id="supervisorModeToggleContainer" style="padding:10px; background-color:#eee; margin:10px;">
+                        <input type="checkbox" id="toggleNonConvSupervisor">
+                        <label for="toggleNonConvSupervisor">
+                            Non-Conventional Mode Active (Only static checkboxes and document attachments available)
+                        </label>
+                    </div>
+                    <div class="row align-items-start">
+
+                        <!-- LEFT COLUMN (All static/manual checks) -->
+                        <div class="col-md-7">
+                            <div id="convSection">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div>
+
+                                            <strong>View Institution History:</strong>
+                                            Click the button below to review past recommendations after selecting the institution:
+                                            <button id="btnShowHistory" class="btn btn-info">View Institution History</button>
+
+                                        </div>
+                                        <div id="Exceptional"><h5 style="font-size: 1.8rem; font-weight: bold; margin-top: 20px;">Exceptional Recognition:</h5></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="notenote">
+                                            <small id="fullRecognitionWarning" class="text-danger d-none">
+                                                Note 1: Exceptional Full recognition for all degrees offered is allowed <strong>ONLY IF </strong>article 4.D note or article 6 note is met.
+                                            </small>
+                                            <br/>
+                                            <small id="fullRecognitionWarning" class="text-danger d-none">
+                                                Note 2: Non-Exceptional Full recognition for all degrees offered is allowed <strong>ONLY IF </strong>neither article 4.D note nor article 6 note is correct.
+                                            </small>
+                                        </div>
+                                        <!-- Full vs Partial -->
+                                        <div id="toggleDiv" class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="chkFullRecognition" />
+                                            <label class="form-check-label" for="chkFullRecognition">
+                                                Full Recognition / Higher Graduate Studies Recognized
+                                            </label><br />
+                                            <input class="form-check-input" type="checkbox" id="chkFullRejection" />
+                                            <label class="form-check-label" for="chkFullRejection">
+                                                Non-Full Recognition / Higher Graduate Studies Rejected
+                                            </label>
+                                            <br />
+
+                                        </div>
+                                        <div id="Normal_b"><h5 style="font-size: 1.8rem; font-weight: bold; margin-top: 20px;">Assessment Summary:</h5></div>
+                                        <!-- Partial Recognition with additional Rejection options -->
+                                        <!--<h5 style="font-size: 1.8rem; font-weight: bold; margin-top: 20px;">Partial Recognition:</h5>-->
+                                        <!--<p class="text-muted" style="margin-top: -8px; font-weight: 400; font-size: 1.4rem;">
+        Select one or more options if the institution is partially recognized for specific levels.
+    </p>-->
+                                        <div class="form-check" id="DipDiv">
+                                          
+                                            <input class="form-check-input partial-recognition" type="checkbox" id="chkPartialDiploma" />
+                                            <label class="form-check-label" for="chkPartialDiploma">
+                                                Diplomas Recognized
+                                            </label>
+                                            <input class="form-check-input partial-rejection" type="checkbox" id="chkDiplomaRejection" style="margin-left: 20px;" />
+                                            <label class="form-check-label" for="chkDiplomaRejection">
+                                                Diploma Rejection
+                                            </label>
+                                        </div>
+                                        <div class="form-check" id="BScDiv">
+                                            
+                                            <input class="form-check-input partial-recognition" type="checkbox" id="chkPartialBachelor" />
+                                            <label class="form-check-label" for="chkPartialBachelor">
+                                                Bachelor's Recognized
+                                            </label>
+                                            <input class="form-check-input partial-rejection" type="checkbox" id="chkBscRejection" style="margin-left: 20px;" />
+                                            <label class="form-check-label" for="chkBscRejection">
+                                                BSc Rejection
+                                            </label>
+                                        </div>
+
+                                        <!-- Article 4 (static) except 5-year -->
+                                        <h5 class="mt-4">Article 4 Violations (Static):</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Not accredited from home country (Bachelor)" id="chkArticle4AccreditationBachelor" />
+                                            <label class="form-check-label" for="chkArticle4AccreditationBachelor">
+                                                Not accredited from home country (Bachelor)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Infrastructure requirements not met" id="chkArticle4Infrastructure" />
+                                            <label class="form-check-label" for="chkArticle4Infrastructure">
+                                                Infrastructure requirements not met
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Some faculties haven't graduated a cohort yet (Article 4)" id="chkArticle4NoCohort" />
+                                            <label class="form-check-label" for="chkArticle4NoCohort">
+                                                Some faculties haven't graduated a cohort so far
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Medical university doesn’t have a teaching hospital" id="chkArticle4MedNoHospital" />
+                                            <label class="form-check-label" for="chkArticle4MedNoHospital">
+                                                Medical university doesn’t have a teaching hospital or contracts with hospitals or medical centers
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Medical accreditation not met (WFME)" id="chkArticle4MedicalAccreditation" />
+                                            <label class="form-check-label" for="chkArticle4MedicalAccreditation">
+                                                Medical accreditation not met (WFME)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Dental accreditation not met (ADEE or equivalent)" id="chkArticle4DentalAccreditation" />
+                                            <label class="form-check-label" for="chkArticle4DentalAccreditation">
+                                                Dental accreditation not met (ADEE, CODA, ADC, CDAC, ASIC, Accreditation Agency in Health and Social Sciences (Germany)
+                                            </label>
+                                        </div>
+
+                                        <h5 class="mt-4">Article 4 (D) Note:</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="If the institution is a USA inst. & listed among one of the following commissions that are recognized by CHEA (ACCJC, HLC, MSCHE, NECHE, NWCCU, SACSCOC, WSCUC), recommend to have it fully recognized" id="chkArticle4HigherAccreditation" />
+                                            <label class="text-danger d-none" for="chkArticle4HigherAccreditation">
+                                                If the institution is a USA inst. & listed among one of the following commissions that are recognized by CHEA (ACCJC, HLC, MSCHE, NECHE, NWCCU, SACSCOC, WSCUC), then I recommend to have it fully recognized.
+                                            </label>
+                                        </div>
+
+                                        <!-- Article 6 Note -->
+                                        <h5 class="mt-4">Article 6 Note:</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="University rank is exceptionally high" id="chkArticle6Ranking" />
+                                            <label class="text-danger d-none" for="chkArticle6Ranking">
+                                                University has an excepional global ranking and therefore I recommend to have it fully recognized.
+                                            </label>
+                                        </div>
+
+                                        <!-- Article 7 Violations -->
+                                        <h5 class="mt-4">Article 7 Violations:</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Not recognized by home country's Ministry of Higher Education" id="chkArticle7MOHE" />
+                                            <label class="form-check-label" for="chkArticle7MOHE">
+                                                Not recognized by home country's Ministry of Higher Education
+                                            </label>
+                                        </div>
+
+                                        <!-- Additional manual checks (Scopus, Clarivate) -->
+                                        <h5 class="mt-4">Manual Checks:</h5>
+                                        <div id="manualChecksDiv">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       value="Number of Scopus recognized articles is insufficient for higher education purposes" id="chkScopus" />
+                                                <label class="form-check-label" for="chkScopus">
+                                                    Number of Scopus recognized articles is insufficient for higher education purposes
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       value="Number of Clarivate recognized articles is insufficient for higher education purposes" id="chkClarivate" />
+                                                <label class="form-check-label" for="chkClarivate">
+                                                    Number of Clarivate recognized articles is insufficient for higher education purposes
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- 8-month manual check (Article 3) -->
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Number of Months/Semesters is not 8 months in total"
+                                                   id="chkArticle3Semester" />
+                                            <label class="form-check-label" for="chkArticle3Semester">
+                                                Number of Months/Semesters is not 8 months in total
+                                            </label>
+                                        </div>
+
+                                        <!-- Additional Notes -->
+                                        <div class="form-group mt-3">
+                                            <label for="txtAdditionalNotes">Additional Notes (Optional):</label>
+                                            <textarea id="txtAdditionalNotes" class="form-control" rows="3"
+                                                      placeholder="Add any extra notes here"></textarea>
+                                        </div>
+
+                                        <!-- Save Button -->
+                                        <button id="btnSaveAcceptance" class="btn btn-success mt-3">Save Recommendation</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- RIGHT COLUMN (Auto checks: Age, Study Durations, Ratios, + ViolationsList) -->
+                        <div class="col-md-5" id="convRightSection">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    <h5 style="font-size: 1.8rem; font-weight: bold;">Auto-Detected Violations:</h5>
+                                    <p class="text-muted" style="font-size: 1.35rem;">
+                                        The following issues are automatically identified based on submitted program details:
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <ul id="violationsList" class="list-group"></ul>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5>Automated Institution Checks</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- University < 5 yrs check -->
+                                    <div class="form-check">
+                                        <input class="form-check-input problem-checkbox" type="checkbox"
+                                               value="University isn’t 5 years old (Article 4)"
+                                               id="chkArticle4FiveYears" />
+                                        <label class="form-check-label" for="chkArticle4FiveYears">
+                                            University isn’t 5 years old (Auto-check)
+                                        </label>
+                                        <br><small id="uniAgeCheckMsg" class="text-muted"></small>
+                                    </div>
+
+                                    <h5 class="mt-4">Article 3 (Study Durations):</h5>
+                                    <p class="text-muted" style="margin-top: -8px; font-weight: 400; font-size: 1.4rem; ">
+                                        (Auto-filled based on program info)
+                                    </p>
+                                    <div class="form-check">
+                                        <input class="form-check-input problem-checkbox" type="checkbox"
+                                               value="Intermediate Diploma duration not met (2 years)" id="chkArticle3Diploma" />
+                                        <label class="form-check-label" for="chkArticle3Diploma">
+                                            Intermediate Diploma duration not met (2 years minimum)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input problem-checkbox" type="checkbox"
+                                               value="Bachelor duration not met (3 years)" id="chkArticle3Bachelor" />
+                                        <label class="form-check-label" for="chkArticle3Bachelor">
+                                            Bachelor duration not met (3 years minimum)
+                                        </label>
+                                    </div>
+                                    <div id="HighDiv">
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="High diploma duration not met (1 year)" id="chkArticle3HighDiploma" />
+                                            <label class="form-check-label" for="chkArticle3HighDiploma">
+                                                High diploma duration not met (1 year minimum)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Master duration not met (1 year)" id="chkArticle3Master" />
+                                            <label class="form-check-label" for="chkArticle3Master">
+                                                Master duration not met (1 year minimum)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input problem-checkbox" type="checkbox"
+                                                   value="Doctorate duration not met (3 years)" id="chkArticle3Doctorate" />
+                                            <label class="form-check-label" for="chkArticle3Doctorate">
+                                                Doctorate duration not met (3 years minimum)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        <label for="intake">Please Enter the Allowed Percentage Increase in Intake Capacity: (default is 20%)</label>
+                                        <div class="input-group" style="display: flex; align-items: center; gap: 10px; max-width: 300px;">
+                                            <input type="number" id="intake" name="intake" class="form-control" placeholder="Enter A Number" />
+                                            <button id="calculateIntake" class="btn btn-primary">Apply</button>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mt-4">Specialization Intake capacities (Auto):</h5>
+                                    <div style="margin-bottom: 10px;">
+                                        <label class="non-form-control">
+                                            <input type="checkbox" id="showAllSpecs" style="margin-right: 5px;">
+                                            Show all specializations (including auto-filled BSc even if already recognized)
+                                        </label>
+                                    </div>
+                                    <div id="specRatioContainer" style="margin-top:10px;">
+                                        <!-- Populated via JS -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /.row -->
+                    <!-- Non-Conventional Update Record Section (static checkboxes per Article 5) -->
+                    <div id="nonConvSection" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+
+                                    <strong>View Institution History:</strong>
+                                    Click the button below to review past recommendations after selecting the institution:
+                                    <button id="btnShowHistory" class="btn btn-info">View Institution History</button>
+
+                                </div>
+                                <h4>Assessment Summary (Non-Conventional Mode)</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- Static checkboxes based on the law (Article 5) -->
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ncDurationRequirement">
+                                    <label class="form-check-label" for="ncDurationRequirement">
+                                        Duration of study DOES NOT meet the minimum requirements for the equivalent traditional degree.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ncSynchronousLearning">
+                                    <label class="form-check-label" for="ncSynchronousLearning">
+                                        DOES NOT Offer synchronous online learning for at least one-third of total meetings.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ncExamProcedure">
+                                    <label class="form-check-label" for="ncExamProcedure">
+                                        Exams are NOT held electronically under direct supervision with supporting documents.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ncEducationalMaterial">
+                                    <label class="form-check-label" for="ncEducationalMaterial">
+                                        DOES NOT Provide educational material in both synchronous and asynchronous formats.
+                                    </label>
+                                </div>
+                                <button id="btnNonConvSubmit" class="btn btn-success mt-3">Submit Non-Conventional Recognition</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--contentContainer-->
+            </div><!-- /.container-fluid -->
+        </div><!-- /#page-content-wrapper -->
+    </div><!-- /#wrapper -->
+    <!-- Institution History Modal -->
+    <!-- Institution History Modal -->
+    <!-- History Modal (HTML) -->
+    <div id="historyModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+     background-color: rgba(0,0,0,0.5); z-index: 1050;">
+        <div style="width: 500px; margin: 10% auto; background: #fff; padding: 20px; border-radius: 5px; position: relative;">
+            <h4>Institution History</h4>
+            <div id="historyModalBody" style="max-height: 400px; overflow-y: auto;">
+                <!-- History records will be inserted here -->
+            </div>
+            <div style="text-align: right; margin-top: 10px;">
+                <button id="historyModalCloseBtn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Helper function to extract key phrases (as before)
+        // Helper function to extract key phrases (unchanged)
+        function extractKeyPhrases(rawMessage) {
+            let lines;
+            try {
+                lines = JSON.parse(rawMessage);
+            } catch {
+                lines = [rawMessage];
+            }
+            const keywords = [
+                "non-conventional status: rejected",
+                "non-conventional status: recognized",
+                "partial rejected: diploma rejection",
+                "partial rejected: bsc rejection",
+                "rejection: higher graduate studies rejected",
+                "partial: diplomas recognized",
+                "partial: bachelor's recognized",
+                "higher graduate studies recognized"
+            ];
+            const matchedLines = [];
+            lines.forEach(line => {
+                let changedLine = line;
+                keywords.forEach(keyword => {
+                    const regex = new RegExp(keyword, "gi");
+                    changedLine = changedLine.replace(regex, match => `<strong>${match}</strong>`);
+                });
+                if (changedLine !== line) {
+                    matchedLines.push(changedLine);
+                }
+            });
+            return matchedLines.length > 0 ? matchedLines.join("<br/>") : "<em>No key phrases found.</em>";
+        }
+
+        // Helper to format the full raw message
+        function formatRawMessage(rawMessage) {
+            let lines;
+            try {
+                lines = JSON.parse(rawMessage);
+                if (Array.isArray(lines)) {
+                    return "<ul style='margin-left:20px;'>" +
+                        lines.map(item => `<li>${item}</li>`).join("") +
+                        "</ul>";
+                }
+            } catch (e) { }
+            return rawMessage;
+        }
+
+        // Function to load institution history and display in the modal
+        async function showInstitutionHistory(insId) {
+            try {
+                const response = await fetch(`/api/ministry/institution-history?insId=${insId}`);
+                const result = await response.json();
+                if (!result.success) {
+                    alert(result.message);
+                    return;
+                }
+                const historyModalBody = document.getElementById("historyModalBody");
+                historyModalBody.innerHTML = ""; // Clear previous history
+
+                result.data.forEach(record => {
+                    const div = document.createElement("div");
+                    div.style.borderBottom = "1px solid #ccc";
+                    div.style.marginBottom = "10px";
+                    div.style.paddingBottom = "5px";
+
+                    // Extract key phrases and format the full message
+                    const highlightedKeyPhrases = extractKeyPhrases(record.message || "");
+                    const userFriendlyMsg = formatRawMessage(record.message || "");
+
+                    // Construct the HTML – the meeting details now appear inside the key results area.
+                    div.innerHTML = `
+                    <div style="font-weight:bold; margin-bottom: 8px;">
+                      Record ID: ${record.recordID}
+                    </div>
+                    <div style="margin-top:8px;">
+                      <strong style="font-size:1.2em; color:#9c27b0;">Key Results:</strong>
+                      <div style="
+                        background:#fff3cd;
+                        border:1px solid #ffeeba;
+                        padding:8px;
+                        margin-top:4px;
+                        border-radius:4px;">
+                        Meeting Number: ${record.meetingFinalized || "N/A"}<br/>
+                        Meeting Date: ${record.meetingDate || "N/A"}<br/>
+                        Meeting Decision: ${record.decisionOutcome || "N/A"}<br/>
+
+                      </div>
+                    </div>
+                    <div style="margin-top:10px;">
+                      <strong>Based on the following committee member initial recommendation:</strong>
+                      ${userFriendlyMsg}
+                    </div>
+                `;
+                    historyModalBody.appendChild(div);
+                });
+
+                // Show the modal
+                document.getElementById("historyModal").style.display = "block";
+            } catch (error) {
+                console.error("Error loading institution history:", error);
+                alert("Error loading institution history.");
+            }
+        }
+
+        // Close modal listener
+        document.getElementById("historyModalCloseBtn").addEventListener("click", function () {
+            document.getElementById("historyModal").style.display = "none";
+        });
+
+        // Attach event listener to the "View History" button
+        document.getElementById("btnShowHistory").addEventListener("click", function () {
+            const insId = document.getElementById("selectInstitution").value;
+            if (!insId) {
+                alert("Please select an institution first.");
+                return;
+            }
+            showInstitutionHistory(insId);
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectEl = document.getElementById("selectInstitution");
+            const contentContainer = document.getElementById("contentContainer");
+
+            // Function to toggle content visibility
+            function toggleContentVisibility() {
+                if (!selectEl.value) {
+                    contentContainer.style.display = "none"; // Hide if no value
+                } else {
+                    contentContainer.style.display = "block"; // Show if selected
+                }
+            }
+
+            // Hide content initially
+            contentContainer.style.display = "none";
+
+            // Listen for dropdown change
+            selectEl.addEventListener("change", toggleContentVisibility);
+        });
+
+    </script>
+    <!--mode toggle-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get toggle and section elements
+            const toggleNonConv = document.getElementById("toggleNonConvSupervisor");
+            const convSection = document.getElementById("convSection");
+            const convRightSection = document.getElementById("convRightSection");
+            const nonConvSection = document.getElementById("nonConvSection");
+            // Ensure Bachelor's Recognized and BSc Rejection cannot both be checked
+            document.getElementById("chkPartialBachelor").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkBscRejection").checked = false;
+                }
+            });
+            document.getElementById("chkBscRejection").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkPartialBachelor").checked = false;
+                }
+            });
+
+            // Ensure Diplomas Recognized and Diploma Rejection cannot both be checked
+            document.getElementById("chkPartialDiploma").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkDiplomaRejection").checked = false;
+                }
+            });
+            document.getElementById("chkDiplomaRejection").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkPartialDiploma").checked = false;
+                }
+            });
+            document.getElementById("chkFullRecognition").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkFullRejection").checked = false;
+                }
+            });
+            document.getElementById("chkFullRejection").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkFullRecognition").checked = false;
+                }
+            });
+            //ensure that a partial rejection for one doesn't allow a partial recognition for the other
+            //so if diploma is rejected, bachelor can't be recognized
+            //and if bachelor is rejected, diploma can't be recognized
+            document.getElementById("chkDiplomaRejection").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkPartialBachelor").checked = false;
+                    //warn the user that you can not do this because a record cannot have both a rejection and an acceptance, make separate records, pass the  to the admin to finalize them, then make another record
+                    alert("You can not have both a rejection and an acceptance in the same record. Make a separate record, pass it to the admin to finalize it, then make another record.");
+                }
+            });
+            document.getElementById("chkBscRejection").addEventListener("change", function () {
+                if (this.checked) {
+                    document.getElementById("chkPartialDiploma").checked = false;
+                    //warn the user that you can not do this because a record cannot have both a rejection and an acceptance, make separate records, pass the  to the admin to finalize them, then make another record
+                    alert("You can not have both a rejection and an acceptance in the same record. Make a separate record, pass it to the admin to finalize it, then make another record.");
+                }
+            });
+            // Check saved mode from localStorage (if you want to persist this setting)
+            const savedMode = localStorage.getItem("NonConventionalSupervisorMode");
+            if (savedMode === "true") {
+                toggleNonConv.checked = true;
+                window.switchSupervisorMode(true);
+            } else {
+                toggleNonConv.checked = false;
+                window.switchSupervisorMode(false);
+            }
+
+            // Listen for toggle changes
+            toggleNonConv.addEventListener("change", function () {
+                const mode = toggleNonConv.checked;
+                localStorage.setItem("NonConventionalSupervisorMode", mode ? "true" : "false");
+                window.switchSupervisorMode(mode);
+            });
+        });
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script>
+        window.nonconvFilesFound = false;
+        // Define the mode-switching function globally
+        window.switchSupervisorMode = function (isNonConv) {
+            const convSection = document.getElementById("convSection");
+            const convRightSection = document.getElementById("convRightSection");
+            const nonConvSection = document.getElementById("nonConvSection");
+            if (isNonConv) {
+                if (convSection) convSection.style.display = "none";
+                if (convRightSection) convRightSection.style.display = "none";
+                if (nonConvSection) nonConvSection.style.display = "block";
+            } else {
+                if (convSection) convSection.style.display = "block";
+                if (convRightSection) convRightSection.style.display = "block";
+                if (nonConvSection) nonConvSection.style.display = "none";
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // ---------------------------------------------------
+            // 1) Grab DOM References
+            // ---------------------------------------------------
+            const chkFullRecognition = document.getElementById("chkFullRecognition");
+            const chkFullRejection = document.getElementById("chkFullRejection");
+            // Note: we now select both partial recognition and rejection checkboxes
+            const partialChecks = document.querySelectorAll(".partial-recognition, .partial-rejection");
+            const warningMessage = document.getElementById("fullRecognitionWarning");
+            const btnSaveAcceptance = document.getElementById("btnSaveAcceptance");
+            const selectEl = document.getElementById("selectInstitution");
+            const problemCheckboxes = document.querySelectorAll(".problem-checkbox");
+            const chkScopus = document.getElementById("chkScopus");
+            const chkClarivate = document.getElementById("chkClarivate");
+            const additionalNotes = document.getElementById("txtAdditionalNotes");
+            const chkFiveYears = document.getElementById("chkArticle4FiveYears");
+            const lblFiveYears = chkFiveYears.nextElementSibling;
+            const violationsList = document.getElementById("violationsList");
+            const specRatioContainer = document.getElementById("specRatioContainer");
+            const showAllSpecsCheckbox = document.getElementById("showAllSpecs");
+
+            // Add this function after your variable declarations
+            function shouldHideSpecialization(specType, institutionStatus) {
+                if (showAllSpecsCheckbox.checked) return false;
+                const isBscRelated = specType.toLowerCase().includes('bachelor');
+                return (institutionStatus === "BSc" || institutionStatus === "Fully Accepted") && isBscRelated;
+            }
+
+
+            // ---------------------------------------------------
+            // 2) Utility Functions
+            // ---------------------------------------------------
+            // Cache the div you want to hide
+            const toggleDiv = document.getElementById('toggleDiv');
+
+            function updateFullRecognitionState() {
+                const anyPartialChecked = Array.from(partialChecks).some(cb => cb.checked);
+
+                chkFullRecognition.disabled = anyPartialChecked;
+                chkFullRejection.disabled = anyPartialChecked;
+
+                if (anyPartialChecked) {
+                    chkFullRecognition.checked = false;
+                    chkFullRejection.checked = false;
+                }
+
+                warningMessage.classList.toggle("d-none", !anyPartialChecked);
+
+                // Show or hide via inline style
+                toggleDiv.style.display = anyPartialChecked ? 'none' : '';
+            }
+
+            async function checkUniversityAge(insId) {
+                try {
+                    const resp = await fetch("/api/publicinfo/getbyid/" + insId);
+                    const data = await resp.json();
+                    if (!data.success || !data.data.creationDate) {
+                        console.warn("No creation date or error =>", data);
+                        return;
+                    }
+                    const creationDate = new Date(data.data.creationDate);
+                    const now = new Date();
+                    const ageInYears = (now - creationDate) / (1000 * 60 * 60 * 24 * 365.25);
+
+                    if (ageInYears < 5) {
+                        chkFiveYears.checked = true;
+                        lblFiveYears.innerHTML += ' <span style="color:red;">(Institution is ' +
+                            ageInYears.toFixed(1) + ' yrs old, below the 5-year minimum.)</span>';
+
+                        // add to violations
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ University is only ' + ageInYears.toFixed(1) + ' years old (Min: 5)' +
+                            '</li>';
+                    } else {
+                        chkFiveYears.checked = false;
+                        lblFiveYears.innerHTML += ' <span style="color:green;">(University is ' +
+                            ageInYears.toFixed(1) + ' yrs old, meeting the 5-year threshold.)</span>';
+                    }
+                } catch (err) {
+                    console.error("checkUniversityAge error =>", err);
+                }
+            }
+
+            function autoCheckArticle3(durData) {
+                const diplomaYears = parseInt(durData.diplomaDegreeMIN) || 0;
+                const bachelorYears = parseInt(durData.bsC_DegreeMIN) || 0;
+                const highDipYears = parseInt(durData.higherDiplomaDegreeMIN) || 0;
+                const masterYears = parseInt(durData.masterDegreeMIN) || 0;
+                const doctorateYears = parseInt(durData.phD_DegreeMIN) || 0;
+
+                // DIPLOMA
+                const chkDiploma = document.getElementById("chkArticle3Diploma");
+                const lblDiploma = chkDiploma.nextElementSibling;
+                if (diplomaYears != 0) {
+                    if (diplomaYears < 2) {
+                        chkDiploma.checked = true;
+                        lblDiploma.innerHTML += ' <span style="color:red;">(Institution has ' + diplomaYears +
+                            ' year(s), below the 2-year min for a Diploma.)</span>';
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ Diploma is only ' + diplomaYears + ' year(s) (Min: 2)</li>';
+                    } else {
+                        chkDiploma.checked = false;
+                        lblDiploma.innerHTML += ' <span style="color:green;">(Diploma meets the 2-year requirement.)</span>';
+                    }
+                }
+                // BACHELOR
+                const chkBachelor = document.getElementById("chkArticle3Bachelor");
+                const lblBachelor = chkBachelor.nextElementSibling;
+                if (bachelorYears != 0) {
+                    if (bachelorYears < 3) {
+                        chkBachelor.checked = true;
+                        lblBachelor.innerHTML += ' <span style="color:red;">(Institution has ' +
+                            bachelorYears + ' year(s), below the 3-year min for Bachelor.)</span>';
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ Bachelor is only ' + bachelorYears + ' year(s) (Min: 3)</li>';
+                    } else {
+                        chkBachelor.checked = false;
+                        lblBachelor.innerHTML += ' <span style="color:green;">(Bachelor meets the 3-year requirement.)</span>';
+                    }
+                }
+                // HIGH DIPLOMA
+                const chkHighDip = document.getElementById("chkArticle3HighDiploma");
+                const lblHighDip = chkHighDip.nextElementSibling;
+                if (highDipYears != 0) {
+                    if (highDipYears < 1) {
+                        chkHighDip.checked = true;
+                        lblHighDip.innerHTML += ' <span style="color:red;">(Institution has ' + highDipYears +
+                            ' year(s), below the 1-year min for High Diploma.)</span>';
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ High Diploma is only ' + highDipYears + ' year(s) (Min: 1)</li>';
+                    } else {
+                        chkHighDip.checked = false;
+                        lblHighDip.innerHTML += ' <span style="color:green;">(High Diploma meets the 1-year requirement.)</span>';
+                    }
+                }
+                // MASTER
+                const chkMaster = document.getElementById("chkArticle3Master");
+                const lblMaster = chkMaster.nextElementSibling;
+                if (masterYears != 0) {
+                    if (masterYears < 1) {
+                        chkMaster.checked = true;
+                        lblMaster.innerHTML += ' <span style="color:red;">(Institution has ' + masterYears +
+                            ' year(s), below the 1-year min for Master.)</span>';
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ Master is only ' + masterYears + ' year(s) (Min: 1)</li>';
+                    } else {
+                        chkMaster.checked = false;
+                        lblMaster.innerHTML += ' <span style="color:green;">(Master meets the 1-year requirement.)</span>';
+                    }
+                }
+
+                // DOCTORATE
+                const chkDoctorate = document.getElementById("chkArticle3Doctorate");
+                const lblDoctorate = chkDoctorate.nextElementSibling;
+                if (doctorateYears != 0) {
+                    if (doctorateYears < 3) {
+                        chkDoctorate.checked = true;
+                        lblDoctorate.innerHTML += ' <span style="color:red;">(Institution has ' + doctorateYears +
+                            ' year(s), below the 3-year min for Doctorate.)</span>';
+                        violationsList.innerHTML += '<li class="list-group-item list-group-item-danger">' +
+                            '❌ Doctorate is only ' + doctorateYears + ' year(s) (Min: 3)</li>';
+                    } else {
+                        chkDoctorate.checked = false;
+                        lblDoctorate.innerHTML += ' <span style="color:green;">(Doctorate meets the 3-year requirement.)</span>';
+                    }
+                }
+            }
+
+            // ---------------------------------------------------
+            // 3) Event Listeners
+            // ---------------------------------------------------
+            // a) partial & full recognition toggles
+            partialChecks.forEach(chk => {
+                chk.addEventListener("change", updateFullRecognitionState);
+            });
+            chkFullRecognition.addEventListener("change", () => {
+                if (chkFullRecognition.checked || chkFullRejection.checked) {
+                    partialChecks.forEach(cb => cb.checked = false);
+                }
+                updateFullRecognitionState();
+            });
+
+            // c) On dropdown change => store InsID + fetch ratio & durations, plus check age
+            selectEl.addEventListener("change", async () => {
+                const chosenInsId = selectEl.value.trim();
+                if (!chosenInsId) {
+                    localStorage.removeItem("InsID");
+                    console.log("Removed InsID from localStorage.");
+                    return;
+                }
+                violationsList.innerHTML = ""; // clear old auto-detections
+                // store InsID
+                localStorage.setItem("InsID", chosenInsId);
+                console.log("Stored InsID =", chosenInsId);
+
+                // Clear old ratio
+                const specRatioContainer = document.getElementById("specRatioContainer");
+                if (specRatioContainer) {
+                    specRatioContainer.innerHTML = "";
+                }
+                try {
+                    const respNonConv = await fetch("/api/nonconventional/list", {
+                        headers: { "InstitutionID": chosenInsId }
+                    });
+                    const dataNonConv = await respNonConv.json();
+                    if (dataNonConv.success && dataNonConv.files && dataNonConv.files.length > 0) {
+                        // Mark that non-conventional files exist.
+                        window.nonconvFilesFound = true;
+
+                        // Automatically check the non-conventional mode toggle.
+                        const toggleNonConv = document.getElementById("toggleNonConvSupervisor");
+                        if (toggleNonConv && !toggleNonConv.checked) {
+                            toggleNonConv.checked = true;
+                            // Call the mode switcher function (see below) to update the UI.
+                            window.switchSupervisorMode(true);
+                            localStorage.setItem("NonConventionalSupervisorMode", "true");
+                        }
+
+                        // Instead of flashing the background, flash the text by alternating it.
+                        const sidebarText = document.getElementById("nonconvSidebarText");
+                        if (sidebarText) {
+                            const originalText = sidebarText.textContent;
+                            const alternateText = "NONCONV. APPLICATION FOUND! CLICK!";
+                            let toggle = false;
+                            let flashInterval = setInterval(() => {
+                                toggle = !toggle;
+                                // Toggle between two shades of green
+                                sidebarText.style.color = toggle ? "olive" : "darkgreen";
+                                // Alternate the text content
+                                sidebarText.textContent =
+                                    sidebarText.textContent === originalText ? alternateText : originalText;
+                            }, 1000);
+                            // Optionally, stop flashing after 5 seconds:
+                            setTimeout(() => {
+                                clearInterval(flashInterval);
+                                sidebarText.textContent = originalText;
+                            }, 50000000);
+                        }
+                    } else {
+                        window.nonconvFilesFound = false;
+                    }
+                } catch (err) {
+                    console.error("Error fetching non-conventional files:", err);
+                }
+                // Check the university age
+                await checkUniversityAge(chosenInsId);
+                // Add this new fetch right after your existing fetches
+                //this is to find status of the institution
+                let institutionStatus = "Not yet Recognized by Ministry";
+                try {
+                    const statusResp = await fetch('/api/inquiry/public-institution-statuses');
+                    const statusData = await statusResp.json();
+                    if (statusData.success) {
+                        const institution = statusData.data.find(inst => inst.insID === chosenInsId); // Changed to insID
+                        if (institution) {
+                            institutionStatus = institution.acceptanceLevel;
+                        }
+                    }
+                } catch (err) {
+                    console.error("Error fetching institution status:", err);
+                }
+                const manualChecksDiv = document.getElementById("manualChecksDiv");
+                const BScDiv = document.getElementById("BScDiv");
+                const DipDiv = document.getElementById("DipDiv");
+                const HighDiv = document.getElementById("HighDiv");
+                const notenote = document.getElementById("notenote");
+
+                if (institutionStatus !== "BSc" && institutionStatus !== "Fully Accepted") {
+                    manualChecksDiv.style.display = "none";
+                    HighDiv.style.display = "none";
+                    BScDiv.style.display = "block";
+                    notenote.style.display = "block";
+                } else {
+                    manualChecksDiv.style.display = "block";
+                    HighDiv.style.display = "block";
+                    BScDiv.style.display = "none";
+                    notenote.style.display = "none";
+                }
+                if (institutionStatus !== "Diploma" && institutionStatus !== "Fully Accepted") {
+
+                    DipDiv.style.display = "block";
+                    notenote.style.display = "block";
+                } else {
+
+                    DipDiv.style.display = "none";
+                    notenote.style.display = "none";
+                }
+                if (institutionStatus == "Diploma & BSc") {
+                    manualChecksDiv.style.display = "block";
+                    HighDiv.style.display = "block";
+                    BScDiv.style.display = "none";
+                    DipDiv.style.display = "none";
+                    notenote.style.display = "none";
+                }
+                
+                let intakeChangeCount = 0;
+                // Wait until the intake input is filled/changed
+                document.getElementById("intake").addEventListener("change", async function () {
+                    intakeChangeCount++;
+                    if (intakeChangeCount > 1) {
+                        location.reload();
+                        return;
+                    }
+                    const intakeValue = parseFloat(this.value);
+                    if (isNaN(intakeValue)) return; // Exit if the value isn't a number
+                    // fetch specializations => fill ratio checks
+                    try {
+                        const resp = await fetch("/api/specialization/get-by-insid/" + chosenInsId);
+                        const data = await resp.json();
+                        if (!resp.ok || !data.success) {
+                            console.error("Failed to get specializations =>", data.message);
+                            return;
+                        }
+                        const specs = data.data || [];
+
+                        specs.forEach(spec => {
+                            if (spec.color != 2) {
+                                if (spec.type === "Scientific Bachelor") {
+                                    spec.color = spec.ratio <= 25 + (25 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Humanitarian Bachelor") {
+                                    spec.color = spec.ratio <= 35 + (35 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Scientific Practical Bachelor") {
+                                    spec.color = spec.ratio <= 20 + (20 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Humanitarian Practical Bachelor") {
+                                    spec.color = spec.ratio <= 25 + (25 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "High Diploma") {
+                                    spec.color = spec.ratio <= 20 + (20 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Scientific Masters") {
+                                    spec.color = spec.ratio <= 15 + (15 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Humanitarian Masters") {
+                                    spec.color = spec.ratio <= 20 + (20 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Scientific Practical Masters") {
+                                    spec.color = spec.ratio <= 15 + (15 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Main Medical") {
+                                    spec.color = spec.ratio <= 25 + (25 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Residency") {
+                                    spec.color = spec.ratio <= 8 + (8 * intakeValue / 100) ? 1 : 0;
+                                } else if (spec.type === "Doctorate") {
+                                    spec.color = spec.ratio <= 15 + (15 * intakeValue / 100) ? 1 : 0;
+                                }
+                            }
+                            const div = document.createElement("div");
+                            div.classList.add("form-check");
+                            // Add this line to handle visibility
+                            if (shouldHideSpecialization(spec.type, institutionStatus)) {
+                                div.style.display = 'none';
+                            }
+                            const cb = document.createElement("input");
+                            cb.type = "checkbox";
+                            cb.classList.add("form-check-input", "problem-checkbox");
+                            cb.value = 'Ratio not met for "' + spec.type + '" (ratio: ' + spec.ratio + ')';
+                            const lbl = document.createElement("label");
+                            lbl.classList.add("form-check-label");
+
+                            // color=0 => ratio not met => auto-check
+                            // Minimal snippet to avoid adding a violation for green specs:
+                            if (spec.color === 0) {
+                                // Red => ratio not met => auto-check & add violation
+                                cb.checked = true;
+                                lbl.innerHTML = 'Intake capacity in "<strong>' + spec.type +
+                                    '</strong>": <span style="color:red;font-weight:bold;">' + spec.ratio + ' : 1</span>';
+
+                                violationsList.innerHTML += `
+                                        <li class="list-group-item list-group-item-danger">
+                                          ❌ Specialization intake capacity is not met for "${spec.type}" (capacity: ${spec.ratio} : 1)
+                                        </li>
+                                      `;
+                            } else if (spec.color === 1) {
+                                cb.checked = true;
+                                lbl.innerHTML = 'Intake capacity in "<strong>' + spec.type +
+                                    '</strong>": <span style="color:orange;font-weight:bold;">' + spec.ratio + ' : 1</span>';
+                                // Add a mild warning or borderline note to the violations list
+                                violationsList.innerHTML += `
+                                        <li class="list-group-item list-group-item-warning">
+                                          ⚠ Specialization intake capacity is borderline for "${spec.type}" (capacity: ${spec.ratio} : 1)
+                                        </li>
+                                      `;
+                            } else {
+                                // Green => ratio is OK => do not add to violations
+                                cb.checked = false;
+                                lbl.innerHTML = 'Intake capacity in "<strong>' + spec.type +
+                                    '</strong>": <span style="color:green;font-weight:bold;">' + spec.ratio + ' : 1</span>';
+                            }
+
+                            div.appendChild(cb);
+                            div.appendChild(lbl);
+                            specRatioContainer.appendChild(div);
+                        });
+                    } catch (err) {
+                        console.error("Error fetching specs =>", err);
+                    }
+                });
+                // Update the showAllSpecs checkbox handler
+                showAllSpecsCheckbox.addEventListener("change", () => {
+                    document.querySelectorAll("#specRatioContainer .form-check").forEach(div => {
+                        const specType = div.querySelector("label").textContent;
+                        const shouldHide = shouldHideSpecialization(specType, institutionStatus);
+                        div.style.display = (shouldHide && !showAllSpecsCheckbox.checked) ? 'none' : 'block';
+                    });
+                });
+
+                // Update the initial checkbox visibility
+                showAllSpecsCheckbox.parentElement.style.display =
+                    (institutionStatus === "BSc" || institutionStatus === "Fully Accepted")
+                        ? 'block'
+                        : 'none';
+                // fetch study durations => auto-check
+                try {
+                    const durResp = await fetch("/api/studyduration/get-by-insid/" + chosenInsId);
+                    if (durResp.ok) {
+                        const durData = await durResp.json();
+                        console.log("StudyDuration =>", durData);
+                        autoCheckArticle3(durData);
+                    } else {
+                        console.warn("No StudyDuration record found =>", durResp.status);
+                    }
+                } catch (err) {
+                    console.error("Error fetching study durations =>", err);
+                }
+            });
+
+            // d) main "Save Acceptance" logic
+            btnSaveAcceptance.addEventListener("click", async () => {
+                // Gather partial reasons from both partial-recognition and partial-rejection checkboxes.
+                const partialReasons = [];
+                document.querySelectorAll(".partial-recognition, .partial-rejection").forEach(pc => {
+                    if (pc.checked) {
+                        const labelText = pc.nextElementSibling.innerText.trim();
+                        if (pc.classList.contains("partial-rejection")) {
+                            partialReasons.push("Partial Rejected: " + labelText);
+                        } else {
+                            partialReasons.push("Partial: " + labelText);
+                        }
+                    }
+                });
+
+                const anyPartialChecked = partialReasons.length > 0;
+                const isFullRecognized = chkFullRecognition.checked;
+
+                // confirm rejection if neither full nor any partial is selected
+                if (!anyPartialChecked && !isFullRecognized) {
+                    const confirmReject = confirm(
+                        "You did not select Full or Partial.\nThis means you plan to REJECT the institution.\n\nPress OK to confirm rejection, or Cancel to go back."
+                    );
+                    if (!confirmReject) {
+                        return; // user canceled
+                    }
+                }
+
+                const chosenInsId = selectEl.value.trim();
+                if (!chosenInsId) {
+                    alert("Please select an institution first.");
+                    console.log("[SaveAcceptance] No institution selected.");
+                    return;
+                }
+
+                // gather reasons from problem-checkboxes
+                // gather reasons from problem-checkboxes (using the label text so auto-generated text is included)
+                const reasonsArray = [];
+                // 1) Grab the label text from the DOM
+                const lblFullRecognition = document.querySelector('label[for="chkFullRecognition"]').innerText.trim();
+                const lblFullRejection = document.querySelector('label[for="chkFullRejection"]').innerText.trim();
+
+                // 2) If these checkboxes are checked, push their labels into reasonsArray
+                if (chkFullRecognition.checked) {
+                    reasonsArray.push("Recognition: " + lblFullRecognition);
+                }
+
+                if (chkFullRejection.checked) {
+                    reasonsArray.push("Rejection: " + lblFullRejection);
+                }
+
+                // Re-select problem-checkbox elements dynamically (to include newly created ones)
+                document.querySelectorAll(".problem-checkbox").forEach(cb => {
+                    if (cb.checked) {
+                        let reasonText = cb.nextElementSibling ? cb.nextElementSibling.innerText.trim() : cb.value;
+                        reasonsArray.push(reasonText);
+                    }
+                });
+
+
+
+                // add partial recognition/rejection reasons at the beginning
+                if (partialReasons.length > 0) {
+                    reasonsArray.unshift(...partialReasons);
+                }
+
+                // additional checks
+                if (chkScopus.checked) reasonsArray.push(chkScopus.value);
+                if (chkClarivate.checked) reasonsArray.push(chkClarivate.value);
+
+                // additional notes
+                const notesText = additionalNotes.value.trim();
+                if (notesText) {
+                    reasonsArray.push("Notes: " + notesText);
+                }
+
+                // isAccepted remains determined as before
+                let isAccepted;
+                if (isFullRecognized || partialReasons.length > 0) {
+                    isAccepted = true;
+                } else {
+                    // rejection
+                    isAccepted = false;
+                    reasonsArray.unshift("Rejected");
+                }
+
+                // build date
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, "0");
+                const dd = String(today.getDate()).padStart(2, "0");
+                const dateStr = yyyy + "-" + mm + "-" + dd;
+
+                // final JSON
+                const acceptancePayload = {
+                    isAccepted: isAccepted,
+                    date: dateStr,
+                    reason: reasonsArray
+                };
+                console.log("[SaveAcceptance] Final payload =>", acceptancePayload);
+
+                // PUT => update acceptance
+                const url = "/api/supervisor/update-acceptance?insId=" + encodeURIComponent(chosenInsId);
+                try {
+                    const response = await fetch(url, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(acceptancePayload)
+                    });
+                    if (!response.ok) {
+                        const errData = await response.json();
+                        console.error("[SaveAcceptance] PUT failed =>", errData);
+                        alert("Error updating acceptance => " + errData.message);
+                        return;
+                    }
+                    const resultData = await response.json();
+                    console.log("[SaveAcceptance] PUT success =>", resultData);
+                    alert(resultData.message);
+                    // Open the report in a new tab if reportLink is returned.
+                    if (resultData.reportLink) {
+                        window.open(resultData.reportLink, "_blank");
+                    }
+                    // optional reset
+                    chkFullRecognition.checked = false;
+                    chkFullRecognition.disabled = false;
+                    partialChecks.forEach(pc => (pc.checked = false));
+                    problemCheckboxes.forEach(cb => (cb.checked = false));
+                    chkScopus.checked = false;
+                    chkClarivate.checked = false;
+                    additionalNotes.value = "";
+                    selectEl.value = "";
+                } catch (err) {
+                    console.error("[SaveAcceptance] fetch error =>", err);
+                    alert("Exception => " + err);
+                }
+            });
+
+            // ---------------------------------------------------
+            // 4) On Page Load => final init
+            // ---------------------------------------------------
+            // Ensure user is logged in
+            const supervisorID = localStorage.getItem("SupervisorID");
+            if (!supervisorID) {
+                alert("No SupervisorID found. Please login as a supervisor.");
+                window.location.href = "/supervisorlogin.html";
+                return;
+            }
+
+            // fetch assigned institutions
+            try {
+                const response = await fetch("/api/supervisor/my-institutions?supervisorID=" + supervisorID);
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    alert("Cannot fetch assigned institutions => " + (result.message || response.status));
+                    return;
+                }
+                const assignedList = result.data || [];
+                selectEl.innerHTML = "<option value=''>-- Choose an Institution --</option>";
+                assignedList.forEach(item => {
+                    const option = document.createElement("option");
+                    option.value = item.insID;
+                    option.textContent = item.insName + " (Open tasks: " + item.taskCount + ")";
+                    selectEl.appendChild(option);
+                });
+            } catch (err) {
+                console.error("Failed to fetch my institutions =>", err);
+                alert("Failed to load. Check console.");
+            }
+
+            // set initial full vs partial state
+            updateFullRecognitionState();
+        });
+    </script>
+    <!--nonconventional js submission-->
+    <script>
+        // Non-Conventional Submit Button event listener
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnNonConvSubmit = document.getElementById("btnNonConvSubmit");
+            if (btnNonConvSubmit) {
+                btnNonConvSubmit.addEventListener("click", async () => {
+                    // Get the state of each non-conventional checkbox.
+                    const ncDurationRequirement = document.getElementById("ncDurationRequirement").checked;
+                    const ncSynchronousLearning = document.getElementById("ncSynchronousLearning").checked;
+                    const ncExamProcedure = document.getElementById("ncExamProcedure").checked;
+                    const ncEducationalMaterial = document.getElementById("ncEducationalMaterial").checked;
+
+                    // Build an array of violation reasons if any are ticked.
+                    let violations = [];
+                    if (ncDurationRequirement) {
+                        violations.push("Duration of study does not meet minimum requirements");
+                    }
+                    if (ncSynchronousLearning) {
+                        violations.push("Does not offer sufficient synchronous online learning");
+                    }
+                    if (ncExamProcedure) {
+                        violations.push("Exams are not held electronically under direct supervision");
+                    }
+                    if (ncEducationalMaterial) {
+                        violations.push("Educational material is not provided in both synchronous and asynchronous formats");
+                    }
+
+                    // Determine acceptance: if no violations, then recognized; otherwise, rejected.
+                    const isAccepted = (violations.length === 0);
+
+                    // Create a non-conventional status string (make it human readable).
+                    let nonConvStatus = "";
+                    if (isAccepted) {
+                        nonConvStatus = "Non-Conventional Status: Recognized";
+                    } else {
+                        nonConvStatus = "Non-Conventional Status: Rejected - " + violations.join("; ");
+                    }
+
+                    // Build today's date string in yyyy-MM-dd format.
+                    const today = new Date();
+                    const yyyy = today.getFullYear();
+                    const mm = String(today.getMonth() + 1).padStart(2, "0");
+                    const dd = String(today.getDate()).padStart(2, "0");
+                    const dateStr = `${yyyy}-${mm}-${dd}`;
+
+                    // Construct the payload.
+                    const acceptancePayload = {
+                        isAccepted: isAccepted,
+                        date: dateStr,
+                        reason: [nonConvStatus] // Wrap the status string in an array.
+                    };
+
+                    console.log("[NonConvSubmit] Final payload =>", acceptancePayload);
+
+                    // Get the selected institution ID.
+                    const selectEl = document.getElementById("selectInstitution");
+                    const chosenInsId = selectEl.value.trim();
+                    if (!chosenInsId) {
+                        alert("Please select an institution first.");
+                        return;
+                    }
+
+                    // Send the PUT request.
+                    const url = "/api/supervisor/update-acceptance?insId=" + encodeURIComponent(chosenInsId);
+                    try {
+                        const response = await fetch(url, {
+                            method: "PUT",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(acceptancePayload)
+                        });
+                        if (!response.ok) {
+                            const errData = await response.json();
+                            console.error("[NonConvSubmit] PUT failed =>", errData);
+                            alert("Error updating non-conventional acceptance => " + errData.message);
+                            return;
+                        }
+                        const resultData = await response.json();
+                        console.log("[NonConvSubmit] PUT success =>", resultData);
+                        alert(resultData.message);
+                        // Open the report in a new tab if reportLink is returned.
+                        if (resultData.reportLink) {
+                            window.open(resultData.reportLink, "_blank");
+                        }
+                    } catch (err) {
+                        console.error("[NonConvSubmit] fetch error =>", err);
+                        alert("Exception => " + err);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

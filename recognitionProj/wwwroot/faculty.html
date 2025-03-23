@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="attachments_files/simple-sidebar.css" rel="stylesheet">
+    <link href="attachments_files/Site.css" rel="stylesheet">
+    <link href="attachments_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="attachments_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 50%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+            width: 70%;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body id="body" style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+            <!-- Instructions + File Upload Form -->
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Faculties/Schools</h2>
+
+                <div class="row col-12" style="display:flex !important;flex-direction:row-reverse !important;">
+
+                    <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
+                        <tr>
+                            <th colspan="2" class="center">
+                                <span>Faculty/School Registration</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <style>
+                                    .form-group {
+                                        display: flex;
+                                        gap: 15px; /* Space between fields */
+                                        flex-wrap: wrap;
+                                    }
+
+                                        .form-group > div {
+                                            flex: 1; /* Makes each field take equal space */
+                                            min-width: 200px; /* Prevents squishing on smaller screens */
+                                        }
+                                </style>
+
+                                <form id="facultyForm" action="/api/faculty/upload" method="POST" enctype="multipart/form-data">
+                                    <!-- Note about required fields -->
+                                    <p style="color: red; font-weight: bold; margin-bottom: 10px;">
+                                        Star (<span class="required">*</span>) means this is a compulsory field (has to be filled out).
+                                    </p>
+                                    <!-- Faculty Name (Separate Row) -->
+                                    <div>
+                                        <label for="FacultyName">Faculty/School Name:<span class="required">*</span></label>
+                                        <input type="text" id="FacultyName" name="facultyName" class="form-control" required>
+                                    </div>
+
+                                    <br>
+
+                                    <!-- Create Date, Last Graduate Date, and Program File Upload in the Same Row -->
+                                    <div class="form-group">
+                                        <div>
+                                            <label for="CreateDate">Create Date:<span class="required">*</span></label>
+                                            <input type="date" id="CreateDate" name="createDate" class="form-control" required>
+                                        </div>
+
+                                        <div>
+                                            <label for="LastGraduateDate">Last Graduate Date:<span class="required">*</span></label>
+                                            <input type="date" id="LastGraduateDate" name="lastGraduateDate" class="form-control" required>
+                                        </div>
+
+
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <div>
+                                            <label for="NumPrograms">Number of Undergraduate programs in the faculty/school (BSc):<span class="required">*</span></label>
+                                            <input type="number" id="NumPrograms" name="NumPrograms" class="form-control" />
+                                        </div>
+                                        <div>
+                                            <label for="ProgramFile">Upload Programs (Excel file .xlsx):<span class="required">*</span><br />Please attach all the names of the programs in the faculty/school.</label>
+                                            <input type="file" id="ProgramFile" name="programFile" class="form-control" accept=".xlsx" required>
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <div>
+                                            <label for="NumPgPrograms">Number of Postgraduate programs in the faculty for (High Deploma, Master, PhD),  if exist for each</label>
+                                            <input type="number" id="NumPgPrograms" name="NumPgPrograms" class="form-control" />
+                                        </div>
+                                        <div>
+                                            <label for="PgProgramFile">Upload Programs (Excel file .xlsx):<br />Please attach all the names of the programs in the faculty/school.</label>
+                                            <input type="file" id="PgProgramFile" name="PgProgramFile" class="form-control" accept=".xlsx" required>
+                                        </div>
+
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Add Faculty/School</button>
+                                </form>
+
+
+
+                                <!-- Placeholder for listing added faculties -->
+                                <br><br>
+                                <table class="table table-responsive table-hover table-bordered FacultyTable" style="width: 100%;">
+                                    <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Faculty Name</th>
+                                            <th>Create Date</th>
+                                            <th>Last Graduate Date</th>
+                                            <th>Number of Undergratuade Programs</th>
+                                            <th>Undergraduate Program File</th>
+                                            <th>Number of Postgraduate Programs</th>
+                                            <th>Postgraduate Program File</th>
+                                            <th>Delete</th> <!-- Delete Column -->
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="facultyList">
+                                        <!-- Faculty records will be dynamically inserted here -->
+                                        <tr>
+                                            <td colspan="6">No Data Found!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', async () => {
+                            const institutionId = localStorage.getItem('InsID');
+                            if (!institutionId) {
+                                console.warn("No Institution ID found. Redirecting to login...");
+                                window.location.href = "/login.html";
+                                return;
+                            }
+
+                            await fetchFaculties(institutionId); // Fetch faculties when page loads
+
+                            const facultyForm = document.getElementById("facultyForm");
+                            if (facultyForm) {
+                                facultyForm.addEventListener("submit", async function (event) {
+                                    event.preventDefault();
+
+                                    // Get form values
+                                    const facultyName = document.getElementById("FacultyName").value.trim();
+                                    const createDate = document.getElementById("CreateDate").value;
+                                    const lastGraduateDate = document.getElementById("LastGraduateDate").value;
+                                    const numPrograms = document.getElementById("NumPrograms").value.trim() || "N/A";
+                                    const programFile = document.getElementById("ProgramFile").files[0];
+                                    const numPgPrograms = document.getElementById("NumPgPrograms").value.trim() || "N/A";
+                                    const pgProgramFile = document.getElementById("PgProgramFile").files[0];
+
+                                    // Validate required fields
+                                    if (!facultyName || !createDate || !lastGraduateDate || !programFile || !pgProgramFile) {
+                                        alert("Please fill all fields and upload both program files.");
+                                        return;
+                                    }
+
+                                    // Rename files using Faculty Name
+                                    const renamedProgramFile = facultyName.replace(/\s+/g, "_") + "_Undergraduate.xlsx";
+                                    const renamedPgProgramFile = facultyName.replace(/\s+/g, "_") + "_Postgraduate.xlsx";
+
+                                    // Prepare faculty data as JSON
+                                    const facultyData = {
+                                        FacultyName: facultyName,
+                                        CreateDate: createDate,
+                                        LastGraduateDate: lastGraduateDate,
+                                        NumPrograms: numPrograms,
+                                        NumPgPrograms: numPgPrograms,
+                                        InsID: parseInt(institutionId, 10)
+                                    };
+
+                                    // Prepare FormData for submission
+                                    const formData = new FormData();
+                                    formData.append("facultyJson", JSON.stringify(facultyData));
+                                    formData.append("programFile", programFile, renamedProgramFile);
+                                    formData.append("pgProgramFile", pgProgramFile, renamedPgProgramFile);
+
+                                    try {
+                                        const response = await fetch("/api/faculty/save", {
+                                            method: "POST",
+                                            body: formData,
+                                            headers: {
+                                                'InstitutionID': institutionId
+                                            }
+                                        });
+
+                                        if (!response.ok) {
+                                            const error = await response.json();
+                                            alert(`Error: ${error.message || response.statusText}`);
+                                            return;
+                                        }
+
+                                        await fetchFaculties(institutionId); // Refresh faculty list after submission
+                                        facultyForm.reset(); // Reset form
+
+                                    } catch (error) {
+                                        console.error("Error submitting faculty form:", error);
+                                        alert('An error occurred while submitting the form. Please try again.');
+                                    }
+                                });
+                            }
+                        });
+
+                        // Fetch and display faculties
+                        async function fetchFaculties(institutionId) {
+                            try {
+                                const response = await fetch(`/api/faculty/getAll/${institutionId}`);
+                                if (!response.ok) {
+                                    console.warn("No faculties found.");
+                                    return;
+                                }
+
+                                const faculties = await response.json();
+                                const table = document.getElementById("facultyList");
+                                table.innerHTML = ""; // Clear existing rows
+
+                                faculties.forEach((item, index) => {
+                                    const faculty = item.faculty;
+                                    const programFilePath = item.programFilePath;
+                                    const pgProgramFilePath = item.pgProgramFilePath;
+
+                                    const newRow = table.insertRow();
+                                    newRow.innerHTML = `
+                                                                                                                    <td>${index + 1}</td>
+                                                                                                                    <td>${faculty.facultyName}</td>
+                                                                                                                    <td>${faculty.createDate}</td>
+                                                                                                                    <td>${faculty.lastGraduateDate}</td>
+                                                                                                                    <td>${faculty.numPrograms}</td>
+                                                                                                                    <td>${generateDownloadLink(programFilePath)}</td>
+                                                                                                                    <td>${faculty.numPgPrograms}</td>
+                                                                                                                    <td>${generateDownloadLink(pgProgramFilePath)}</td>
+                                                                                                                    <td><button class="btn btn-danger btn-sm" onclick="deleteFaculty(${faculty.insID}, '${faculty.facultyName}', this)">Delete</button></td>
+                                                                                                                `;
+                                });
+
+                            } catch (error) {
+                                console.error("Error fetching faculties:", error);
+                            }
+                        }
+
+                        // Generate download link for files
+                        function generateDownloadLink(filePath) {
+                            if (filePath && filePath !== "Not Available") {
+                                return `<a href="/${filePath}" target="_blank" download="${filePath.split('/').pop()}">Download File</a>`;
+                            }
+                            return "Not Available";
+                        }
+
+                        // Delete a faculty
+                        async function deleteFaculty(insId, facultyName, button) {
+                            const confirmDelete = confirm(`Are you sure you want to delete faculty: ${facultyName}?`);
+                            if (!confirmDelete) return;
+
+                            try {
+                                const deleteResponse = await fetch("/api/faculty/delete", {
+                                    method: "DELETE",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({ InsID: insId, FacultyName: facultyName })
+                                });
+
+                                if (!deleteResponse.ok) {
+                                    const errorResponse = await deleteResponse.json();
+                                    console.error("Error deleting faculty:", errorResponse);
+                                    return;
+                                }
+
+                                // Remove row from the table
+                                const row = button.closest('tr');
+                                row.remove();
+                                updateRowNumbers();
+
+                            } catch (error) {
+                                console.error("Error deleting faculty:", error);
+                            }
+                        }
+
+                        // Update row numbers after deletion
+                        function updateRowNumbers() {
+                            const rows = document.querySelectorAll("#facultyList tr");
+                            rows.forEach((row, index) => {
+                                row.cells[0].innerText = index + 1;
+                            });
+                        }
+
+                    </script>
+
+
+
+
+                </div>
+                <button id="nextPageButton" onclick="location.href='/admissionrequirements.html'"
+                        style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                    Save and Go to Next Page
+                </button>
+
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea fields within the form
+                const formElements = document.querySelectorAll("#publicInfoForm input, #publicInfoForm select, #publicInfoForm textarea");
+
+                formElements.forEach(function (el) {
+                    // If the element is not a hidden input, disable it
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+               
+
+                // Hide the "Go to Next Page" button
+                const nextPageButton = document.getElementById("nextPageButton");
+                if (nextPageButton) {
+                    nextPageButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea fields inside the faculty form
+                const formElements = document.querySelectorAll("#facultyForm input, #facultyForm select, #facultyForm textarea");
+
+                formElements.forEach(function (el) {
+                    // Disable the element if it's not a hidden field
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+                // Hide the submit button
+                const submitButton = document.querySelector("#facultyForm button[type='submit']");
+                if (submitButton) {
+                    submitButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script src="attachments_files/api.js"></script>
+
+</body>
+</html>

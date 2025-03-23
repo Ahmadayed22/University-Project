@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="attachments_files/simple-sidebar.css" rel="stylesheet">
+    <link href="attachments_files/Site.css" rel="stylesheet">
+    <link href="attachments_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="attachments_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body id="body" style="direction:ltr;">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const programType = urlParams.get('type');
+            const sidebar = document.getElementById("sidebar_wrapper");
+            const sidebarToggle = document.getElementById("sidebarToggle"); // Get the toggle button
+
+            // Get other elements
+            const instructionsTable = document.querySelector('.col-sm-4');
+            const rightColumn = document.querySelector('.col-sm-8');
+            const subjectDropdown = document.getElementById('txtAttDesc');
+            const messageSpan = document.getElementById('diploma_message');
+
+            if (programType === '0') {
+                // Hide sidebar and toggle button
+                sidebar.classList.add('hidden');
+                sidebarToggle.classList.add('hidden'); // Correct way to hide the toggle button
+
+                // Rest of existing 0-type modifications
+                if (rightColumn) {
+                    rightColumn.classList.replace('col-sm-8', 'col-sm-12');
+                }
+                if (instructionsTable) instructionsTable.style.display = 'none';
+                if (messageSpan) {
+                    messageSpan.innerHTML = `<div style="color: #990033; font-size: 18px; text-align: center;">
+                    Please upload the required Intermediate Diploma local and formal recognition approval document.
+                </div>`;
+                }
+                subjectDropdown.innerHTML = `
+                <option value="" disabled selected>Select Subject</option>
+                <option value="INTERMEDIATE_DOC" selected>
+                    INTERMEDIATE (DIPLOMA) DEGREE LOCAL AND FORMAL RECOGNITION APPROVAL DOCUMENT.
+                </option>`;
+                subjectDropdown.removeAttribute('required');
+
+            } else {
+                // Ensure sidebar and toggle button are visible
+                sidebar.classList.remove('hidden');
+                sidebarToggle.classList.remove('hidden');
+                // Rest of existing else modifications
+                if (rightColumn) rightColumn.classList.replace('col-sm-12', 'col-sm-8');
+                if (instructionsTable) instructionsTable.style.display = 'block';
+                if (messageSpan) messageSpan.innerHTML = '';
+            }
+        });
+    </script>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action active">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+            <!-- Instructions + File Upload Form -->
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Official Documents</h2>
+                <br>
+                <div class="row col-12" style="display:flex !important;flex-direction:row-reverse !important;">
+
+                    <!-- Left Column: Instructions Table -->
+                    <div class="col-sm-4">
+                        <table class="table table-responsive table-hover table-bordered">
+                            <tr>
+                                <th colspan="2" class="center">
+                                    <span>Files to Attach</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="Custome_td">
+                                    <span>* Official Certified Accreditation Document of the Institution by the Overseeing Authority in the Home Country of the Applying Institution.</span><br><br>
+                                    <span>* Official Program/s Accreditation Document/s by Entrusted Authorities in the Institution’s Home Country.</span><br><br>
+                                    <span>* Official Certified Accreditation Documents of All Fostered Degree Programs by the Institution by the Overseeing Authority in the Home Country of the Applying Institution.</span><br><br>
+                                    <!--<span>* A Detailed Curriculum for Each Program Offering.</span><br><br>-->
+                                    <span>* International Academic Standing, in terms of institutional rank, of Applying Institution, including name of Ranking Organization.</span><br><br>
+                                    <!--<span>* Student Guide as Pertains to Institution.</span><br><br>-->
+                                    <!--<span>* Course Descriptions for Academic Programs.</span><br><br>-->
+                                    <span>* Authenticated (Notarized/Certified) Copies of Signed Agreements and/or MoUs.</span><br><br>
+                                    <span>* Other Documents.</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Right Column: New File Upload Section -->
+                    <div class="col-sm-8">
+                        <span style="padding-left:20px " id="diploma_message"></span>
+                        <br />
+                        <br />
+                        <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
+                            <tr>
+                                <th colspan="2" class="center">
+                                    <span>Files Upload</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- New file-upload form -->
+                                    <form id="fileUploadForm"
+                                          action="/api/attachments/upload"
+                                          method="POST"
+                                          enctype="multipart/form-data">
+                                        <!-- Single file input (or multiple if you prefer) -->
+                                        <label for="FileUpload">Select File (PDF, DOC, DOCX):<span class="StarSpan"> *</span></label>
+                                        <input type="file"
+                                               id="FileUpload"
+                                               name="uploadedFile"
+                                               class="form-control"
+                                               accept=".pdf,.doc,.docx"
+                                               required>
+
+                                        <br>
+
+                                        <label for="txtAttDesc">Subject<span class="StarSpan"> *</span></label>
+                                        <select id="txtAttDesc" name="subject" class="form-control" required>
+                                            <option value="" disabled selected>Select Subject</option>
+                                            <option value="INTERMEDIATE_DOC">
+                                                INTERMEDIATE (DIPLOMA) DEGREE ACCREDATION DOCUMENT FROM THE HOME COUNTRY (Mandatory certified Document)
+                                            </option>
+                                            <option value="OCAD-Institution">Local Accreditation - Institution (Mandatory Certified Document)</option>
+                                            <option value="Authenticated-MoUs">Authenticated Copies of Signed Agreements/MoUs (Mandatory)</option>
+                                            <option value="Regional-Accreditation">Regional Accreditation (if exists)</option>
+                                            <option value="International-Accreditation">International Accreditation (if exists)</option>
+                                            <option value="OPA-Programs">Accreditation - Program/s (if exists)</option>
+                                            <option value="OCAD-FosteredPrograms">Accreditation - Fostered Degree Programs (if exists)</option>
+                                            <option value="IAS-Rank">International Academic Standing/Institution Rank (if exists)</option>
+                                            <option value="Other-Documents">Other Documents (if exists)</option>
+                                        </select>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </form>
+
+                                    <!-- Placeholder for listing previously uploaded files -->
+                                    <br><br>
+                                    <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
+                                        <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Subject</th>
+                                                <th>File Name</th>
+                                                <th>View</th>
+                                                <th>Download</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- For now, we just show "No Data Found !" or dynamically load from the server. -->
+                                            <tr>
+                                                <td colspan="6">No Data Found !</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Add click handler for next page button
+                        document.getElementById("nextPageButton").addEventListener("click", function (e) {
+                            e.preventDefault();
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const programType = urlParams.get('type');
+                            let nextPageUrl = '/submit.html';
+
+                            if (programType === '0') {
+                                nextPageUrl += '?type=0';
+                            }
+
+                            window.location.href = nextPageUrl;
+                        });
+                    });
+                </script>
+                <button id="nextPageButton"
+                        style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                    Save and Go to Next Page
+                </button>
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea fields inside the file upload form
+                const formElements = document.querySelectorAll("#fileUploadForm input, #fileUploadForm select, #fileUploadForm textarea");
+
+                formElements.forEach(function (el) {
+                    // Disable the element if it's not a hidden field
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+                // Hide the submit button in the file upload form
+                const submitButton = document.querySelector("#fileUploadForm button[type='submit']");
+                if (submitButton) {
+                    submitButton.style.display = "none";
+                }
+                // Hide the "Go to Next Page" button
+                const nextPageButton = document.getElementById("nextPageButton");
+                if (nextPageButton) {
+                    nextPageButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script src="attachments_files/api.js"></script>
+
+</body>
+</html>

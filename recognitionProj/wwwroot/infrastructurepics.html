@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="infrastructurepics_files/simple-sidebar.css" rel="stylesheet">
+    <link href="infrastructurepics_files/Site.css" rel="stylesheet">
+    <link href="infrastructurepics_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="infrastructurepics_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+    </style>
+
+
+</head>
+
+<body id="body" style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Info
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Info
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+                <a href="/infrastructurepics.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_Pictures.png" width="25px" draggable="false" />
+                    &nbsp;Infrastructure Pictures
+                </a>
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+
+            <!-- Instructions + File Upload Form -->
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Infrastructure Pictures</h2>
+                <br>
+                <div class="row col-12" style="display:flex !important;">
+
+
+
+                    <!-- Right Column: New File Upload Section -->
+                    <div class="col-sm-8">
+                        <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
+                            <tr>
+                                <th colspan="2" class="center">
+                                    <span>Pictures Upload</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- New file-upload form -->
+                                    <form id="fileUploadForm"
+                                          action="/api/infrastructurepics/upload"
+                                          method="POST"
+                                          enctype="multipart/form-data">
+                                        <!-- Single file input (or multiple if you prefer) -->
+                                        <label for="FileUpload">Select Picture (PNG, JPG, JPEG):<span class="StarSpan">*</span></label>
+                                        <input type="file"
+                                               id="FileUpload"
+                                               name="uploadedFile"
+                                               class="form-control"
+                                               accept=".png,.jpg,.jpeg"
+                                               style="width:50%"
+                                               required />
+
+
+                                        <label for="txtAttDesc">Subject<span class="StarSpan"> *</span></label>
+                                        <input type="text"
+                                               id="txtAttDesc"
+                                               name="subject"
+                                               class="form-control"
+                                               placeholder="Enter subject"
+                                               style="width:50%"
+                                               required>
+                                        <br>
+
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </form>
+
+                                    <!-- Placeholder for listing previously uploaded files -->
+                                    <br><br>
+                                    <table class="table table-responsive table-hover table-bordered FilesGRD" style="width: 100%;">
+                                        <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Subject</th>
+                                                <th>Picture Name</th>
+                                                <th>View</th>
+                                                <th>Download</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- For now, we just show "No Data Found !" or dynamically load from the server. -->
+                                            <tr>
+                                                <td colspan="6">No Data Found !</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea elements within the file upload form
+                const formElements = document.querySelectorAll("#fileUploadForm input, #fileUploadForm select, #fileUploadForm textarea");
+
+                formElements.forEach(function (el) {
+                    // Disable the element if it's not a hidden field
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+                // Hide the submit button within the file upload form
+                const submitButton = document.querySelector("#fileUploadForm button[type='submit']");
+                if (submitButton) {
+                    submitButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script src="infrastructurepics_files/api.js"></script>
+
+</body>
+</html>

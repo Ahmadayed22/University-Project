@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="admissionrequirements_files/simple-sidebar.css" rel="stylesheet">
+    <link href="admissionrequirements_files/Site.css" rel="stylesheet">
+    <link href="admissionrequirements_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="admissionrequirements_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+             .border-right {
+                 border: 1px solid #dee2e6 !important;
+             }
+
+             body {
+                 font-size: 16px !important;
+                 font-weight: 600 !important;
+                 font-family: Tajawal !important;
+                 background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+                 background-size: cover !important;
+                 background-attachment: fixed;
+                 background-repeat: no-repeat;
+             }
+
+             .table {
+                 width: auto !important;
+                 margin: 0 15px 0 15px;
+             }
+
+             .tableForAdmissinReqView {
+                 width: max-content !important;
+                 margin: 0 15px 0 15px;
+             }
+
+             .verylong {
+                 width: 822px !important;
+             }
+
+             .long {
+                 width: 650px !important;
+             }
+
+             .Meduim {
+                 width: 400px !important;
+             }
+
+             .Small {
+                 width: 280px !important;
+             }
+
+             .VerySmall {
+                 width: 50px !important;
+             }
+
+             .form-control,
+             [disabled] {
+                 font-weight: 600;
+                 height: auto !important;
+                 font-size: 15px !important;
+                 display: block;
+                 width: 100%;
+                 height: 34px;
+                 padding: 6px 12px;
+                 font-size: 14px;
+                 line-height: 1.428571429;
+                 color: #555555;
+                 vertical-align: middle;
+                 background-color: #ffffff;
+                 border: 1px solid #cccccc;
+                 border-radius: 4px;
+                 box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+                 transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+             }
+
+             .navbar {
+                 margin-bottom: 0 !important;
+                 border: 1px solid #dddddd !important;
+             }
+
+             .center {
+                 text-align: center !important;
+             }
+
+             th {
+                 background-color: #990033;
+                 color: white;
+                 text-align: center !important;
+                 font-weight: 600 !important;
+                 border: solid #dddddd 2px !important;
+             }
+
+             .tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+                 background-color: white !important;
+                 color: black !important;
+             }
+
+             .limited {
+                 width: 300px !important;
+             }
+
+             td {
+                 width: 250px !important;
+             }
+
+             label {
+                 margin-right: 10px !important;
+                 font-weight: 500 !important;
+             }
+
+             .HeadOfTable {
+                 text-align: center !important;
+                 font-weight: 600;
+                 background-color: #ddfdf0;
+             }
+
+             .auto {
+                 width: auto !important;
+             }
+
+             .ddl_H,
+             [disabled] {
+                 height: 45px !important;
+             }
+
+             .cusom_GRID_AR {
+                 margin-left: 20px !important;
+             }
+
+             .HeadOfTableLong {
+                 font-weight: 400;
+                 background-color: #ddfdf0;
+                 width: auto !important;
+             }
+
+             .MultiLine {
+                 height: 200px !important;
+             }
+
+             .Custome_td {
+                 width: 700px !important;
+                 font-weight: 700;
+             }
+
+             .list-group {
+                 font-weight: 500;
+             }
+
+             .li_Lang {
+                 padding: 10px;
+             }
+
+             .dropdown-menu {
+                 min-width: 100px !important;
+                 text-align: center !important;
+             }
+
+             a {
+                 color: black !important;
+             }
+
+             .btnSave {
+                 font-size: Large !important;
+                 float: left;
+                 margin-left: 30px;
+                 margin-right: 30px;
+                 width: 100px;
+             }
+
+             .SucPage {
+                 background-color: #428bca !important;
+                 background-image: none !important;
+                 color: white !important;
+             }
+
+             .SucIframe {
+                 width: 300px;
+                 height: 80px;
+                 border-radius: 15px;
+                 border: none;
+             }
+
+             .FilesGRD {
+                 margin: 0 !important;
+             }
+
+             .PReq {
+                 width: fit-content !important;
+                 margin: 1% 1% 0 1% !important;
+                 font-weight: 700 !important;
+             }
+
+             .UnivGrid {
+                 font-weight: 800 !important;
+             }
+
+             .StarSpan {
+                 color: red;
+                 font-size: 21px;
+             }
+
+             .hidden {
+                 display: none;
+             }
+             /* Center the panel itself and set a max-width so it doesn't stretch too far */
+             .centered-panel {
+                 margin: 20px auto !important; /* centers horizontally */
+
+                 font-size: 1.1rem !important; /* slightly bigger base font size */
+             }
+
+                 /* Center items within the panel body.
+        Also stack them vertically in the middle. */
+                 .centered-panel .panel-body {
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                 }
+
+                     /* Make the file input wider & bigger text */
+                     .centered-panel .panel-body input[type="file"] .panel panel-primary {
+                         width: 100% !important; /* set desired width */
+                         font-size: 1rem !important;
+                         margin-bottom: 15px;
+                     }
+
+                     /* Style the Upload/Delete buttons bigger as well */
+                     .centered-panel .panel-body button {
+                         font-size: 1.5rem !important;
+                         padding: 10px 20px !important;
+                     }
+    </style>
+</head>
+
+<body id="body" style="direction:ltr;">
+
+
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style: none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />
+                                &nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Upload Admission Requirements</h2>
+                <!-- Admission Requirements Guidelines -->
+                <div class="instructions-container">
+                    <h2>📌 Important Instructions</h2>
+                    <p>
+                        The following guidelines outline the necessary admission requirements for students applying to your institution.
+                        Please ensure that all required documents are correctly uploaded before submission.
+                    </p>
+
+                    <h3>Tips to Complete the Admission Requirements</h3>
+                    <ul>
+                        <li><strong>Tip 1:</strong> Make sure to include all degree programs that exist at your institution. Missing programs may result in delays or additional requests for clarification.</li>
+                        <li><strong>Tip 2:</strong> Upload all necessary admission documents for each program your institution offers. Ensure that each document is clear, valid, and properly certified to avoid re-submissions.</li>
+                        <li><strong>Tip 3:</strong> Carefully review your submission before finalizing it. Incomplete or incorrect applications will not proceed to the next stage, which can delay the recognition process.</li>
+                    </ul>
+                </div>
+
+                <style>
+                    /* Admission Requirements Guidelines Styling */
+                    .instructions-container {
+                        background: #f8f9fa;
+                        padding: 25px;
+                        margin-top: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                        width: 90%;
+                        max-width: 1000px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        text-align: center;
+                    }
+
+                        .instructions-container h2 {
+                            color: #b22222;
+                            font-size: 22px;
+                            font-weight: bold;
+                            text-align: center;
+                            margin-bottom: 15px;
+                        }
+
+                        .instructions-container h3 {
+                            color: #0056b3;
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-top: 20px;
+                            border-bottom: 2px solid #0056b3;
+                            padding-bottom: 5px;
+                            text-align: center;
+                        }
+
+                        .instructions-container p {
+                            font-size: 16px;
+                            line-height: 1.6;
+                            color: #333;
+                            text-align: center;
+                            margin-bottom: 15px;
+                        }
+
+                        .instructions-container ul {
+                            list-style: none;
+                            padding-left: 0;
+                            line-height: 1.6;
+                            text-align: left;
+                            max-width: 90%;
+                            margin: auto;
+                        }
+
+                            .instructions-container ul li {
+                                background: url('check-icon.png') no-repeat left center;
+                                background-size: 22px;
+                                padding-left: 35px;
+                                margin-bottom: 8px;
+                                font-size: 16px;
+                                color: #222;
+                            }
+                </style>
+                <!-- Diploma Upload -->
+                <!--<div class="panel panel-primary PReq centered-panel">
+        <div class="panel-heading">Diploma</div>
+        <div class="panel-body">
+            <input type="file" id="diplomaFile" class="form-control" accept=".pdf">
+            <button id="uploadDiplomaBtn" class="btn btn-primary mt-2"
+                    onclick="uploadFile('diplomaFile', 'Diploma')">
+                Upload
+            </button>
+            <div id="diplomaFileContainer" class="uploaded-file-list"></div>
+        </div>
+    </div>-->
+                <!-- BSC Upload -->
+                <!--<div class="panel panel-primary PReq centered-panel">
+        <div class="panel-heading">BSC</div>
+        <div class="panel-body">
+            <input type="file" id="bscFile" class="form-control" accept=".pdf">
+            <button id="uploadBscBtn" class="btn btn-primary mt-2"
+                    onclick="uploadFile('bscFile', 'BSC')">
+                Upload
+            </button>
+            <div id="bscFileContainer" class="uploaded-file-list"></div>
+        </div>
+    </div>-->
+                <!-- Higher Diploma Upload -->
+                <!--<div class="panel panel-primary PReq centered-panel">
+        <div class="panel-heading">Higher Diploma</div>
+        <div class="panel-body">
+            <input type="file" id="higherDiplomaFile" class="form-control" accept=".pdf">
+            <button id="uploadHigherDiplomaBtn" class="btn btn-primary mt-2"
+                    onclick="uploadFile('higherDiplomaFile', 'HigherDiploma')">
+                Upload
+            </button>
+            <div id="higherDiplomaFileContainer" class="uploaded-file-list"></div>
+        </div>
+    </div>-->
+                <!-- Master Upload -->
+                <!--<div class="panel panel-primary PReq centered-panel">
+        <div class="panel-heading">Master</div>
+        <div class="panel-body">
+            <input type="file" id="masterFile" class="form-control" accept=".pdf">
+            <button id="uploadMasterBtn" class="btn btn-primary mt-2"
+                    onclick="uploadFile('masterFile', 'Master')">
+                Upload
+            </button>
+            <div id="masterFileContainer" class="uploaded-file-list"></div>
+        </div>
+    </div>-->
+                <!-- PhD Upload -->
+                <!--<div class="panel panel-primary PReq centered-panel">
+        <div class="panel-heading">PhD</div>
+        <div class="panel-body">
+            <input type="file" id="phdFile" class="form-control" accept=".pdf">
+            <button id="uploadPhdBtn" class="btn btn-primary mt-2"
+                    onclick="uploadFile('phdFile', 'PhD')">
+                Upload
+            </button>
+            <div id="phdFileContainer" class="uploaded-file-list"></div>
+        </div>
+    </div>-->
+                <!-- File Upload Fields in Two Columns -->
+                <div class="file-upload-container">
+                    <!-- Row 1: Diploma & BSC -->
+                    <div class="file-upload-row">
+                        <div class="panel panel-primary PReq centered-panel">
+                            <div class="panel-heading">Diploma (if exists)</div>
+                            <div class="panel-body">
+                                <input type="file" id="diplomaFile" class="form-control" accept=".pdf">
+                                <button id="uploadDiplomaBtn" class="btn btn-primary mt-2"
+                                        onclick="uploadFile('diplomaFile', 'Diploma')">
+                                    Upload
+                                </button>
+                                <div id="diplomaFileContainer" class="uploaded-file-list"></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-primary PReq centered-panel">
+                            <div class="panel-heading">BSc (if exists)</div>
+                            <div class="panel-body">
+                                <input type="file" id="bscFile" class="form-control" accept=".pdf">
+                                <button id="uploadBscBtn" class="btn btn-primary mt-2"
+                                        onclick="uploadFile('bscFile', 'BSC')">
+                                    Upload
+                                </button>
+                                <div id="bscFileContainer" class="uploaded-file-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Higher Diploma & Master -->
+                    <div class="file-upload-row">
+                        <div class="panel panel-primary PReq centered-panel">
+                            <div class="panel-heading">Higher Diploma (if exists)</div>
+                            <div class="panel-body">
+                                <input type="file" id="higherDiplomaFile" class="form-control" accept=".pdf">
+                                <button id="uploadHigherDiplomaBtn" class="btn btn-primary mt-2"
+                                        onclick="uploadFile('higherDiplomaFile', 'HigherDiploma')">
+                                    Upload
+                                </button>
+                                <div id="higherDiplomaFileContainer" class="uploaded-file-list"></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-primary PReq centered-panel">
+                            <div class="panel-heading">Master (if exists)</div>
+                            <div class="panel-body">
+                                <input type="file" id="masterFile" class="form-control" accept=".pdf">
+                                <button id="uploadMasterBtn" class="btn btn-primary mt-2"
+                                        onclick="uploadFile('masterFile', 'Master')">
+                                    Upload
+                                </button>
+                                <div id="masterFileContainer" class="uploaded-file-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: PhD (Single Centered) -->
+                    <div class="file-upload-row single-file-row">
+                        <div class="panel panel-primary PReq centered-panel">
+                            <div class="panel-heading">PhD (if exists)</div>
+                            <div class="panel-body">
+                                <input type="file" id="phdFile" class="form-control" accept=".pdf">
+                                <button id="uploadPhdBtn" class="btn btn-primary mt-2"
+                                        onclick="uploadFile('phdFile', 'PhD')" style="font-size:30px;">
+                                    Upload
+                                </button>
+                                <div id="phdFileContainer" class="uploaded-file-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="nextPageButton" onclick="location.href='/hospitals.html'"
+                            style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                        Save and Go to Next Page
+                    </button>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Check if SupervisorID exists in localStorage
+                        if (localStorage.getItem("SupervisorID")) {
+                            // Select all input, select, and textarea fields within the form
+                            const formElements = document.querySelectorAll("#publicInfoForm input, #publicInfoForm select, #publicInfoForm textarea");
+
+                            formElements.forEach(function (el) {
+                                // If the element is not a hidden input, disable it
+                                if (el.type !== "hidden") {
+                                    el.disabled = true;
+                                }
+                            });
+
+
+
+                            // Hide the "Go to Next Page" button
+                            const nextPageButton = document.getElementById("nextPageButton");
+                            if (nextPageButton) {
+                                nextPageButton.style.display = "none";
+                            }
+                        }
+                    });
+                </script>
+                <style>
+                    /* File Upload Styling */
+                    .file-upload-container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 20px;
+                        max-width: 1000px;
+                        margin: auto;
+                    }
+
+                    .file-upload-row {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        max-width: 1000px;
+                        gap: 20px;
+                    }
+
+                    .single-file-row {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                    }
+
+                    .panel {
+                        width: 48%;
+                        background: #ffffff;
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease-in-out;
+                    }
+                        .panel:hover {
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                        }
+
+                    .panel-heading {
+                        background-color: #0056b3;
+                        color: white;
+                        font-weight: bold;
+                        text-align: center;
+                        padding: 12px;
+                        font-size: 16px;
+                        border-radius: 10px 10px 0 0;
+                    }
+
+                    .panel-body {
+                        font-size: 20px;
+                        padding: 15px;
+                        text-align: center;
+                    }
+
+                    .form-control {
+                        width: 100%;
+                        padding: 12px;
+                        font-size: 16px;
+                        border-radius: 8px;
+                        border: 2px solid #007bff;
+                        transition: border 0.2s ease-in-out;
+                    }
+                        .form-control:focus {
+                            border: 2px solid #0056b3;
+                            outline: none;
+                        }
+
+                    .btn {
+                        width: 100%;
+                        padding: 12px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        border: none;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: background-color 0.2s ease-in-out;
+                    }
+
+                    .btn-primary {
+                        background-color: #007bff;
+                        color: white;
+                    }
+
+                        .btn-primary:hover {
+                            background-color: #0056b3;
+                        }
+                </style>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        // Maps the degreeType to the relevant upload button's ID in the HTML
+        const uploadButtonIds = {
+            "Diploma": "uploadDiplomaBtn",
+            "BSC": "uploadBscBtn",
+            "HigherDiploma": "uploadHigherDiplomaBtn",
+            "Master": "uploadMasterBtn",
+            "PhD": "uploadPhdBtn"
+        };
+
+        // Ensure script runs only when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            const institutionId = localStorage.getItem('InsID');
+
+            if (!institutionId) {
+                console.warn("No Institution ID found. Redirecting to login...");
+                window.location.href = "/login.html";
+                return;
+            }
+
+
+
+            fetchFiles(); // Load existing files when the page loads
+        });
+
+        // ✅ Define `uploadFile` in global scope
+        async function uploadFile(inputId, degreeType) {
+            console.log(`Uploading file for: ${degreeType}`); // Debugging log
+
+            const fileInput = document.getElementById(inputId);
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please select a file before uploading.");
+                console.warn("No file selected.");
+                return;
+            }
+
+            const institutionId = localStorage.getItem('InsID'); // Fetch only once
+            if (!institutionId) {
+                alert("Institution ID is missing. Please log in again.");
+                console.warn("Missing Institution ID.");
+                return;
+            }
+
+            console.log(`Uploading: ${file.name} (${file.type})`);
+
+            const formData = new FormData();
+            formData.append("admissionFile", file);
+            formData.append("degreeType", degreeType);
+
+            try {
+                const response = await fetch("/api/admission/upload", {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'InstitutionID': institutionId }
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error("Upload failed:", result.message);
+                    alert(`Upload failed: ${result.message}`);
+                    return;
+                }
+
+
+                console.log("Upload success:", result);
+                fetchFiles(); // Refresh file list
+
+            } catch (error) {
+                console.error("Upload error:", error);
+                alert("Upload error: " + error.message);
+            }
+        }
+
+        async function fetchFiles() {
+            const institutionId = localStorage.getItem('InsID');
+            if (!institutionId) {
+                console.warn("Missing Institution ID. Cannot fetch files.");
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/admission/getAll/${institutionId}`);
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+
+                const data = await res.json();
+                console.log("Fetched Files Response:", data);
+
+                // Ensure `data.files` is an array
+                if (!data.success || !Array.isArray(data.files)) {
+                    console.warn("Invalid files response:", data);
+                    return;
+                }
+
+                // Mapping from the question
+                const degreeTypeMapping = {
+                    "BSC": "bscFileContainer",
+                    "Diploma": "diplomaFileContainer",
+                    "HigherDiploma": "higherDiplomaFileContainer",
+                    "Master": "masterFileContainer",
+                    "PhD": "phdFileContainer"
+                };
+
+                // Clear existing displayed files
+                document.querySelectorAll(".uploaded-file-list").forEach(el => el.innerHTML = "");
+
+                // First re-show all upload buttons by default (in case user has no files yet)
+                Object.keys(uploadButtonIds).forEach(degree => {
+                    // Show the button again by default
+                    const btnId = uploadButtonIds[degree];
+                    document.getElementById(btnId).style.display = "inline-block";
+                });
+
+                data.files.forEach(f => {
+                    if (!f || !f.fileName) {
+                        console.warn("File entry is missing fileName:", f);
+                        return; // Skip
+                    }
+
+                    // 'Diploma_Admission.pdf' => 'Diploma'
+                    const degreeType = f.fileName.split("_")[0];
+                    const fileContainerId = degreeTypeMapping[degreeType];
+
+                    if (!fileContainerId) {
+                        console.warn(`No container for degreeType: ${degreeType}`);
+                        return;
+                    }
+                    const fileContainer = document.getElementById(fileContainerId);
+                    if (!fileContainer) {
+                        console.warn(`Container element not found for: ${fileContainerId}`);
+                        return;
+                    }
+
+                    // Hide the corresponding upload button, since a file is present
+                    const uploadBtnId = uploadButtonIds[degreeType];
+                    if (uploadBtnId) {
+                        const uploadBtn = document.getElementById(uploadBtnId);
+                        if (uploadBtn) {
+                            uploadBtn.style.display = "none";
+                        }
+                    }
+
+                    // Build the file row + Delete button
+                    const fileWrapper = document.createElement("div");
+                    fileWrapper.style.display = "flex";
+                    fileWrapper.style.alignItems = "center";
+                    fileWrapper.style.marginTop = "5px";
+
+                    const fileLink = document.createElement("a");
+                    fileLink.href = f.fileUrl;
+                    fileLink.textContent = f.fileName;
+                    fileLink.target = "_blank";
+                    fileLink.style.marginRight = "10px";
+
+                    // Create delete button
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.style.backgroundColor = "red";
+                    deleteButton.style.color = "white";
+                    deleteButton.style.border = "none";
+                    deleteButton.style.padding = "5px 10px";
+                    deleteButton.style.cursor = "pointer";
+                    deleteButton.style.borderRadius = "5px";
+                    // Pass the degreeType so we know which button to show later
+                    deleteButton.onclick = () => deleteFile(f.fileName, institutionId, degreeType, fileWrapper);
+
+                    fileWrapper.appendChild(fileLink);
+                    fileWrapper.appendChild(deleteButton);
+                    fileContainer.appendChild(fileWrapper);
+                });
+
+            } catch (error) {
+                console.error("Error fetching files:", error);
+            }
+        }
+
+
+
+        async function deleteFile(fileName, institutionId, degreeType, fileWrapper) {
+
+            const confirmed = confirm(`Are you sure you want to delete ${fileName}?`);
+            if (!confirmed) return;
+
+            try {
+                const response = await fetch(`/api/admission/delete/${institutionId}/${fileName}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error("Delete failed:", result.message);
+                    alert(`Delete failed: ${result.message}`);
+                    return;
+                }
+
+                if (result.success) {
+                    // Remove the file element from the DOM
+                    fileWrapper.remove();
+
+                    // Toggle the upload button back (since there's no file)
+                    const uploadBtnId = uploadButtonIds[degreeType];
+                    if (uploadBtnId) {
+                        const uploadBtn = document.getElementById(uploadBtnId);
+                        if (uploadBtn) {
+                            uploadBtn.style.display = "inline-block";
+                        }
+                    }
+
+
+                } else {
+                    alert(`Could not delete file: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Delete error:", error);
+                alert("An error occurred during file deletion: " + error.message);
+            }
+        }
+
+
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recognition of Non-Jordanian Institution</title>
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="attachments_files/simple-sidebar.css" rel="stylesheet">
+    <link href="attachments_files/Site.css" rel="stylesheet">
+    <link href="attachments_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="attachments_files/all.css" crossorigin="anonymous">
+    <script src="login_files/auth.js"></script>
+
+    <style>
+        .list-group-item.active {
+            background-color: #990033 !important; /* Dark red */
+            color: white !important;
+            font-weight: bold;
+        }
+        .border-right {
+            border: 1px solid #dee2e6 !important;
+        }
+
+        body {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            font-family: Tajawal !important;
+            background-image: url('https://rnji.mohe.gov.jo/images/back.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .table {
+            width: auto !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .tableForAdmissinReqView {
+            width: max-content !important;
+            margin: 0 15px 0 15px;
+        }
+
+        .form-control,
+        [disabled] {
+            font-weight: 600;
+            height: auto !important;
+            font-size: 15px !important;
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+        .navbar {
+            margin-bottom: 0 !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        th {
+            background-color: #990033;
+            color: white;
+            text-align: center !important;
+            font-weight: 600 !important;
+            border: solid #dddddd 2px !important;
+        }
+
+        td {
+            width: 250px !important;
+        }
+
+        label {
+            margin-right: 10px !important;
+            font-weight: 500 !important;
+        }
+
+        .HeadOfTable {
+            text-align: center !important;
+            font-weight: 600;
+            background-color: #ddfdf0;
+        }
+
+        .list-group {
+            font-weight: 500;
+        }
+
+        .li_Lang {
+            padding: 10px;
+        }
+
+        a {
+            color: black !important;
+        }
+
+        .btnSave {
+            font-size: Large !important;
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+            width: 100px;
+        }
+
+        .SucPage {
+            background-color: #428bca !important;
+            background-image: none !important;
+            color: white !important;
+        }
+
+        .FilesGRD {
+            margin: 0 !important;
+        }
+
+        .PReq {
+            width: fit-content !important;
+            margin: 1% 1% 0 1% !important;
+            font-weight: 700 !important;
+        }
+
+        .UnivGrid {
+            font-weight: 800 !important;
+        }
+
+        .StarSpan {
+            color: red;
+            font-size: 21px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .required {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body id="body" style="direction:ltr;">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar_wrapper" class="bg-light border-right" style="text-align:left;width:max-content;">
+            <div class="sidebar-heading" style="padding:5px 15px 5px 15px;max-width: fit-content !important;">
+                <span id="lblName" style="color: rgb(153, 0, 51); font-size: medium;"></span>
+                <script>
+                    document.getElementById("lblName").textContent = localStorage.getItem("InsName") || "university";
+                </script>
+            </div>
+            <div class="list-group list-group-flush" style="width: max-content;">
+                <a href="/instructions.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <!--todo the above html file-->
+                    <img src="Icons/Instructions.png" width="25px" draggable="false" />
+                    &nbsp;Instructions and Requirements
+                </a>
+                <a href="/supervisormenu.html" class="list-group-item list-group-item-action bg-light" id="supervisorMenu">
+                    <img src="Icons/Supervisor.png" width="30px" draggable="false" />
+                    &nbsp;Supervisor Menu
+                </a>
+
+                <script>
+                    // Check if required localStorage items exist
+                    if (!localStorage.getItem("SupervisorID") ||
+                        !localStorage.getItem("SupervisorName") ||
+                        !localStorage.getItem("SupervisorSpeciality")) {
+                        document.getElementById("supervisorMenu").style.display = "none";
+                    }
+                </script>
+
+                <a href="/publicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Public_Info.png" width="25px" draggable="false" />
+                    &nbsp;Institution Information
+                </a>
+                <a href="/academicinfo.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Academic_Info.png" width="25px" draggable="false" />
+                    &nbsp;Academic Information
+                </a>
+                <a href="/Mspec3.html" class="list-group-item list-group-item-action bg-light" id="mspec">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+                <a href="/faculty.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Faculties.png" width="30px" draggable="false" />
+                    &nbsp;Faculties/Schools
+                </a>
+
+                <a href="/admissionrequirements.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Admission_Requirements.png" width="25px" draggable="false" />
+                    &nbsp;Admission Requirements
+                </a>
+
+
+                <a href="/specssuper.html" class="list-group-item list-group-item-action bg-light" id="specsuper">
+                    <img src="Icons/Specialization_Info.png" width="30px" draggable="false" />
+                    &nbsp;Specialization Information
+                </a>
+
+                <script>
+                    // Check if required Supervisor localStorage items exist
+                    const hasSupervisor = localStorage.getItem("SupervisorID") &&
+                        localStorage.getItem("SupervisorName") &&
+                        localStorage.getItem("SupervisorSpeciality");
+
+                    if (hasSupervisor) {
+                        document.getElementById("mspec").style.display = "none"; // Hide Mspec3 if supervisor exists
+                    } else {
+                        document.getElementById("specsuper").style.display = "none"; // Hide SpecSuper if no supervisor
+                    }
+                </script>
+
+                <a href="/hospitals.html"
+                   class="list-group-item list-group-item-action active">
+                    <img src="Icons/Hospital.png" width="25px" draggable="false" />
+                    &nbsp;Hospitals for (Medical Schools)
+                </a>
+                <a href="/studyingduration.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Studying_Duration.png" width="30px" draggable="false" />
+                    &nbsp;Study Duration
+                </a>
+                <a href="/infrastructure.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Infrastructure_2.png" width="30px" draggable="false" />
+                    &nbsp;Infrastructure
+                </a>
+                <a href="/library.html"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Library.png" width="30px" draggable="false" />
+                    &nbsp;Library
+                </a>
+                <a href="/attachments.html" class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Attachments.png" width="25px" draggable="false" />
+                    &nbsp;Official Documents
+                </a>
+
+                <!--todo the above html file-->
+                <a href="/submit.html" id="submit"
+                   class="list-group-item list-group-item-action bg-light">
+                    <img src="Icons/Submission.png" width="25px" draggable="false" />
+                    &nbsp;Submit Application
+                </a>
+                <!--todo the above html file-->
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button id="sidebarToggle" class="btn-toggle"><img src="Icons/Toggle_Sidebar.png" width="30px" draggable="false" /></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse" style="float:right !important;">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" style="list-style:none;">
+                        <li class="nav-item li_Lang">
+                            <a id="lnkLogout" href="#">
+                                <img src="Icons/Logout.png" width="25px" draggable="false" />&nbsp;Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    document.getElementById("sidebarToggle").addEventListener("click", function () {
+                        const sidebar = document.getElementById("sidebar_wrapper");
+                        sidebar.classList.toggle("hidden");
+                    });
+                </script>
+            </nav>
+
+
+
+
+            <div class="container-fluid">
+                <h2 style="background-color: #444; color: #fff; padding: 10px; border-radius: 10px 10px 0 0; margin-top: 0px; text-align: center; font-family: 'Georgia', serif;">Hospitals for (Medical Schools)</h2>
+
+                <div class="row col-12" style="display:flex !important; flex-direction:row-reverse !important;">
+                    <table class="table table-responsive table-hover table-bordered" style="width: 100% !important;">
+                        <tr>
+                            <th colspan="2" class="center">
+                                <span>Hospital Registration</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <style>
+                                    .form-group {
+                                        display: flex;
+                                        gap: 15px; /* Space between fields */
+                                        flex-wrap: wrap;
+                                        align-items: center;
+                                    }
+
+                                        .form-group > div {
+                                            flex: 1; /* Ensures equal spacing */
+                                            min-width: 200px; /* Prevents squishing */
+                                        }
+
+                                    .form-label {
+                                        font-weight: bold;
+                                        margin-bottom: 5px;
+                                        display: block;
+                                    }
+                                </style>
+
+                                <form id="hospitalForm" action="/api/hospitals/upload" method="POST" enctype="multipart/form-data">
+                                    <!-- Hospital Type, Name, and Affiliation (Same Row) -->
+                                    <div class="form-group" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                        <!-- Hospital Type -->
+                                        <div style="flex: 1; min-width: 200px;">
+                                            <label for="HospType" class="form-label">Medical Service Type:<span class="required">*</span></label>
+                                            <select id="HospType" name="hospType" class="form-control" required>
+                                                <option value="">Select Type</option>
+                                                <option value="Hospital">Hospital</option>
+                                                <option value="Health Center">Health Center</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Hospital Name -->
+                                        <div style="flex: 1; min-width: 200px;">
+                                            <label for="HospName" class="form-label">Medical Service Name:<span class="required">*</span></label>
+                                            <input type="text" id="HospName" name="hospName" class="form-control" required>
+                                        </div>
+
+                                        <!-- Hospital Affiliation (Replaces Major) -->
+                                        <div style="flex: 1; min-width: 200px;">
+                                            <label for="HospMajor" class="form-label">Affiliation:<span class="required">*</span></label>
+                                            <select id="HospMajor" name="hospMajor" class="form-control" required onchange="toggleTrainingContact()">
+                                                <option value="">Select Affiliation</option>
+                                                <option value="Public">Public</option>
+                                                <option value="Private">Private</option>
+                                                <option value="On Campus">On Campus</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+                                    <!-- Training Contacts File (Hidden if On Campus) -->
+                                    <div id="trainingContactSection">
+                                        <label for="TrainingContacts" class="form-label">Training Contacts for Public/Private Hospital and Health Center (PDF File):<span class="required">*</span></label>
+                                        <input type="file" id="TrainingContacts" name="trainingContacts" class="form-control" accept=".pdf" required>
+                                    </div>
+
+                                    <br>
+
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-primary">Add Hospital</button>
+                                    <!-- Note about required fields -->
+                                    <p style="color: red; font-weight: bold; margin-bottom: 10px;">
+                                        <br />Star (<span class="required">*</span>) means this is a compulsory field (has to be filled out).
+                                    </p>
+                                </form>
+
+                                <script>
+                                    function toggleTrainingContact() {
+                                        const affiliation = document.getElementById("HospMajor").value;
+                                        const trainingContactSection = document.getElementById("trainingContactSection");
+                                        const trainingContactsInput = document.getElementById("TrainingContacts");
+
+                                        if (affiliation === "On Campus") {
+                                            trainingContactSection.style.display = "none"; // Hide the section
+                                            trainingContactsInput.removeAttribute("required"); // Remove required attribute
+                                        } else {
+                                            trainingContactSection.style.display = "block"; // Show the section
+                                            trainingContactsInput.setAttribute("required", "required"); // Make it required
+                                        }
+                                    }
+                                </script>
+
+
+
+
+                                <!-- Placeholder for listing added hospitals -->
+                                <br><br>
+                                <table class="table table-responsive table-hover table-bordered HospitalTable" style="width: 100%;">
+                                    <thead style="color: white; background-color: #990000; font-weight: bold;">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Affiliation</th>
+                                            <th>Training Contacts File</th>
+                                            <th>Delete</th> <!-- Delete Column -->
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="hospitalList">
+                                        <!-- Hospital records will be dynamically inserted here -->
+                                        <tr>
+                                            <td colspan="6">No Data Found!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', async () => {
+                            // Retrieve Institution ID from localStorage
+                            const institutionId = localStorage.getItem('InsID');
+                            if (!institutionId) {
+                                console.warn("No Institution ID found. Redirecting to login...");
+                                window.location.href = "/login.html";
+                                return;
+                            }
+
+                            await fetchHospitals(institutionId); // Fetch hospitals on page load
+
+                            // This was missing in your code:
+                            const hospitalForm = document.getElementById("hospitalForm");
+
+                            // Attach event listener for the hospital form
+                            if (hospitalForm) {
+                                hospitalForm.addEventListener("submit", async function (event) {
+                                    event.preventDefault();
+
+                                    // Get form values
+                                    let hospName = document.getElementById("HospName").value.trim();
+                                    let hospType = document.getElementById("HospType").value.trim();
+                                    let hospMajor = document.getElementById("HospMajor").value.trim();
+                                    let trainingFile = document.getElementById("TrainingContacts").files[0];
+
+                                    // Validate fields
+                                    if (!hospName || !hospType || !hospMajor) {
+                                        alert("Please fill in all required fields.");
+                                        return;
+                                    }
+
+
+
+
+                                    // Prepare JSON object for hospital details
+                                    const hospitalData = {
+                                        HospName: hospName,
+                                        HospType: hospType,
+                                        HospMajor: hospMajor,
+                                        InsID: parseInt(institutionId, 10) // Ensure InsID is an integer
+                                    };
+
+                                    // Prepare FormData object for submission
+                                    const formData = new FormData();
+                                    formData.append("hospitalJson", JSON.stringify(hospitalData)); // Add hospital JSON
+
+                                    // Only append the file if it's required and provided
+
+                                    let renamedFileName = hospName.replace(/\s+/g, "_") + ".pdf";
+                                    formData.append("trainingFile", trainingFile, renamedFileName);
+
+                                    try {
+                                        // Make the POST request to the backend
+                                        const response = await fetch("/api/hospitals/save", {
+                                            method: "POST",
+                                            body: formData, // Sending as multipart/form-data
+                                            headers: {
+                                                'InstitutionID': institutionId // Include Institution ID header
+                                            }
+                                        });
+
+                                        if (!response.ok) {
+                                            const error = await response.json();
+                                            alert(`Error: ${error.message || response.statusText}`);
+                                            return;
+                                        }
+
+                                        const data = await response.json();
+                                        console.log(`Response data:`, data);
+
+                                        await fetchHospitals(institutionId); // Reload table after adding hospital
+
+                                        // Reset form
+                                        hospitalForm.reset();
+                                        toggleTrainingContact(); // Reset visibility of the training contact field after form reset
+
+                                    } catch (error) {
+                                        console.error(`Error submitting hospital form:`, error);
+                                        alert('An error occurred while submitting the form. Please try again.');
+                                    }
+                                });
+                            }
+                        });
+
+                        // Ensure the training contact file field shows or hides based on the selected affiliation
+                        // Ensure the training contact file field shows or updates based on the selected affiliation
+                        function toggleTrainingContact() {
+                            const hospMajor = document.getElementById("HospMajor").value;
+                            const trainingContactSection = document.getElementById("trainingContactSection");
+                            const trainingContactsInput = document.getElementById("TrainingContacts");
+                            const trainingContactsLabel = document.querySelector('label[for="TrainingContacts"]');
+
+                            if (hospMajor === "On Campus") {
+                                trainingContactsLabel.innerHTML = 'Upload Proof of Hospital Establishment Document (PDF File):<span class="required">*</span>';
+                                trainingContactSection.style.display = "block"; // Ensure it's visible
+                                trainingContactsInput.setAttribute("required", "required");
+                            } else {
+                                trainingContactsLabel.innerHTML = 'Upload Training Contacts for Public/Private Hospital and Health Center (PDF File):<span class="required">*</span>';
+                                trainingContactSection.style.display = "block"; // Ensure it's visible
+                                trainingContactsInput.setAttribute("required", "required");
+                            }
+                        }
+
+
+                        // Call the toggle function on page load to ensure correct initial state
+                        document.addEventListener('DOMContentLoaded', toggleTrainingContact);
+
+
+
+                        // Function to Fetch Hospitals and Populate Table
+                        async function fetchHospitals(institutionId) {
+                            try {
+                                let response = await fetch(`/api/hospitals/getAll/${institutionId}`);
+                                if (!response.ok) {
+                                    console.warn("No hospitals found.");
+                                    return;
+                                }
+
+                                let hospitals = await response.json();
+                                console.log("Fetched Hospitals:", hospitals);
+
+                                let table = document.getElementById("hospitalList");
+                                table.innerHTML = ""; // Clear existing rows
+
+                                hospitals.forEach((item, index) => {
+                                    let hospital = item.hospital;
+                                    let filePath = item.filePath; // Get file path from backend
+
+                                    let newRow = table.insertRow();
+
+                                    // Insert cells into the row
+                                    let cell1 = newRow.insertCell(0);
+                                    let cell2 = newRow.insertCell(1);
+                                    let cell3 = newRow.insertCell(2);
+                                    let cell4 = newRow.insertCell(3);
+                                    let cell5 = newRow.insertCell(4);
+                                    let cell6 = newRow.insertCell(5); // Delete Button Cell
+
+                                    // Assign values to cells
+                                    cell1.innerHTML = index + 1; // Row number
+                                    cell2.innerHTML = hospital.hospName;
+                                    cell3.innerHTML = hospital.hospType;
+                                    cell4.innerHTML = hospital.hospMajor;
+
+                                    // ✅ Handle File Download/Preview
+                                    if (filePath && filePath !== "Not Available") {
+                                        let downloadLink = document.createElement("a");
+                                        downloadLink.href = `/${filePath}`;
+                                        downloadLink.innerText = "Download File";
+                                        downloadLink.target = "_blank"; // Open in new tab for preview
+                                        downloadLink.setAttribute("download", filePath.split("/").pop()); // Force download
+                                        cell5.appendChild(downloadLink);
+                                    } else {
+                                        cell5.innerHTML = "Not Available";
+                                    }
+
+                                    // Create Delete Button
+                                    let deleteButton = document.createElement("button");
+                                    deleteButton.className = "btn btn-danger btn-sm";
+                                    deleteButton.innerText = "Delete";
+
+                                    deleteButton.onclick = async function () {
+                                        let confirmDelete = confirm(`Are you sure you want to delete hospital: ${hospital.hospName}?`);
+                                        if (confirmDelete) {
+                                            await deleteHospital(hospital.insID, hospital.hospName, hospital.hospType, hospital.hospMajor);
+                                            newRow.remove();
+                                            updateRowNumbers();
+                                        }
+                                    };
+
+                                    cell6.appendChild(deleteButton);
+                                });
+
+                            } catch (error) {
+                                console.error("Error fetching hospitals:", error);
+                            }
+                        }
+
+                        // Function to delete a hospital
+                        async function deleteHospital(insId, hospName, hospType, hospMajor) {
+                            let deleteData = {
+                                InsID: insId,
+                                HospName: hospName,
+                                HospType: hospType,
+                                HospMajor: hospMajor
+                            };
+
+                            try {
+                                let deleteResponse = await fetch("/api/hospitals/delete", {
+                                    method: "DELETE",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(deleteData)
+                                });
+
+                                if (!deleteResponse.ok) {
+                                    let errorResponse = await deleteResponse.json();
+                                    console.error("Error deleting hospital:", errorResponse);
+                                    alert(`Error: ${errorResponse.message}`);
+                                } else {
+                                    console.log(`Hospital ${hospName} deleted successfully.`);
+                                    await fetchHospitals(insId); // Refresh the hospital list after deletion
+                                }
+                            } catch (error) {
+                                console.error("Error deleting hospital:", error);
+                                alert("An error occurred while deleting the hospital.");
+                            }
+                        }
+
+
+                        // Function to update row numbers when a row is deleted
+                        function updateRowNumbers() {
+                            let table = document.getElementById("hospitalList");
+                            let rows = table.rows;
+                            for (let i = 0; i < rows.length; i++) {
+                                rows[i].cells[0].innerHTML = i + 1; // Reassign row numbers
+                            }
+                        }
+
+                    </script>
+
+
+
+                </div>
+                <button id="nextPageButton" onclick="location.href='/studyingduration.html'"
+                        style="background-color: #990033; color: white; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">
+                    Save and Go to Next Page
+                </button>
+
+            </div><!-- /container-fluid -->
+        </div><!-- /page-content-wrapper -->
+    </div><!-- /#wrapper -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if SupervisorID exists in localStorage
+            if (localStorage.getItem("SupervisorID")) {
+                // Select all input, select, and textarea fields inside the hospital form
+                const formElements = document.querySelectorAll("#hospitalForm input, #hospitalForm select, #hospitalForm textarea");
+
+                formElements.forEach(function (el) {
+                    // If the field is not hidden, disable it
+                    if (el.type !== "hidden") {
+                        el.disabled = true;
+                    }
+                });
+
+                // Hide the submit button in the hospital form
+                const submitButton = document.querySelector("#hospitalForm button[type='submit']");
+                if (submitButton) {
+                    submitButton.style.display = "none";
+                }
+                // Hide the "Go to Next Page" button
+                const nextPageButton = document.getElementById("nextPageButton");
+                if (nextPageButton) {
+                    nextPageButton.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <script src="login_files/formHandler.js"></script>
+    <script src="attachments_files/api.js"></script>
+
+</body>
+</html>

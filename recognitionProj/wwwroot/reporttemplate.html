@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Report</title>
+	<style>
+		@page {
+			size: A4;
+			margin: 0.33in;
+		}
+		/* Ensure the html and body take the full viewport */
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		/* A fixed A4 container with border near the page edge */
+		.a4-container {
+			width: 8.27in;
+			height: 11.69in;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			margin: 0 auto;
+			background: #fff;
+			/* Padding inside the container is set equal to the @page margin */
+			padding: 0.33in;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		/* Header table styles remain as before */
+		.header-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+			.header-table td {
+				vertical-align: middle;
+				padding: 5px;
+			}
+
+		.picture1 {
+			width: 60%;
+			border-bottom: 4.5pt double #000;
+		}
+
+		.picture2 {
+			width: 30%;
+			text-align: center;
+			border-bottom: 4.5pt double #000;
+		}
+		/* Main header text */
+		h1 {
+			text-align: center;
+			font-size: 2.5rem;
+			margin: 0.5em 0;
+		}
+
+		h2 {
+			text-align: center;
+			font-size: 2rem;
+			margin: 0.5em 0;
+		}
+
+		ul {
+			font-size: 1.2rem;
+			list-style-type: disc;
+			margin-left: 1.5em;
+			padding-left: 0;
+		}
+		/* Footer styles */
+		.footer {
+			text-align: center;
+			font-size: 0.8rem;
+			border-top: 1px solid #000;
+			padding-top: 0.15in;
+		}
+
+			.footer .picture3 {
+				margin-bottom: 5px;
+			}
+
+			.footer img {
+				display: block;
+				margin: 0 auto;
+			}
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+	<div class="a4-container">
+		<!-- Header Section -->
+		<div class="header">
+			<center>
+				<table class="header-table" dir="rtl">
+					<tr>
+						<td class="picture1">
+							<img src="/reporttemplate_files/Picture1.jpg" alt="Picture1" style="height: 153px; width: auto;" />
+						</td>
+						<td class="picture2">
+							<img src="/reporttemplate_files/Picture2.png" alt="Picture2" style="height: 153px; width: auto;" />
+						</td>
+					</tr>
+				</table>
+			</center>
+			<p style="margin: 20px 0;"></p>
+			<!-- Main header info -->
+			<h1>{InstitutionName}</h1>
+			<h2>Record ID: {RecordID}</h2>
+			<ul>
+				{BulletPoints}
+			</ul>
+			<p style="margin: 20px 0;"></p>
+		</div>
+		<!-- Footer Section -->
+		<div class="footer">
+			<div class="picture3">
+				<img src="/reporttemplate_files/Picture3.png" alt="Picture3" style="max-width: 100%; height: auto;" />
+			</div>
+			<p>
+				AQACHEI | Page <sdfield type="PAGE" subtype="RANDOM" format="PAGE"></sdfield>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

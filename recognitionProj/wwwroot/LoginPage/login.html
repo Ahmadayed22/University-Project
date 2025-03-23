@@ -1,0 +1,101 @@
+<head>
+    <meta charset="utf-8">
+    <title>Login - RNJI</title>
+    <link href="login_files/bootstrap.css" rel="stylesheet">
+    
+    <link href="https://rnji.mohe.gov.jo/Images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="../login_files/Site.css" rel="stylesheet">
+    <link href="../login_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../login_files/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css"/>
+</head>
+<body>
+    <!-- Full-Width Header -->
+    <header class="header-container">
+        <!-- Centered Header Image -->
+        <img src="../Icons/Signin_pic2.png" alt="Header Logo" class="header-image">
+    </header>
+
+    <div class="container-fluid p-0">
+        <a href="homepage.html" class="back-home-btn">Go Back to Homepage</a>
+        <!-- Main Content -->
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <!-- Login Form Container -->
+            <div class="form-container bg-white p-5 shadow rounded-xl mx-auto" style="max-width: 420px; width: 90%; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);">
+                <!-- Title -->
+                <h2 class="text-center mb-3" style="font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: bold;">University Portal Login</h2>
+                <p class="text-center text-muted mb-4" style="font-size: 1.5rem;">University representatives can log in here to submit recognition applications or update institutional details.</p>
+                <form id="loginForm">
+                    <!-- Email Field -->
+                    <div class="input-group mb-3" style="margin: 0 15px;">
+                        <span class="input-group-text">
+                            <img src="../Icons/Email.png" alt="Email Icon" class="form-icon" />
+                        </span>
+                        <input type="email" id="email" class="form-control rounded-lg" placeholder="Enter your Email" required>
+                    </div>
+                    <!-- Password Field -->
+                    <div class="input-group mb-3" style="margin: 0 15px;">
+                        <span class="input-group-text">
+                            <img src="../Icons/Password.png" alt="Password Icon" class="form-icon" />
+                        </span>
+                        <input type="password" id="password" class="form-control rounded-lg" placeholder="Enter your Password" required>
+                    </div>
+                    <!-- Verification Code Field -->
+                    <div class="input-group mb-3" style="margin: 0 15px;">
+                        <span class="input-group-text">
+                            <img src="../Icons/Verification.png" alt="Verification Icon" class="form-icon" />
+                        </span>
+                        <input type="text" id="verificationCode" class="form-control" placeholder="Verification Code" required>
+                    </div>
+                    <!-- Remember Me Checkbox -->
+                    <!-- (Inside your login page) -->
+                    <label for="applicationType" style="margin:5px;">Choose Application Type:</label>
+                    <br />
+                    <select id="applicationType">
+                        <option value="normal">Conventional Teaching Track Application</option>
+                        <option value="nonconventional">Nonconventional Teaching Track Application</option>
+                    </select>
+
+                    <div id="acceptanceRecordField" style="display: none;">
+                        <label for="acceptanceRecordID" style="margin:5px;">Enter Conventional Teaching Track Recognition ID:</label>
+                        <input type="text" id="recordId" placeholder="Enter ID">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <!-- Replace the <a> and <button> with a single <button> -->
+                    <button type="submit" class="btn btn-primary w-100" style="border-radius: 50px; font-size: 1.4rem; padding: 0.9rem;"
+                            onclick="window.location.href='/SideBar/Instructions%26Requirements/Instructions.html'">
+                        Sign In
+                    </button>
+                    <!-- Additional Links -->
+    
+
+                    <div class="text-center mt-3">
+                        <p>Don’t have an account? <a href="/signup.html">Sign up now</a></p>
+                        <p>Looking for the supervisor login? <a href="/supervisorlogin.html">Click here</a></p>
+                        <p><a href="/forgot-password.html">Forgot Password?</a></p> <!-- New Link -->
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../login_files/api.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const appType = document.getElementById("applicationType");
+            const acceptanceRecordField = document.getElementById("acceptanceRecordField");
+
+            appType.addEventListener("change", () => {
+                if (appType.value === "nonconventional") {
+                    acceptanceRecordField.style.display = "block";
+                } else {
+                    acceptanceRecordField.style.display = "none";
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

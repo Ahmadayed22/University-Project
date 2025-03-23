@@ -62,7 +62,7 @@
                 localStorage.setItem('NonConventionalMode', 'true');
                 window.location.href = "/nonconventional.html";
             } else {
-                window.location.href = "/Instructions.html";
+                window.location.href = '/SideBar/Instructions&Requirements/Instructions.html';
             }
         }
         catch (err) {
